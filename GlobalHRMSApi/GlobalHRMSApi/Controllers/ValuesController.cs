@@ -4,12 +4,20 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using GlobalHRMSApi.Repositories;
 
 namespace GlobalHRMSApi.Controllers
 {
 	[Authorize]
 	public class ValuesController : ApiController
 	{
+		HRMSManagementEntities hrmsEntities = new HRMSManagementEntities();
+
+		public List<GetCities_Result> GetCities(int? stateId, int? id)
+		{
+			return hrmsEntities.GetCities(id, stateId).ToList();
+		}
+
 		// GET api/values
 		public IEnumerable<string> Get()
 		{
