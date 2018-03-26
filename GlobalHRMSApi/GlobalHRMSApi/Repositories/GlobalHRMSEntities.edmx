@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HRMSManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HRMSManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BloodGroupMaster">
           <Key>
             <PropertyRef Name="ID" />
@@ -500,7 +500,9 @@ warning 6002: The table/view 'HRMSManagement.GlobalHRMS.EmployeeDocumentMaster' 
           <Parameter Name="State" Type="varchar" Mode="In" />
           <Parameter Name="City" Type="varchar" Mode="In" />
         </Function>
-        <Function Name="GetBloodGroups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetBloodGroups" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetCities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
           <Parameter Name="StateID" Type="int" Mode="In" />
@@ -508,7 +510,9 @@ warning 6002: The table/view 'HRMSManagement.GlobalHRMS.EmployeeDocumentMaster' 
         <Function Name="GetCompanies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
-        <Function Name="GetCountries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetCountries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
         <Function Name="GETDepartments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
@@ -680,8 +684,7 @@ warning 6002: The table/view 'HRMSManagement.GlobalHRMS.EmployeeDocumentMaster' 
             <End Role="StateMaster" EntitySet="StateMaster" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HRMSManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1278,23 +1281,27 @@ warning 6002: The table/view 'HRMSManagement.GlobalHRMS.EmployeeDocumentMaster' 
             <Parameter Name="State" Mode="In" Type="String" />
             <Parameter Name="City" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetBloodGroups" ReturnType="Collection(HRMSManagementModel.GetBloodGroups_Result)" />
+          <FunctionImport Name="GetBloodGroups" ReturnType="Collection(HRMSManagementModel.GetBloodGroups_Result)" >
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="GetCities" ReturnType="Collection(HRMSManagementModel.GetCities_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
             <Parameter Name="StateID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetCompanies" ReturnType="Collection(HRMSManagementModel.GetCompanies_Result)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetCountries" ReturnType="Collection(HRMSManagementModel.GetCountries_Result)" >
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetCountries" ReturnType="Collection(HRMSManagementModel.GetCountries_Result)" />
           <FunctionImport Name="GETDepartments" ReturnType="Collection(HRMSManagementModel.GETDepartments_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetDesignations" ReturnType="Collection(HRMSManagementModel.GetDesignations_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetGenders" ReturnType="Collection(HRMSManagementModel.GetGenders_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetLeaves" ReturnType="Collection(HRMSManagementModel.GetLeaves_Result)">
             <Parameter Name="EmployeeId" Mode="In" Type="Int32" />
@@ -1302,16 +1309,16 @@ warning 6002: The table/view 'HRMSManagement.GlobalHRMS.EmployeeDocumentMaster' 
             <Parameter Name="EndDate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="GetLeaveTypes" ReturnType="Collection(HRMSManagementModel.GetLeaveTypes_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetMaritalStatus">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetModeOfPayments" ReturnType="Collection(HRMSManagementModel.GetModeOfPayments_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetReligions" ReturnType="Collection(HRMSManagementModel.GetReligions_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetStates" ReturnType="Collection(HRMSManagementModel.GetStates_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />

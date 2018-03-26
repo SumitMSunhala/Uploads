@@ -72,9 +72,13 @@ namespace GlobalHRMSApi.Repositories
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateUser", firstNameParameter, lastNameParameter, countryParameter, stateParameter, cityParameter);
         }
     
-        public virtual ObjectResult<GetBloodGroups_Result> GetBloodGroups()
+        public virtual ObjectResult<GetBloodGroups_Result> GetBloodGroups(Nullable<int> iD)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBloodGroups_Result>("GetBloodGroups");
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBloodGroups_Result>("GetBloodGroups", iDParameter);
         }
     
         public virtual ObjectResult<GetCities_Result> GetCities(Nullable<int> iD, Nullable<int> stateID)
@@ -99,9 +103,13 @@ namespace GlobalHRMSApi.Repositories
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCompanies_Result>("GetCompanies", iDParameter);
         }
     
-        public virtual ObjectResult<GetCountries_Result> GetCountries()
+        public virtual ObjectResult<GetCountries_Result> GetCountries(Nullable<int> iD)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCountries_Result>("GetCountries");
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCountries_Result>("GetCountries", iDParameter);
         }
     
         public virtual ObjectResult<GETDepartments_Result> GETDepartments(Nullable<int> iD)
