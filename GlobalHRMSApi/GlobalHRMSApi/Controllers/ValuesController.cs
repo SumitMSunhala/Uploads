@@ -14,18 +14,20 @@ namespace GlobalHRMSApi.Controllers
     {
         HRMSManagementEntities hrmsEntities = new HRMSManagementEntities();
 
-		[Route("cities/{stateId}/{id}")]
+		[Route("cities/{stateId?}/{id?}")]
         public List<GetCities_Result> GetCities(int? stateId = null, int? id = null)
         {
             return hrmsEntities.GetCities(id, stateId).ToList();
         }
 
-        public List<GetCountries_Result> GetCountries(int? id)
+		[Route("countries/{id?}")]
+		public List<GetCountries_Result> GetCountries(int? id)
         {
             return hrmsEntities.GetCountries(id).ToList();
         }
 
-        public List<GetStates_Result> GetStates(int? id, int countryId)
+		[Route("states/{id?}/{countryId?}")]
+		public List<GetStates_Result> GetStates(int? id, int countryId)
         {
             return hrmsEntities.GetStates(id, countryId).ToList();
         }
