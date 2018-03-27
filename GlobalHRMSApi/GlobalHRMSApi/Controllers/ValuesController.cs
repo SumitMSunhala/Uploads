@@ -9,11 +9,13 @@ using GlobalHRMSApi.Repositories;
 namespace GlobalHRMSApi.Controllers
 {
     //[Authorize]
+	[RoutePrefix("api/values")]
     public class ValuesController : ApiController
     {
         HRMSManagementEntities hrmsEntities = new HRMSManagementEntities();
 
-        public List<GetCities_Result> GetCities(int? stateId, int? id)
+		[Route("cities/{stateId}/{id}")]
+        public List<GetCities_Result> GetCities(int? stateId = null, int? id = null)
         {
             return hrmsEntities.GetCities(id, stateId).ToList();
         }
