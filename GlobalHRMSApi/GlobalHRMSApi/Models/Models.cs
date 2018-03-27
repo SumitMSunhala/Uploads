@@ -31,5 +31,13 @@ namespace GlobalHRMSApi.Models
 
 	}
 
+	public class City
+	{
+		public int ID { get; set; }
+		public string Name { get; set; }
+		public int StateId { get; set; }
+		public bool IsActive { get; set; }
+	}
+
 
 }
