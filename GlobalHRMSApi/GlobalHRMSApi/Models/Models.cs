@@ -31,7 +31,22 @@ namespace GlobalHRMSApi.Models
 
 	}
 
-	public class City
+    public class Country
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class State
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int CountryId { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class City
 	{
 		public int ID { get; set; }
 		public string Name { get; set; }
@@ -39,5 +54,39 @@ namespace GlobalHRMSApi.Models
 		public bool IsActive { get; set; }
 	}
 
+    public class Gender
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class MaritalStatus
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class ModeOfPayment
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class Religion
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class BloodGroup
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
 
 }

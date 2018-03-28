@@ -10,45 +10,45 @@ using GlobalHRMSApi.Models;
 namespace GlobalHRMSApi.Controllers
 {
     //[Authorize]
-	[RoutePrefix("api/lookup")]
+	[RoutePrefix("lookup")]
     public class LookupController : ApiController
     {
 		LookupLogic lookupLogic = new LookupLogic();
 
-		[Route("cities/{stateId?}/{id?}")]
+        [Route("countries/{id?}")]
+        public List<Country> GetCountries(int? id = null)
+        {
+            return lookupLogic.GetCountries(id).ToList();
+        }
+
+        [Route("states/{countryId}/{id?}")]
+        public List<State> GetStates(int countryId, int? id = null)
+        {
+            return lookupLogic.GetStates(countryId,id).ToList();
+        }
+
+        [Route("cities/{stateId?}/{id?}")]
         public List<City> GetCities(int? stateId = null, int? id = null)
         {
             return lookupLogic.GetCities(stateId, id);
         }
 
-		//[Route("countries/{id?}")]
-		//public List<GetCountries_Result> GetCountries(int? id = null)
-  //      {
-  //          return hrmsEntities.GetCountries(id).ToList();
-  //      }
+        [Route("bloodGroups/{id?}")]
+        public List<BloodGroup> GetBloodGroups(int? id = null)
+        {
+            return lookupLogic.GetBloodGroups(id).ToList();
+        }
 
-		//[Route("states/{countryId?}/{id?}")]
-		//public List<GetStates_Result> GetStates(int? countryId = null, int? id = null)
-  //      {
-  //          return hrmsEntities.GetStates(id, countryId).ToList();
-  //      }
+        [Route("genders/{id?}")]
+        public List<Gender> GetGenders(int? id = null)
+        {
+            return lookupLogic.GetGenders(id).ToList();
+        }
 
-		//[Route("bloodgroups/{id?}")]
-  //      public List<GetBloodGroups_Result> GetBloodGroups(int? id = null)
-  //      {
-  //          return hrmsEntities.GetBloodGroups(id).ToList();
-  //      }
-
-		//[Route("genders/{id?}")]
-		//public List<GetGenders_Result> GetGenders(int? id = null)
-  //      {
-  //          return hrmsEntities.GetGenders(id).ToList();
-  //      }
-
-		//[Route("religions/{id?}")]
-		//public List<GetReligions_Result> GetReligions(int? id = null)
-  //      {
-  //          return hrmsEntities.GetReligions(id).ToList();
-  //      }
+        [Route("religions/{id?}")]
+        public List<Religion> GetReligions(int? id = null)
+        {
+            return lookupLogic.GetReligions(id).ToList();
+        }
     }
 }
