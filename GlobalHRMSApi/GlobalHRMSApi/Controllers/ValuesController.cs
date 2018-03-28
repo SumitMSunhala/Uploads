@@ -21,28 +21,31 @@ namespace GlobalHRMSApi.Controllers
         }
 
 		[Route("countries/{id?}")]
-		public List<GetCountries_Result> GetCountries(int? id)
+		public List<GetCountries_Result> GetCountries(int? id = null)
         {
             return hrmsEntities.GetCountries(id).ToList();
         }
 
-		[Route("states/{id?}/{countryId?}")]
-		public List<GetStates_Result> GetStates(int? id, int countryId)
+		[Route("states/{countryId}/{id?}")]
+		public List<GetStates_Result> GetStates(int countryId, int? id = null)
         {
             return hrmsEntities.GetStates(id, countryId).ToList();
         }
 
-        public List<GetBloodGroups_Result> GetBloodGroups(int? id)
+        [Route("bloodGroups/{id?}")]
+        public List<GetBloodGroups_Result> GetBloodGroups(int? id = null)
         {
             return hrmsEntities.GetBloodGroups(id).ToList();
         }
 
-        public List<GetGenders_Result> GetGenders(int? id)
+        [Route("genders/{id?}")]
+        public List<GetGenders_Result> GetGenders(int? id = null)
         {
             return hrmsEntities.GetGenders(id).ToList();
         }
 
-        public List<GetReligions_Result> GetReligions(int? id)
+        [Route("religions/{id?}")]
+        public List<GetReligions_Result> GetReligions(int? id = null)
         {
             return hrmsEntities.GetReligions(id).ToList();
         }
