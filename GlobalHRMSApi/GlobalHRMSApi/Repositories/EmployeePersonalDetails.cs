@@ -42,14 +42,14 @@ namespace GlobalHRMSApi.Repositories
         public string TemporaryAddressLine2 { get; set; }
     
         public virtual BloodGroupMaster BloodGroupMaster { get; set; }
-        public virtual GenderMaster GenderMaster { get; set; }
-        public virtual MaritalStatusMaster MaritalStatusMaster { get; set; }
-        public virtual ReligionMaster ReligionMaster { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeContractorMaster> EmployeeContractorMaster { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeDocumentMaster> EmployeeDocumentMaster { get; set; }
+        public virtual GenderMaster GenderMaster { get; set; }
+        public virtual MaritalStatusMaster MaritalStatusMaster { get; set; }
+        public virtual ReligionMaster ReligionMaster { get; set; }
     }
 }

@@ -39,8 +39,8 @@ namespace GlobalHRMSApi.Repositories
         public bool EmployeeStateInsuranceCorporationApplicability { get; set; }
         public string ESICIPNumber { get; set; }
     
-        public virtual ModeOfPaymentMaster ModeOfPaymentMaster { get; set; }
         public virtual ContractorMaster ContractorMaster { get; set; }
         public virtual EmployeePersonalDetails EmployeePersonalDetails { get; set; }
+        public virtual ModeOfPaymentMaster ModeOfPaymentMaster { get; set; }
     }
 }
