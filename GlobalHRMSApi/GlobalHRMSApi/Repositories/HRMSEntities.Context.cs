@@ -240,15 +240,6 @@ namespace GlobalHRMSApi.Repositories
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetLeaveTypes_Result>("GetLeaveTypes", iDParameter);
         }
     
-        public virtual int GetMaritalStatus(Nullable<int> iD)
-        {
-            var iDParameter = iD.HasValue ?
-                new ObjectParameter("ID", iD) :
-                new ObjectParameter("ID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetMaritalStatus", iDParameter);
-        }
-    
         public virtual ObjectResult<GetModeOfPayments_Result> GetModeOfPayments(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
@@ -306,6 +297,15 @@ namespace GlobalHRMSApi.Repositories
         public virtual int InsertEmployeeDetails()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertEmployeeDetails");
+        }
+    
+        public virtual ObjectResult<GetMaritalStatus_Result> GetMaritalStatus(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetMaritalStatus_Result>("GetMaritalStatus", iDParameter);
         }
     }
 }

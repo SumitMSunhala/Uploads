@@ -104,6 +104,14 @@ namespace GlobalHRMSApi.Models
         public bool IsActive { get; set; }
     }
 
+    public class BankBranch
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int BankId { get; set; }
+        public bool IsActive { get; set; }
+    }
+
     public class Category
     {
         public int ID { get; set; }
@@ -153,5 +161,27 @@ namespace GlobalHRMSApi.Models
         public bool IsActive { get; set; }
     }
 
+    public class Company
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+        public string Address { get; set; }
+        public int CountryId { get; set; }
+        public int StateId { get; set; }
+        public int CityId { get; set; }
+        public string ZipCode { get; set; }
+        public string Phone { get; set; }
+        public string EmailId { get; set; }
+        public string WebSite { get; set; }
+		public string Logo { get; set; }
+    }
+
+    public class Contractor
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
 
 }

@@ -286,6 +286,9 @@
     <Compile Include="Repositories\GetLeaveTypes_Result.cs">
       <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\GetMaritalStatus_Result.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\GetModeOfPayments_Result.cs">
       <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>

@@ -51,28 +51,6 @@ namespace GlobalHRMSApi.Controllers
             return lookupLogic.GetReligions(id).ToList();
         }
 
-//        CONTRACTOR
-//COMPANYAPPOINTMENT TYPE
-//APPOINTMENT TYPE
-//DESGINATION
-//CATEGORY
-//GRADE
-//DEPARTMENT
-//UNIT
-
-//MARITAL STATUS
-
-//RELIGION
-//BLOOD GROUP
-//SEX
-//EDUCATION
-
-//MODE OF PAYMENT
-//BANK
-//BRANCH OF THE BANK
-
-//RELATION
-
         [Route("appointmentTypes/{id?}")]
         public List<AppointmentType> GetAppointmentTypes(int? id = null)
         {
@@ -83,6 +61,12 @@ namespace GlobalHRMSApi.Controllers
         public List<Bank> GetBanks(int? id = null)
         {
             return lookupLogic.GetBanks(id).ToList();
+        }
+
+        [Route("bankBranches/{bankId?}/{id?}")]
+        public List<BankBranch> GetBankBranches(int? bankId = null, int? id = null)
+        {
+            return lookupLogic.GetBankBranches(bankId,id).ToList();
         }
 
         [Route("categories/{id?}")]
@@ -121,5 +105,34 @@ namespace GlobalHRMSApi.Controllers
             return lookupLogic.GetUnits(id).ToList();
         }
 
+        [Route("modeOfPayments/{id?}")]
+        public List<ModeOfPayment> GetModeOfPayments(int? id = null)
+        {
+            return lookupLogic.GetModeOfPayments(id).ToList();
+        }
+
+        [Route("maritalStatus/{id?}")]
+        public List<MaritalStatus> GetMaritalStatus(int? id = null)
+        {
+            return lookupLogic.GetMaritalStatus(id).ToList();
+        }
+
+        [Route("departments/{id?}")]
+        public List<Department> GETDepartments(int? id = null)
+        {
+            return lookupLogic.GETDepartments(id).ToList();
+        }
+
+        [Route("companies/{id?}")]
+        public List<Company> GetCompanies(int? id = null)
+        {
+            return lookupLogic.GetCompanies(id).ToList();
+        }
+
+        [Route("contractors/{id?}")]
+        public List<Contractor> GetContractors(int? id = null)
+        {
+            return lookupLogic.GetContractors(id).ToList();
+        }
     }
 }

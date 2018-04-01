@@ -174,6 +174,23 @@ namespace GlobalHRMSApi.BLL
             return retBankList;
         }
 
+        public List<BankBranch> GetBankBranches(int? bankId, int? id)
+        {
+            List<BankBranch> retBankBranchList = null;
+            ObjectResult<GetBankBranches_Result> bankBranchList = hrmsEntities.GetBankBranches(id, bankId);
+            if (bankBranchList != null)
+            {
+                retBankBranchList = bankBranchList.ToList().Select(x => new BankBranch()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    BankId = x.BankId,
+                    IsActive = x.IsActive
+                }).ToList();
+            }
+            return retBankBranchList;
+        }
+
         public List<Category> GetCategories(int? id)
         {
             List<Category> retCategoryList = null;
@@ -268,6 +285,86 @@ namespace GlobalHRMSApi.BLL
                 }).ToList();
             }
             return retUnitList;
+        }
+
+        public List<ModeOfPayment> GetModeOfPayments(int? id)
+        {
+            List<ModeOfPayment> retModeOfPaymentList = null;
+            ObjectResult<GetModeOfPayments_Result> modeOfPaymentList = hrmsEntities.GetModeOfPayments(id);
+            if (modeOfPaymentList != null)
+            {
+                retModeOfPaymentList = modeOfPaymentList.ToList().Select(x => new ModeOfPayment()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    IsActive = x.IsActive
+                }).ToList();
+            }
+            return retModeOfPaymentList;
+        }
+
+        public List<MaritalStatus> GetMaritalStatus(int? id)
+        {
+            List<MaritalStatus> retMaritalStatusList = null;
+            ObjectResult<GetMaritalStatus_Result> maritalStatusList = hrmsEntities.GetMaritalStatus(id);
+            if (maritalStatusList != null)
+            {
+                retMaritalStatusList = maritalStatusList.ToList().Select(x => new MaritalStatus()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    IsActive = x.IsActive
+                }).ToList();
+            }
+            return retMaritalStatusList;
+        }
+
+        public List<Department> GETDepartments(int? id)
+        {
+            List<Department> retDepartmentList = null;
+            ObjectResult<GETDepartments_Result> departmentList = hrmsEntities.GETDepartments(id);
+            if (departmentList != null)
+            {
+                retDepartmentList = departmentList.ToList().Select(x => new Department()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    IsActive = x.IsActive
+                }).ToList();
+            }
+            return retDepartmentList;
+        }
+
+        public List<Company> GetCompanies(int? id)
+        {
+            List<Company> retCompanyList = null;
+            ObjectResult<GetCompanies_Result> companyList = hrmsEntities.GetCompanies(id);
+            if (companyList != null)
+            {
+                retCompanyList = companyList.ToList().Select(x => new Company()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    IsActive = x.IsActive
+                }).ToList();
+            }
+            return retCompanyList;
+        }
+
+        public List<Contractor> GetContractors(int? id)
+        {
+            List<Contractor> retContractorList = null;
+            ObjectResult<GetContractors_Result> contractorList = hrmsEntities.GetContractors(id);
+            if (contractorList != null)
+            {
+                retContractorList = contractorList.ToList().Select(x => new Contractor()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    IsActive = x.IsActive
+                }).ToList();
+            }
+            return retContractorList;
         }
 
     }
