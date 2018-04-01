@@ -142,7 +142,133 @@ namespace GlobalHRMSApi.BLL
 			return employeeId;
 		}
 
+        public List<AppointmentType> GetAppointmentTypes(int? id)
+        {
+            List<AppointmentType> retAppointmentTypeList = null;
+            ObjectResult<GetAppointmentTypes_Result> appointmentTypeList = hrmsEntities.GetAppointmentTypes(id);
+            if (appointmentTypeList != null)
+            {
+                retAppointmentTypeList = appointmentTypeList.ToList().Select(x => new AppointmentType()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    IsActive = x.IsActive
+                }).ToList();
+            }
+            return retAppointmentTypeList;
+        }
 
+        public List<Bank> GetBanks(int? id)
+        {
+            List<Bank> retBankList = null;
+            ObjectResult<GetBanks_Result> bankList = hrmsEntities.GetBanks(id);
+            if (bankList != null)
+            {
+                retBankList = bankList.ToList().Select(x => new Bank()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    IsActive = x.IsActive
+                }).ToList();
+            }
+            return retBankList;
+        }
 
-	}
+        public List<Category> GetCategories(int? id)
+        {
+            List<Category> retCategoryList = null;
+            ObjectResult<GetCategories_Result> categoryList = hrmsEntities.GetCategories(id);
+            if (categoryList != null)
+            {
+                retCategoryList = categoryList.ToList().Select(x => new Category()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    IsActive = x.IsActive
+                }).ToList();
+            }
+            return retCategoryList;
+        }
+
+        public List<Designation> GetDesignations(int? id)
+        {
+            List<Designation> retDesignationList = null;
+            ObjectResult<GetDesignations_Result> designationList = hrmsEntities.GetDesignations(id);
+            if (designationList != null)
+            {
+                retDesignationList = designationList.ToList().Select(x => new Designation()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    IsActive = x.IsActive
+                }).ToList();
+            }
+            return retDesignationList;
+        }
+
+        public List<Education> GetEducations(int? id)
+        {
+            List<Education> retEducationList = null;
+            ObjectResult<GetEducations_Result> educationList = hrmsEntities.GetEducations(id);
+            if (educationList != null)
+            {
+                retEducationList = educationList.ToList().Select(x => new Education()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    IsActive = x.IsActive
+                }).ToList();
+            }
+            return retEducationList;
+        }
+
+        public List<Grade> GetGrades(int? id)
+        {
+            List<Grade> retGradeList = null;
+            ObjectResult<GetGrades_Result> gradeList = hrmsEntities.GetGrades(id);
+            if (gradeList != null)
+            {
+                retGradeList = gradeList.ToList().Select(x => new Grade()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    IsActive = x.IsActive
+                }).ToList();
+            }
+            return retGradeList;
+        }
+
+        public List<Relation> GetRelations(int? id)
+        {
+            List<Relation> retRelationList = null;
+            ObjectResult<GetRelations_Result> relationList = hrmsEntities.GetRelations(id);
+            if (relationList != null)
+            {
+                retRelationList = relationList.ToList().Select(x => new Relation()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    IsActive = x.IsActive
+                }).ToList();
+            }
+            return retRelationList;
+        }
+
+        public List<Unit> GetUnits(int? id)
+        {
+            List<Unit> retUnitList = null;
+            ObjectResult<GetUnits_Result> unitList = hrmsEntities.GetUnits(id);
+            if (unitList != null)
+            {
+                retUnitList = unitList.ToList().Select(x => new Unit()
+                {
+                    ID = x.ID,
+                    Name = x.Name,
+                    IsActive = x.IsActive
+                }).ToList();
+            }
+            return retUnitList;
+        }
+
+    }
 }

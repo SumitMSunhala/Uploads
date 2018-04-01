@@ -89,4 +89,69 @@ namespace GlobalHRMSApi.Models
         public bool IsActive { get; set; }
     }
 
+
+    public class AppointmentType
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class Bank
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class Category
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class Education
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class Designation
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class Grade
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class Relation
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class Unit
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+    public class Department
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsActive { get; set; }
+    }
+
+
 }
