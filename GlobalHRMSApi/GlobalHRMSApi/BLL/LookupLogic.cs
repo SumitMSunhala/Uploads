@@ -112,36 +112,6 @@ namespace GlobalHRMSApi.BLL
 			return retReligionList;
 		}
 
-		public int InsertEmployeeDetails()
-		{
-			DataTable employeePersonalDetails = new DataTable(),
-				employeeDocumentMaster = new DataTable(),
-				employeeContractorMaster = new DataTable(),
-				employeeCompanyMaster = new DataTable();
-			SqlParameter employeePersonalDetailsParam = new SqlParameter("@employeePersonalDetails", SqlDbType.Structured)
-			{
-				Value = employeePersonalDetails,
-				TypeName = "dbo.UDT_EmployeePersonalDetails"
-			},
-				employeeDocumentMasterParam = new SqlParameter("@employeeDocumentMaster", SqlDbType.Structured)
-				{
-					Value = employeeDocumentMaster,
-					TypeName = "dbo.UDT_EmployeeDocumentMaster"
-				},
-				employeeContractorMasterParam = new SqlParameter("@employeeContractorMaster", SqlDbType.Structured)
-				{
-					Value = employeeContractorMaster,
-					TypeName = "dbo.UDT_EmployeeContractorMaster"
-				},
-				employeeCompanyMasterParam = new SqlParameter("@employeeCompanyMaster", SqlDbType.Structured)
-				{
-					Value = employeeCompanyMaster,
-					TypeName = "dbo.UDT_EmployeeCompanyMaster"
-				};
-			int employeeId = hrmsEntities.Database.ExecuteSqlCommand("dbo.InsertEmployeeDetails", employeePersonalDetailsParam, employeeDocumentMasterParam, employeeContractorMasterParam, employeeCompanyMasterParam);
-			return employeeId;
-		}
-
         public List<AppointmentType> GetAppointmentTypes(int? id)
         {
             List<AppointmentType> retAppointmentTypeList = null;
