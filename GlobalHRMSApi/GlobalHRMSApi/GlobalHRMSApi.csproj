@@ -188,175 +188,178 @@
     <Compile Include="Models\Models.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AppointmentTypeMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\BankBranchMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\BankMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\BloodGroupMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\CategoryMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\CityMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\CompanyMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\ContractorMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\CountyMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\DepartmentMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\DesignationMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\EducationMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\EmployeeCompanyMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\EmployeeContractorMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\EmployeeDocumentMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\EmployeePersonalDetails.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GenderMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetAppointmentTypes_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetBankBranches_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetBanks_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetBloodGroups_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetCategories_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetCities_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetCompanies_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\GetContractors_Result.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetCountries_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GETDepartments_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetDesignations_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetEducations_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetGenders_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetGrades_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetLeaves_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetLeaveTypes_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetModeOfPayments_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetRelations_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetReligions_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetStates_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetUnits_Result.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GradeMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\HRMSManagementEntities.Context.cs">
+    <Compile Include="Repositories\HRMSEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HRMSManagementEntities.Context.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\HRMSManagementEntities.cs">
+    <Compile Include="Repositories\HRMSEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\HRMSManagementEntities.Designer.cs">
+    <Compile Include="Repositories\HRMSEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HRMSManagementEntities.edmx</DependentUpon>
+      <DependentUpon>HRMSEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Repositories\LeaveMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\LeaveTypeMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\MaritalStatusMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\ModeOfPaymentMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\RelationMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\ReligionMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\StateMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\UnitMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\UserMaster.cs">
-      <DependentUpon>HRMSManagementEntities.tt</DependentUpon>
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="TokenValidationHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Repositories\HRMSManagementEntities.Context.tt">
+    <Content Include="Repositories\HRMSEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HRMSManagementEntities.edmx</DependentUpon>
-      <LastGenOutput>HRMSManagementEntities.Context.cs</LastGenOutput>
+      <DependentUpon>HRMSEntities.edmx</DependentUpon>
+      <LastGenOutput>HRMSEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Repositories\HRMSManagementEntities.tt">
+    <Content Include="Repositories\HRMSEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HRMSManagementEntities.edmx</DependentUpon>
-      <LastGenOutput>HRMSManagementEntities.cs</LastGenOutput>
+      <DependentUpon>HRMSEntities.edmx</DependentUpon>
+      <LastGenOutput>HRMSEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -373,12 +376,12 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <EntityDeploy Include="Repositories\HRMSManagementEntities.edmx">
+    <EntityDeploy Include="Repositories\HRMSEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HRMSManagementEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>HRMSEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Repositories\HRMSManagementEntities.edmx.diagram">
-      <DependentUpon>HRMSManagementEntities.edmx</DependentUpon>
+    <Content Include="Repositories\HRMSEntities.edmx.diagram">
+      <DependentUpon>HRMSEntities.edmx</DependentUpon>
     </Content>
   </ItemGroup>
   <PropertyGroup>

@@ -151,6 +151,15 @@ namespace GlobalHRMSApi.Repositories
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCompanies_Result>("GetCompanies", iDParameter);
         }
     
+        public virtual ObjectResult<GetContractors_Result> GetContractors(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetContractors_Result>("GetContractors", iDParameter);
+        }
+    
         public virtual ObjectResult<GetCountries_Result> GetCountries(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?

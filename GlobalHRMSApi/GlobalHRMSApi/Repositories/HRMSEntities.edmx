@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HRMSManagementEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HRMSManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AppointmentTypeMaster">
           <Key>
             <PropertyRef Name="ID" />
@@ -616,6 +616,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
         <Function Name="GetCompanies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
+        <Function Name="GetContractors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetCountries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
@@ -663,7 +666,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
         </Function>
         <Function Name="GetUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="InsertEmployeeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="HRMSManagementEntitiesStoreContainer">
+        <EntityContainer Name="HRMSManagementModelStoreContainer">
           <EntitySet Name="AppointmentTypeMaster" EntityType="Self.AppointmentTypeMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BankBranchMaster" EntityType="Self.BankBranchMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BankMaster" EntityType="Self.BankMaster" Schema="dbo" store:Type="Tables" />
@@ -819,7 +822,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="HRMSManagementEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="HRMSManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="AppointmentTypeMaster">
           <Key>
             <PropertyRef Name="ID" />
@@ -1425,7 +1428,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="HRMSManagementEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AppointmentTypeMaster" EntityType="Self.AppointmentTypeMaster" />
           <EntitySet Name="BankBranchMaster" EntityType="Self.BankBranchMaster" />
           <EntitySet Name="BankMaster" EntityType="Self.BankMaster" />
@@ -1520,72 +1523,75 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             <Parameter Name="State" Mode="In" Type="String" />
             <Parameter Name="City" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetAppointmentTypes" ReturnType="Collection(HRMSManagementEntities.GetAppointmentTypes_Result)">
+          <FunctionImport Name="GetAppointmentTypes" ReturnType="Collection(HRMSManagementModel.GetAppointmentTypes_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetBankBranches" ReturnType="Collection(HRMSManagementEntities.GetBankBranches_Result)">
+          <FunctionImport Name="GetBankBranches" ReturnType="Collection(HRMSManagementModel.GetBankBranches_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
             <Parameter Name="BankId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetBanks" ReturnType="Collection(HRMSManagementEntities.GetBanks_Result)">
+          <FunctionImport Name="GetBanks" ReturnType="Collection(HRMSManagementModel.GetBanks_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetBloodGroups" ReturnType="Collection(HRMSManagementEntities.GetBloodGroups_Result)">
+          <FunctionImport Name="GetBloodGroups" ReturnType="Collection(HRMSManagementModel.GetBloodGroups_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetCategories" ReturnType="Collection(HRMSManagementEntities.GetCategories_Result)">
+          <FunctionImport Name="GetCategories" ReturnType="Collection(HRMSManagementModel.GetCategories_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetCities" ReturnType="Collection(HRMSManagementEntities.GetCities_Result)">
+          <FunctionImport Name="GetCities" ReturnType="Collection(HRMSManagementModel.GetCities_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
             <Parameter Name="StateID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetCompanies" ReturnType="Collection(HRMSManagementEntities.GetCompanies_Result)">
+          <FunctionImport Name="GetCompanies" ReturnType="Collection(HRMSManagementModel.GetCompanies_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetCountries" ReturnType="Collection(HRMSManagementEntities.GetCountries_Result)">
+          <FunctionImport Name="GetContractors" ReturnType="Collection(HRMSManagementModel.GetContractors_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GETDepartments" ReturnType="Collection(HRMSManagementEntities.GETDepartments_Result)">
+          <FunctionImport Name="GetCountries" ReturnType="Collection(HRMSManagementModel.GetCountries_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetDesignations" ReturnType="Collection(HRMSManagementEntities.GetDesignations_Result)">
+          <FunctionImport Name="GETDepartments" ReturnType="Collection(HRMSManagementModel.GETDepartments_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetEducations" ReturnType="Collection(HRMSManagementEntities.GetEducations_Result)">
+          <FunctionImport Name="GetDesignations" ReturnType="Collection(HRMSManagementModel.GetDesignations_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetGenders" ReturnType="Collection(HRMSManagementEntities.GetGenders_Result)">
+          <FunctionImport Name="GetEducations" ReturnType="Collection(HRMSManagementModel.GetEducations_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetGrades" ReturnType="Collection(HRMSManagementEntities.GetGrades_Result)">
+          <FunctionImport Name="GetGenders" ReturnType="Collection(HRMSManagementModel.GetGenders_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetLeaves" ReturnType="Collection(HRMSManagementEntities.GetLeaves_Result)">
+          <FunctionImport Name="GetGrades" ReturnType="Collection(HRMSManagementModel.GetGrades_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetLeaves" ReturnType="Collection(HRMSManagementModel.GetLeaves_Result)">
             <Parameter Name="EmployeeId" Mode="In" Type="Int32" />
             <Parameter Name="StartDate" Mode="In" Type="DateTime" />
             <Parameter Name="EndDate" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="GetLeaveTypes" ReturnType="Collection(HRMSManagementEntities.GetLeaveTypes_Result)">
+          <FunctionImport Name="GetLeaveTypes" ReturnType="Collection(HRMSManagementModel.GetLeaveTypes_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetMaritalStatus">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetModeOfPayments" ReturnType="Collection(HRMSManagementEntities.GetModeOfPayments_Result)">
+          <FunctionImport Name="GetModeOfPayments" ReturnType="Collection(HRMSManagementModel.GetModeOfPayments_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetRelations" ReturnType="Collection(HRMSManagementEntities.GetRelations_Result)">
+          <FunctionImport Name="GetRelations" ReturnType="Collection(HRMSManagementModel.GetRelations_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetReligions" ReturnType="Collection(HRMSManagementEntities.GetReligions_Result)">
+          <FunctionImport Name="GetReligions" ReturnType="Collection(HRMSManagementModel.GetReligions_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetStates" ReturnType="Collection(HRMSManagementEntities.GetStates_Result)">
+          <FunctionImport Name="GetStates" ReturnType="Collection(HRMSManagementModel.GetStates_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
             <Parameter Name="CountryId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetUnits" ReturnType="Collection(HRMSManagementEntities.GetUnits_Result)">
+          <FunctionImport Name="GetUnits" ReturnType="Collection(HRMSManagementModel.GetUnits_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetUsers" />
@@ -1650,6 +1656,13 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Type="DateTime" Name="CreatedDateTime" Nullable="false" Precision="23" />
           <Property Type="DateTime" Name="UpdatedDateTime" Nullable="false" Precision="23" />
           <Property Type="String" Name="Logo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetContractors_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDateTime" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="UpdatedDateTime" Nullable="false" Precision="23" />
         </ComplexType>
         <ComplexType Name="GetCountries_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -1757,9 +1770,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HRMSManagementEntitiesStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="HRMSManagementModelStoreContainer" CdmEntityContainer="HRMSManagementEntities">
           <EntitySetMapping Name="AppointmentTypeMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.AppointmentTypeMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.AppointmentTypeMaster">
               <MappingFragment StoreEntitySet="AppointmentTypeMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1770,7 +1783,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BankBranchMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.BankBranchMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.BankBranchMaster">
               <MappingFragment StoreEntitySet="BankBranchMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1782,7 +1795,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BankMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.BankMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.BankMaster">
               <MappingFragment StoreEntitySet="BankMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1793,7 +1806,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="BloodGroupMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.BloodGroupMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.BloodGroupMaster">
               <MappingFragment StoreEntitySet="BloodGroupMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1804,7 +1817,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CategoryMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.CategoryMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.CategoryMaster">
               <MappingFragment StoreEntitySet="CategoryMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1815,7 +1828,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CityMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.CityMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.CityMaster">
               <MappingFragment StoreEntitySet="CityMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1827,7 +1840,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CompanyMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.CompanyMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.CompanyMaster">
               <MappingFragment StoreEntitySet="CompanyMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1847,7 +1860,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ContractorMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.ContractorMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ContractorMaster">
               <MappingFragment StoreEntitySet="ContractorMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1858,7 +1871,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CountyMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.CountyMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.CountyMaster">
               <MappingFragment StoreEntitySet="CountyMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1869,7 +1882,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DepartmentMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.DepartmentMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.DepartmentMaster">
               <MappingFragment StoreEntitySet="DepartmentMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1881,7 +1894,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DesignationMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.DesignationMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.DesignationMaster">
               <MappingFragment StoreEntitySet="DesignationMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1892,7 +1905,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EducationMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.EducationMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.EducationMaster">
               <MappingFragment StoreEntitySet="EducationMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1903,7 +1916,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeePersonalDetails">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.EmployeePersonalDetails">
+            <EntityTypeMapping TypeName="HRMSManagementModel.EmployeePersonalDetails">
               <MappingFragment StoreEntitySet="EmployeePersonalDetails">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
@@ -1927,7 +1940,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GenderMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.GenderMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.GenderMaster">
               <MappingFragment StoreEntitySet="GenderMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1938,7 +1951,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GradeMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.GradeMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.GradeMaster">
               <MappingFragment StoreEntitySet="GradeMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1949,7 +1962,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LeaveMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.LeaveMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.LeaveMaster">
               <MappingFragment StoreEntitySet="LeaveMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="LeaveTypeId" ColumnName="LeaveTypeId" />
@@ -1968,7 +1981,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LeaveTypeMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.LeaveTypeMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.LeaveTypeMaster">
               <MappingFragment StoreEntitySet="LeaveTypeMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1979,7 +1992,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MaritalStatusMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.MaritalStatusMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.MaritalStatusMaster">
               <MappingFragment StoreEntitySet="MaritalStatusMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1990,7 +2003,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ModeOfPaymentMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.ModeOfPaymentMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ModeOfPaymentMaster">
               <MappingFragment StoreEntitySet="ModeOfPaymentMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -2001,7 +2014,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RelationMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.RelationMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.RelationMaster">
               <MappingFragment StoreEntitySet="RelationMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -2012,7 +2025,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ReligionMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.ReligionMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ReligionMaster">
               <MappingFragment StoreEntitySet="ReligionMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -2023,7 +2036,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StateMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.StateMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.StateMaster">
               <MappingFragment StoreEntitySet="StateMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -2035,7 +2048,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UnitMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.UnitMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.UnitMaster">
               <MappingFragment StoreEntitySet="UnitMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -2046,7 +2059,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.UserMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.UserMaster">
               <MappingFragment StoreEntitySet="UserMaster">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -2058,7 +2071,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeeCompanyMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.EmployeeCompanyMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.EmployeeCompanyMaster">
               <MappingFragment StoreEntitySet="EmployeeCompanyMaster">
                 <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
                 <ScalarProperty Name="AppointmentType" ColumnName="AppointmentType" />
@@ -2075,7 +2088,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeeContractorMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.EmployeeContractorMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.EmployeeContractorMaster">
               <MappingFragment StoreEntitySet="EmployeeContractorMaster">
                 <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
                 <ScalarProperty Name="DateOfJoining" ColumnName="DateOfJoining" />
@@ -2105,7 +2118,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeeDocumentMaster">
-            <EntityTypeMapping TypeName="HRMSManagementEntities.EmployeeDocumentMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.EmployeeDocumentMaster">
               <MappingFragment StoreEntitySet="EmployeeDocumentMaster">
                 <ScalarProperty Name="AadharCardNumber" ColumnName="AadharCardNumber" />
                 <ScalarProperty Name="AadharEnrolmentNumber" ColumnName="AadharEnrolmentNumber" />
@@ -2129,10 +2142,10 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="CreateUser" FunctionName="HRMSManagementEntities.Store.CreateUser" />
-          <FunctionImportMapping FunctionImportName="GetAppointmentTypes" FunctionName="HRMSManagementEntities.Store.GetAppointmentTypes">
+          <FunctionImportMapping FunctionImportName="CreateUser" FunctionName="HRMSManagementModel.Store.CreateUser" />
+          <FunctionImportMapping FunctionImportName="GetAppointmentTypes" FunctionName="HRMSManagementModel.Store.GetAppointmentTypes">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetAppointmentTypes_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetAppointmentTypes_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2141,9 +2154,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetBankBranches" FunctionName="HRMSManagementEntities.Store.GetBankBranches">
+          <FunctionImportMapping FunctionImportName="GetBankBranches" FunctionName="HRMSManagementModel.Store.GetBankBranches">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetBankBranches_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetBankBranches_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="BankId" ColumnName="BankId" />
@@ -2153,9 +2166,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetBanks" FunctionName="HRMSManagementEntities.Store.GetBanks">
+          <FunctionImportMapping FunctionImportName="GetBanks" FunctionName="HRMSManagementModel.Store.GetBanks">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetBanks_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetBanks_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2164,9 +2177,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetBloodGroups" FunctionName="HRMSManagementEntities.Store.GetBloodGroups">
+          <FunctionImportMapping FunctionImportName="GetBloodGroups" FunctionName="HRMSManagementModel.Store.GetBloodGroups">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetBloodGroups_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetBloodGroups_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2175,9 +2188,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetCategories" FunctionName="HRMSManagementEntities.Store.GetCategories">
+          <FunctionImportMapping FunctionImportName="GetCategories" FunctionName="HRMSManagementModel.Store.GetCategories">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetCategories_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetCategories_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2186,9 +2199,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetCities" FunctionName="HRMSManagementEntities.Store.GetCities">
+          <FunctionImportMapping FunctionImportName="GetCities" FunctionName="HRMSManagementModel.Store.GetCities">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetCities_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetCities_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="StateId" ColumnName="StateId" />
@@ -2198,9 +2211,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetCompanies" FunctionName="HRMSManagementEntities.Store.GetCompanies">
+          <FunctionImportMapping FunctionImportName="GetCompanies" FunctionName="HRMSManagementModel.Store.GetCompanies">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetCompanies_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetCompanies_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
@@ -2218,9 +2231,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetCountries" FunctionName="HRMSManagementEntities.Store.GetCountries">
+          <FunctionImportMapping FunctionImportName="GetContractors" FunctionName="HRMSManagementModel.Store.GetContractors">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetCountries_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetContractors_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2229,9 +2242,20 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GETDepartments" FunctionName="HRMSManagementEntities.Store.GETDepartments">
+          <FunctionImportMapping FunctionImportName="GetCountries" FunctionName="HRMSManagementModel.Store.GetCountries">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GETDepartments_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetCountries_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GETDepartments" FunctionName="HRMSManagementModel.Store.GETDepartments">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GETDepartments_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
@@ -2241,9 +2265,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetDesignations" FunctionName="HRMSManagementEntities.Store.GetDesignations">
+          <FunctionImportMapping FunctionImportName="GetDesignations" FunctionName="HRMSManagementModel.Store.GetDesignations">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetDesignations_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetDesignations_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2252,9 +2276,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetEducations" FunctionName="HRMSManagementEntities.Store.GetEducations">
+          <FunctionImportMapping FunctionImportName="GetEducations" FunctionName="HRMSManagementModel.Store.GetEducations">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetEducations_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetEducations_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2263,9 +2287,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetGenders" FunctionName="HRMSManagementEntities.Store.GetGenders">
+          <FunctionImportMapping FunctionImportName="GetGenders" FunctionName="HRMSManagementModel.Store.GetGenders">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetGenders_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetGenders_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2274,9 +2298,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetGrades" FunctionName="HRMSManagementEntities.Store.GetGrades">
+          <FunctionImportMapping FunctionImportName="GetGrades" FunctionName="HRMSManagementModel.Store.GetGrades">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetGrades_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetGrades_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2285,9 +2309,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetLeaves" FunctionName="HRMSManagementEntities.Store.GetLeaves">
+          <FunctionImportMapping FunctionImportName="GetLeaves" FunctionName="HRMSManagementModel.Store.GetLeaves">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetLeaves_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetLeaves_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="LeaveTypeId" ColumnName="LeaveTypeId" />
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
@@ -2304,9 +2328,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetLeaveTypes" FunctionName="HRMSManagementEntities.Store.GetLeaveTypes">
+          <FunctionImportMapping FunctionImportName="GetLeaveTypes" FunctionName="HRMSManagementModel.Store.GetLeaveTypes">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetLeaveTypes_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetLeaveTypes_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2315,10 +2339,10 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetMaritalStatus" FunctionName="HRMSManagementEntities.Store.GetMaritalStatus" />
-          <FunctionImportMapping FunctionImportName="GetModeOfPayments" FunctionName="HRMSManagementEntities.Store.GetModeOfPayments">
+          <FunctionImportMapping FunctionImportName="GetMaritalStatus" FunctionName="HRMSManagementModel.Store.GetMaritalStatus" />
+          <FunctionImportMapping FunctionImportName="GetModeOfPayments" FunctionName="HRMSManagementModel.Store.GetModeOfPayments">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetModeOfPayments_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetModeOfPayments_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2327,9 +2351,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetRelations" FunctionName="HRMSManagementEntities.Store.GetRelations">
+          <FunctionImportMapping FunctionImportName="GetRelations" FunctionName="HRMSManagementModel.Store.GetRelations">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetRelations_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetRelations_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2338,9 +2362,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetReligions" FunctionName="HRMSManagementEntities.Store.GetReligions">
+          <FunctionImportMapping FunctionImportName="GetReligions" FunctionName="HRMSManagementModel.Store.GetReligions">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetReligions_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetReligions_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2349,9 +2373,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetStates" FunctionName="HRMSManagementEntities.Store.GetStates">
+          <FunctionImportMapping FunctionImportName="GetStates" FunctionName="HRMSManagementModel.Store.GetStates">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetStates_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetStates_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CountryId" ColumnName="CountryId" />
@@ -2361,9 +2385,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetUnits" FunctionName="HRMSManagementEntities.Store.GetUnits">
+          <FunctionImportMapping FunctionImportName="GetUnits" FunctionName="HRMSManagementModel.Store.GetUnits">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HRMSManagementEntities.GetUnits_Result">
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetUnits_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2372,8 +2396,8 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetUsers" FunctionName="HRMSManagementEntities.Store.GetUsers" />
-          <FunctionImportMapping FunctionImportName="InsertEmployeeDetails" FunctionName="HRMSManagementEntities.Store.InsertEmployeeDetails" />
+          <FunctionImportMapping FunctionImportName="GetUsers" FunctionName="HRMSManagementModel.Store.GetUsers" />
+          <FunctionImportMapping FunctionImportName="InsertEmployeeDetails" FunctionName="HRMSManagementModel.Store.InsertEmployeeDetails" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
