@@ -9,30 +9,35 @@ using System.Security.Claims;
 using System.Web;
 using System.Web.Http;
 using GlobalHRMSApi.Models;
-
+using GlobalHRMSApi.BLL;
 
 namespace GlobalHRMSApi.Controllers
 {
-	public class LoginController : ApiController
+
+	[RoutePrefix("user")]
+	public class UserController : ApiController
 	{
+		UserLogic userLogic = new UserLogic();
+
+		[Route("login")]
 		[HttpPost]
-		public IHttpActionResult Authenticate([FromBody] LoginRequest login)
+		public IHttpActionResult Login([FromBody] LoginRequest login)
 		{
 			var loginResponse = new LoginResponse { };
 			LoginRequest loginrequest = new LoginRequest { };
-			loginrequest.Username = login.Username.ToLower();
+			loginrequest.UserName = login.UserName.ToLower();
 			loginrequest.Password = login.Password;
 
 			IHttpActionResult response;
 			HttpResponseMessage responseMsg = new HttpResponseMessage();
-			bool isUsernamePasswordValid = false;
+			int loginUserId = 0;
 
 			if (login != null)
-				isUsernamePasswordValid = loginrequest.Password == "admin" ? true : false;
+				loginUserId = userLogic.LoginUser(login);
 			// if credentials are valid
-			if (isUsernamePasswordValid)
+			if (loginUserId > 0)
 			{
-				string token = createToken(loginrequest.Username);
+				string token = createToken(loginrequest.UserName);
 				//return the token
 				return Ok<string>(token);
 			}
@@ -41,6 +46,38 @@ namespace GlobalHRMSApi.Controllers
 				// if credentials are not valid send unauthorized status code in response
 				loginResponse.responseMsg.StatusCode = HttpStatusCode.Unauthorized;
 				response = ResponseMessage(loginResponse.responseMsg);
+				return response;
+			}
+		}
+
+
+		[Route("register")]
+		[HttpPost]
+		public IHttpActionResult Register([FromBody] RegisterRequest register)
+		{
+			var registerResponse = new RegisterResponse { };
+			RegisterRequest registerRequest = new RegisterRequest { };
+			registerRequest.UserName = register.UserName.ToLower();
+			registerRequest.Password = register.Password;
+
+			IHttpActionResult response;
+			HttpResponseMessage responseMsg = new HttpResponseMessage();
+			int registeredUserId = 0;
+
+			if (register != null)
+				registeredUserId = userLogic.RegisterUser(register);
+			// if credentials are valid
+			if (registeredUserId > 0)
+			{
+				string token = createToken(registerRequest.UserName);
+				//return the token
+				return Ok<string>(token);
+			}
+			else
+			{
+				// if credentials are not valid send unauthorized status code in response
+				registerResponse.responseMsg.StatusCode = HttpStatusCode.Unauthorized;
+				response = ResponseMessage(registerResponse.responseMsg);
 				return response;
 			}
 		}
@@ -76,5 +113,6 @@ namespace GlobalHRMSApi.Controllers
 
 			return tokenString;
 		}
+
 	}
 }

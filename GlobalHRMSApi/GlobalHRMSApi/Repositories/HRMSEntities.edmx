@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HRMSManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HRMSManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AppointmentTypeMaster">
           <Key>
             <PropertyRef Name="ID" />
@@ -406,6 +406,18 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="100" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Mobile" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+        </EntityType>
         <Association Name="FK_BankBranchMaster_BankMaster">
           <End Role="BankMaster" Type="Self.BankMaster" Multiplicity="1" />
           <End Role="BankBranchMaster" Type="Self.BankBranchMaster" Multiplicity="*" />
@@ -666,6 +678,18 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
         </Function>
         <Function Name="GetUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="InsertEmployeeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="LoginUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userName" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="RegisterUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userName" Type="varchar" Mode="In" />
+          <Parameter Name="firstName" Type="varchar" Mode="In" />
+          <Parameter Name="lastName" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="mobile" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="HRMSManagementModelStoreContainer">
           <EntitySet Name="AppointmentTypeMaster" EntityType="Self.AppointmentTypeMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BankBranchMaster" EntityType="Self.BankBranchMaster" Schema="dbo" store:Type="Tables" />
@@ -691,6 +715,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <EntitySet Name="StateMaster" EntityType="Self.StateMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UnitMaster" EntityType="Self.UnitMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserMaster" EntityType="Self.UserMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeCompanyMaster" EntityType="Self.EmployeeCompanyMaster" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [EmployeeCompanyMaster].[CompanyId] AS [CompanyId], 
@@ -818,8 +843,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             <End Role="StateMaster" EntitySet="StateMaster" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HRMSManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1524,48 +1548,48 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             <Parameter Name="City" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetAppointmentTypes" ReturnType="Collection(HRMSManagementModel.GetAppointmentTypes_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetBankBranches" ReturnType="Collection(HRMSManagementModel.GetBankBranches_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
             <Parameter Name="BankId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetBanks" ReturnType="Collection(HRMSManagementModel.GetBanks_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetBloodGroups" ReturnType="Collection(HRMSManagementModel.GetBloodGroups_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetCategories" ReturnType="Collection(HRMSManagementModel.GetCategories_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetCities" ReturnType="Collection(HRMSManagementModel.GetCities_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
             <Parameter Name="StateID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetCompanies" ReturnType="Collection(HRMSManagementModel.GetCompanies_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetContractors" ReturnType="Collection(HRMSManagementModel.GetContractors_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetCountries" ReturnType="Collection(HRMSManagementModel.GetCountries_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GETDepartments" ReturnType="Collection(HRMSManagementModel.GETDepartments_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetDesignations" ReturnType="Collection(HRMSManagementModel.GetDesignations_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetEducations" ReturnType="Collection(HRMSManagementModel.GetEducations_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetGenders" ReturnType="Collection(HRMSManagementModel.GetGenders_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetGrades" ReturnType="Collection(HRMSManagementModel.GetGrades_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetLeaves" ReturnType="Collection(HRMSManagementModel.GetLeaves_Result)">
             <Parameter Name="EmployeeId" Mode="In" Type="Int32" />
@@ -1573,29 +1597,42 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             <Parameter Name="EndDate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="GetLeaveTypes" ReturnType="Collection(HRMSManagementModel.GetLeaveTypes_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetMaritalStatus">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetModeOfPayments" ReturnType="Collection(HRMSManagementModel.GetModeOfPayments_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetRelations" ReturnType="Collection(HRMSManagementModel.GetRelations_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetReligions" ReturnType="Collection(HRMSManagementModel.GetReligions_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetStates" ReturnType="Collection(HRMSManagementModel.GetStates_Result)">
             <Parameter Name="ID" Mode="In" Type="Int32" />
             <Parameter Name="CountryId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetUnits" ReturnType="Collection(HRMSManagementModel.GetUnits_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetUsers" />
           <FunctionImport Name="InsertEmployeeDetails" />
+          <EntitySet Name="Users" EntityType="HRMSManagementModel.Users" />
+          <FunctionImport Name="LoginUser">
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="RegisterUser">
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="firstName" Mode="In" Type="String" />
+            <Parameter Name="lastName" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="mobile" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetAppointmentTypes_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -1765,6 +1802,18 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Type="DateTime" Name="CreatedDateTime" Nullable="false" Precision="23" />
           <Property Type="DateTime" Name="UpdatedDateTime" Nullable="false" Precision="23" />
         </ComplexType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2398,6 +2447,21 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetUsers" FunctionName="HRMSManagementModel.Store.GetUsers" />
           <FunctionImportMapping FunctionImportName="InsertEmployeeDetails" FunctionName="HRMSManagementModel.Store.InsertEmployeeDetails" />
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="HRMSManagementModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="LoginUser" FunctionName="HRMSManagementModel.Store.LoginUser" />
+          <FunctionImportMapping FunctionImportName="RegisterUser" FunctionName="HRMSManagementModel.Store.RegisterUser" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

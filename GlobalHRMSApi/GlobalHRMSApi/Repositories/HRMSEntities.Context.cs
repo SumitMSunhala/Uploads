@@ -54,6 +54,7 @@ namespace GlobalHRMSApi.Repositories
         public virtual DbSet<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
         public virtual DbSet<EmployeeContractorMaster> EmployeeContractorMaster { get; set; }
         public virtual DbSet<EmployeeDocumentMaster> EmployeeDocumentMaster { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     
         public virtual int CreateUser(string firstName, string lastName, string country, string state, string city)
         {
@@ -306,6 +307,48 @@ namespace GlobalHRMSApi.Repositories
         public virtual int InsertEmployeeDetails()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertEmployeeDetails");
+        }
+    
+        public virtual int LoginUser(string userName, string password)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LoginUser", userNameParameter, passwordParameter);
+        }
+    
+        public virtual int RegisterUser(string userName, string firstName, string lastName, string email, string mobile, string password)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+    
+            var firstNameParameter = firstName != null ?
+                new ObjectParameter("firstName", firstName) :
+                new ObjectParameter("firstName", typeof(string));
+    
+            var lastNameParameter = lastName != null ?
+                new ObjectParameter("lastName", lastName) :
+                new ObjectParameter("lastName", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var mobileParameter = mobile != null ?
+                new ObjectParameter("mobile", mobile) :
+                new ObjectParameter("mobile", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("RegisterUser", userNameParameter, firstNameParameter, lastNameParameter, emailParameter, mobileParameter, passwordParameter);
         }
     }
 }
