@@ -326,11 +326,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HRMSEntities.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Repositories\HRMSEntities1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HRMSEntities.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Repositories\LeaveMaster.cs">
       <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
@@ -393,7 +388,7 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <EntityDeploy Include="Repositories\HRMSEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HRMSEntities1.Designer.cs</LastGenOutput>
+      <LastGenOutput>HRMSEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Repositories\HRMSEntities.edmx.diagram">
       <DependentUpon>HRMSEntities.edmx</DependentUpon>

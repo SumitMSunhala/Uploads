@@ -657,6 +657,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
         <Function Name="GetLeaveTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
+        <Function Name="GetMaritalStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetModeOfPayments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
@@ -675,12 +678,10 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
         </Function>
         <Function Name="GetUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="InsertEmployeeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="GetMaritalStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="ID" Type="int" Mode="In" />
-        </Function>
         <Function Name="LoginUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userName" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="retVal" Type="int" Mode="InOut" />
         </Function>
         <Function Name="RegisterUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userName" Type="varchar" Mode="In" />
@@ -689,6 +690,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Parameter Name="email" Type="varchar" Mode="In" />
           <Parameter Name="mobile" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="retVal" Type="int" Mode="InOut" />
         </Function>
         <EntityContainer Name="HRMSManagementModelStoreContainer">
           <EntitySet Name="AppointmentTypeMaster" EntityType="Self.AppointmentTypeMaster" Schema="dbo" store:Type="Tables" />
@@ -1618,12 +1620,13 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <FunctionImport Name="GetUsers" />
           <FunctionImport Name="InsertEmployeeDetails" />
           <FunctionImport Name="GetMaritalStatus" ReturnType="Collection(HRMSManagementModel.GetMaritalStatus_Result)">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="Users" EntityType="HRMSManagementModel.Users" />
           <FunctionImport Name="LoginUser">
             <Parameter Name="userName" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="retVal" Mode="InOut" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="RegisterUser">
             <Parameter Name="userName" Mode="In" Type="String" />
@@ -1632,6 +1635,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="mobile" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="retVal" Mode="InOut" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetAppointmentTypes_Result">

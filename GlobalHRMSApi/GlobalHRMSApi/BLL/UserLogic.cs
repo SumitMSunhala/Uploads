@@ -16,14 +16,16 @@ namespace GlobalHRMSApi.BLL
 
 		public int LoginUser(LoginRequest login)
 		{
-			int userId = hrmsEntities.LoginUser(login.UserName, login.Password);
-			return userId;
+			ObjectParameter retVal = new ObjectParameter("retVal", typeof(int));
+			hrmsEntities.LoginUser(login.UserName, login.Password, retVal);
+			return Convert.ToInt32(retVal.Value);
 		}
 
 		public int RegisterUser(RegisterRequest register)
 		{
-			int userId = hrmsEntities.RegisterUser(register.UserName, register.FirstName, register.LastName, register.Email, register.Mobile, register.Password);
-			return userId;
+			ObjectParameter retVal = new ObjectParameter("retVal", typeof(int));
+			hrmsEntities.RegisterUser(register.UserName, register.FirstName, register.LastName, register.Email, register.Mobile, register.Password, retVal);
+			return Convert.ToInt32(retVal.Value);
 		}
 	}
 }
