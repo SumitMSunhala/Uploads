@@ -10,7 +10,7 @@ using GlobalHRMSApi.Models;
 namespace GlobalHRMSApi.Controllers
 {
     //[Authorize]
-	[RoutePrefix("api/employee")]
+	[RoutePrefix("employee")]
     public class EmployeeController : ApiController
     {
 		EmployeeLogic employeeLogic = new EmployeeLogic();

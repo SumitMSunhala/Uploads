@@ -12,14 +12,37 @@ namespace GlobalHRMSApi.Models
 	}
 
 	public class LoginRequest
+	{			
+		public string UserName { get; set; }
+		public string Password { get; set; }
+	}
+
+	public class RegisterRequest
 	{
-		public string Username { get; set; }
+		public string UserName { get; set; }
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
+		public string Email { get; set; }
+		public string Mobile { get; set; }
 		public string Password { get; set; }
 	}
 
 	public class LoginResponse
 	{
 		public LoginResponse()
+		{
+
+			this.Token = "";
+			this.responseMsg = new HttpResponseMessage() { StatusCode = System.Net.HttpStatusCode.Unauthorized };
+		}
+
+		public string Token { get; set; }
+		public HttpResponseMessage responseMsg { get; set; }
+
+	}
+	public class RegisterResponse
+	{
+		public RegisterResponse()
 		{
 
 			this.Token = "";

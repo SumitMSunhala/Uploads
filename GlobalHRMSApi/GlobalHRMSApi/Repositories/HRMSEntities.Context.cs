@@ -14,19 +14,19 @@ namespace GlobalHRMSApi.Repositories
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
-    
+
     public partial class HRMSManagementEntities : DbContext
     {
         public HRMSManagementEntities()
             : base("name=HRMSManagementEntities")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<AppointmentTypeMaster> AppointmentTypeMaster { get; set; }
         public virtual DbSet<BankBranchMaster> BankBranchMaster { get; set; }
         public virtual DbSet<BankMaster> BankMaster { get; set; }
@@ -54,258 +54,300 @@ namespace GlobalHRMSApi.Repositories
         public virtual DbSet<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
         public virtual DbSet<EmployeeContractorMaster> EmployeeContractorMaster { get; set; }
         public virtual DbSet<EmployeeDocumentMaster> EmployeeDocumentMaster { get; set; }
-    
+        public virtual DbSet<Users> Users { get; set; }
+
         public virtual int CreateUser(string firstName, string lastName, string country, string state, string city)
         {
             var firstNameParameter = firstName != null ?
                 new ObjectParameter("FirstName", firstName) :
                 new ObjectParameter("FirstName", typeof(string));
-    
+
             var lastNameParameter = lastName != null ?
                 new ObjectParameter("LastName", lastName) :
                 new ObjectParameter("LastName", typeof(string));
-    
+
             var countryParameter = country != null ?
                 new ObjectParameter("Country", country) :
                 new ObjectParameter("Country", typeof(string));
-    
+
             var stateParameter = state != null ?
                 new ObjectParameter("State", state) :
                 new ObjectParameter("State", typeof(string));
-    
+
             var cityParameter = city != null ?
                 new ObjectParameter("City", city) :
                 new ObjectParameter("City", typeof(string));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CreateUser", firstNameParameter, lastNameParameter, countryParameter, stateParameter, cityParameter);
         }
-    
+
         public virtual ObjectResult<GetAppointmentTypes_Result> GetAppointmentTypes(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAppointmentTypes_Result>("GetAppointmentTypes", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetBankBranches_Result> GetBankBranches(Nullable<int> iD, Nullable<int> bankId)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             var bankIdParameter = bankId.HasValue ?
                 new ObjectParameter("BankId", bankId) :
                 new ObjectParameter("BankId", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBankBranches_Result>("GetBankBranches", iDParameter, bankIdParameter);
         }
-    
+
         public virtual ObjectResult<GetBanks_Result> GetBanks(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBanks_Result>("GetBanks", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetBloodGroups_Result> GetBloodGroups(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetBloodGroups_Result>("GetBloodGroups", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetCategories_Result> GetCategories(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCategories_Result>("GetCategories", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetCities_Result> GetCities(Nullable<int> iD, Nullable<int> stateID)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             var stateIDParameter = stateID.HasValue ?
                 new ObjectParameter("StateID", stateID) :
                 new ObjectParameter("StateID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCities_Result>("GetCities", iDParameter, stateIDParameter);
         }
-    
+
         public virtual ObjectResult<GetCompanies_Result> GetCompanies(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCompanies_Result>("GetCompanies", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetContractors_Result> GetContractors(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetContractors_Result>("GetContractors", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetCountries_Result> GetCountries(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetCountries_Result>("GetCountries", iDParameter);
         }
-    
+
         public virtual ObjectResult<GETDepartments_Result> GETDepartments(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GETDepartments_Result>("GETDepartments", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetDesignations_Result> GetDesignations(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetDesignations_Result>("GetDesignations", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetEducations_Result> GetEducations(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEducations_Result>("GetEducations", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetGenders_Result> GetGenders(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetGenders_Result>("GetGenders", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetGrades_Result> GetGrades(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetGrades_Result>("GetGrades", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetLeaves_Result> GetLeaves(Nullable<int> employeeId, Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate)
         {
             var employeeIdParameter = employeeId.HasValue ?
                 new ObjectParameter("EmployeeId", employeeId) :
                 new ObjectParameter("EmployeeId", typeof(int));
-    
+
             var startDateParameter = startDate.HasValue ?
                 new ObjectParameter("StartDate", startDate) :
                 new ObjectParameter("StartDate", typeof(System.DateTime));
-    
+
             var endDateParameter = endDate.HasValue ?
                 new ObjectParameter("EndDate", endDate) :
                 new ObjectParameter("EndDate", typeof(System.DateTime));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetLeaves_Result>("GetLeaves", employeeIdParameter, startDateParameter, endDateParameter);
         }
-    
+
         public virtual ObjectResult<GetLeaveTypes_Result> GetLeaveTypes(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetLeaveTypes_Result>("GetLeaveTypes", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetModeOfPayments_Result> GetModeOfPayments(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetModeOfPayments_Result>("GetModeOfPayments", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetRelations_Result> GetRelations(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetRelations_Result>("GetRelations", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetReligions_Result> GetReligions(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetReligions_Result>("GetReligions", iDParameter);
         }
-    
+
         public virtual ObjectResult<GetStates_Result> GetStates(Nullable<int> iD, Nullable<int> countryId)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             var countryIdParameter = countryId.HasValue ?
                 new ObjectParameter("CountryId", countryId) :
                 new ObjectParameter("CountryId", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetStates_Result>("GetStates", iDParameter, countryIdParameter);
         }
-    
+
         public virtual ObjectResult<GetUnits_Result> GetUnits(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetUnits_Result>("GetUnits", iDParameter);
         }
-    
+
         public virtual int GetUsers()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetUsers");
         }
-    
+
         public virtual int InsertEmployeeDetails()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertEmployeeDetails");
         }
-    
+
         public virtual ObjectResult<GetMaritalStatus_Result> GetMaritalStatus(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
                 new ObjectParameter("ID", typeof(int));
-    
+
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetMaritalStatus_Result>("GetMaritalStatus", iDParameter);
+        }
+        public virtual int LoginUser(string userName, string password)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LoginUser", userNameParameter, passwordParameter);
+        }
+
+        public virtual int RegisterUser(string userName, string firstName, string lastName, string email, string mobile, string password)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("userName", userName) :
+                new ObjectParameter("userName", typeof(string));
+
+            var firstNameParameter = firstName != null ?
+                new ObjectParameter("firstName", firstName) :
+                new ObjectParameter("firstName", typeof(string));
+
+            var lastNameParameter = lastName != null ?
+                new ObjectParameter("lastName", lastName) :
+                new ObjectParameter("lastName", typeof(string));
+
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+
+            var mobileParameter = mobile != null ?
+                new ObjectParameter("mobile", mobile) :
+                new ObjectParameter("mobile", typeof(string));
+
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("RegisterUser", userNameParameter, firstNameParameter, lastNameParameter, emailParameter, mobileParameter, passwordParameter);
         }
     }
 }
