@@ -39,9 +39,15 @@ namespace GlobalHRMSApi.BLL
 				{
 					Value = employeeCompanyMaster,
 					TypeName = "dbo.UDT_EmployeeCompanyMaster"
+				},
+				employeeIdParam =  new SqlParameter(){
+					ParameterName = "@employeeId",
+					SqlDbType = SqlDbType.Int,
+					Direction = ParameterDirection.Output
 				};
-			int employeeId = hrmsEntities.Database.ExecuteSqlCommand("dbo.InsertEmployeeDetails", employeePersonalDetailsParam, employeeDocumentMasterParam, employeeContractorMasterParam, employeeCompanyMasterParam);
-			return employeeId;
+			
+			hrmsEntities.Database.ExecuteSqlCommand("exec dbo.InsertEmployeeDetails @employeePersonalDetails,@employeeDocumentMaster,@employeeContractorMaster,@employeeCompanyMaster,@employeeId output", employeePersonalDetailsParam, employeeDocumentMasterParam, employeeContractorMasterParam, employeeCompanyMasterParam, employeeIdParam);
+			return Convert.ToInt32(employeeIdParam.Value);
 		}
     }
 }
