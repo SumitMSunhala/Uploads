@@ -10,12 +10,14 @@ using System.Web;
 using System.Web.Http;
 using GlobalHRMSApi.Models;
 using GlobalHRMSApi.BLL;
+using System.Web.Http.Cors;
 
 namespace GlobalHRMSApi.Controllers
 {
 
 	[RoutePrefix("user")]
-	public class UserController : ApiController
+    [EnableCors(origins: "*", headers: "*", methods: "*", exposedHeaders: "X-Custom-Header")]
+    public class UserController : ApiController
 	{
 		UserLogic userLogic = new UserLogic();
 

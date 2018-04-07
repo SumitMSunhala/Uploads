@@ -4,12 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using GlobalHRMSApi.Repositories;
 
 namespace GlobalHRMSApi.Controllers
 {
     //[Authorize]
 	[RoutePrefix("api/values")]
+    [EnableCors(origins: "*", headers: "*", methods: "*", exposedHeaders: "X-Custom-Header")]
     public class ValuesController : ApiController
     {
         HRMSManagementEntities hrmsEntities = new HRMSManagementEntities();
@@ -63,8 +65,11 @@ namespace GlobalHRMSApi.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        [Route("Insert")]
+        [HttpPost]
+        public int Post([FromBody]testUser values)
         {
+            return hrmsEntities.CreateUser(values.firstName, values.lastName, values.country, values.state, values.city);
         }
 
         // PUT api/values/5
@@ -76,5 +81,14 @@ namespace GlobalHRMSApi.Controllers
         public void Delete(int id)
         {
         }
+    }
+
+    public class testUser
+    {
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string country { get; set; }
+        public string state { get; set; }
+        public string city { get; set; }
     }
 }

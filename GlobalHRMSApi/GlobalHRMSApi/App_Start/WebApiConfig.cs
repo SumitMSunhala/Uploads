@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace GlobalHRMSApi
 {
@@ -9,10 +10,10 @@ namespace GlobalHRMSApi
 	{
 		public static void Register(HttpConfiguration config)
 		{
-			// Web API configuration and services
-
-			// Web API routes
-			config.MapHttpAttributeRoutes();
+            // Web API configuration and services
+            //EnableCrossSiteRequests(config);
+            // Web API routes
+            config.MapHttpAttributeRoutes();
 			config.MessageHandlers.Add(new TokenValidationHandler());
 			config.Routes.MapHttpRoute(
 				name: "DefaultApi",
@@ -20,5 +21,15 @@ namespace GlobalHRMSApi
 				defaults: new { id = RouteParameter.Optional }
 			);
 		}
-	}
+
+        //private static void EnableCrossSiteRequests(HttpConfiguration config)
+        //{
+        //    var cors = new EnableCorsAttribute(
+        //        origins: "http://globalhrms.in",
+        //        headers: "*",
+        //        methods: "*");
+        //    config.EnableCors(cors);
+        //}
+
+    }
 }

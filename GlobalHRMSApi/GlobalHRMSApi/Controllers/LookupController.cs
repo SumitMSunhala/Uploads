@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using GlobalHRMSApi.BLL;
 using GlobalHRMSApi.Models;
 
@@ -11,6 +12,7 @@ namespace GlobalHRMSApi.Controllers
 {
     //[Authorize]
 	[RoutePrefix("lookup")]
+    [EnableCors(origins: "*", headers: "*", methods: "*", exposedHeaders: "X-Custom-Header")]
     public class LookupController : ApiController
     {
 		LookupLogic lookupLogic = new LookupLogic();
