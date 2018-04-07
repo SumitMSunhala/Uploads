@@ -12,14 +12,14 @@ namespace GlobalHRMSApi.Controllers
 {
     //[Authorize]
 	[RoutePrefix("employee")]
-    [EnableCors(origins: "*", headers: "*", methods: "*", exposedHeaders: "X-Custom-Header")]
+    //[EnableCors(origins: "*", headers: "*", methods: "*", exposedHeaders: "X-Custom-Header")]
     public class EmployeeController : ApiController
     {
 		EmployeeLogic employeeLogic = new EmployeeLogic();
         
         [Route("insertemployeedetails")]
         [HttpPost]
-        public int InsertEmployeeDetails(EmployeeDetails employeeDetails)
+        public int InsertEmployeeDetails([FromBody]EmployeeDetails employeeDetails)
         {
             return employeeLogic.InsertEmployeeDetails(employeeDetails);
         }

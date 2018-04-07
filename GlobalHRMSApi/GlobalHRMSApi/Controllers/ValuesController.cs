@@ -11,7 +11,7 @@ namespace GlobalHRMSApi.Controllers
 {
     //[Authorize]
 	[RoutePrefix("api/values")]
-    [EnableCors(origins: "*", headers: "*", methods: "*", exposedHeaders: "X-Custom-Header")]
+    //[EnableCors(origins: "*", headers: "*", methods: "*", exposedHeaders: "X-Custom-Header")]
     public class ValuesController : ApiController
     {
         HRMSManagementEntities hrmsEntities = new HRMSManagementEntities();

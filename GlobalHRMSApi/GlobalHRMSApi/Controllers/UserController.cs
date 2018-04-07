@@ -16,7 +16,7 @@ namespace GlobalHRMSApi.Controllers
 {
 
 	[RoutePrefix("user")]
-    [EnableCors(origins: "*", headers: "*", methods: "*", exposedHeaders: "X-Custom-Header")]
+    //[EnableCors(origins: "*", headers: "*", methods: "*", exposedHeaders: "X-Custom-Header")]
     public class UserController : ApiController
 	{
 		UserLogic userLogic = new UserLogic();

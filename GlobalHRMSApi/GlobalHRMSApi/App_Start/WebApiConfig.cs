@@ -13,6 +13,12 @@ namespace GlobalHRMSApi
             // Web API configuration and services
             //EnableCrossSiteRequests(config);
             // Web API routes
+            var enableCorsAttribute = new EnableCorsAttribute("*",
+                                               "Origin, Content-Type, Accept",
+                                               "GET, POST");
+            config.EnableCors(enableCorsAttribute);
+
+
             config.MapHttpAttributeRoutes();
 			config.MessageHandlers.Add(new TokenValidationHandler());
 			config.Routes.MapHttpRoute(
