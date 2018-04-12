@@ -19,7 +19,8 @@ namespace GlobalHRMSApi.BLL
 			DataTable employeePersonalDetails = Common.Common.ToDataTable(employeeDetails.EmployeePersonalDetails),
 				employeeDocumentMaster = Common.Common.ToDataTable(employeeDetails.EmployeeDocumentDetails),
 				employeeContractorMaster = Common.Common.ToDataTable(employeeDetails.EmployeeContractorDetails),
-				employeeCompanyMaster = Common.Common.ToDataTable(employeeDetails.EmployeeCompanyDetails);
+				employeeCompanyMaster = Common.Common.ToDataTable(employeeDetails.EmployeeCompanyDetails),
+				employeeNominationMaster = Common.Common.ToDataTable(employeeDetails.EmployeeNominationDetails);
 			SqlParameter employeePersonalDetailsParam = new SqlParameter("@employeePersonalDetails", SqlDbType.Structured)
 			{
 				Value = employeePersonalDetails,
@@ -40,13 +41,18 @@ namespace GlobalHRMSApi.BLL
 					Value = employeeCompanyMaster,
 					TypeName = "dbo.UDT_EmployeeCompanyMaster"
 				},
+				employeeNominationMasterParam = new SqlParameter("@employeeNominationMaster", SqlDbType.Structured)
+				{
+					Value = employeeNominationMaster,
+					TypeName = "dbo.UDT_EmployeeNominationMaster"
+				},
 				employeeIdParam =  new SqlParameter(){
 					ParameterName = "@employeeId",
 					SqlDbType = SqlDbType.Int,
 					Direction = ParameterDirection.Output
 				};
 			
-			hrmsEntities.Database.ExecuteSqlCommand("exec dbo.InsertEmployeeDetails @employeePersonalDetails,@employeeDocumentMaster,@employeeContractorMaster,@employeeCompanyMaster,@employeeId output", employeePersonalDetailsParam, employeeDocumentMasterParam, employeeContractorMasterParam, employeeCompanyMasterParam, employeeIdParam);
+			hrmsEntities.Database.ExecuteSqlCommand("exec dbo.InsertEmployeeDetails @employeePersonalDetails,@employeeDocumentMaster,@employeeContractorMaster,@employeeCompanyMaster,@employeeNominationMaster,@employeeId output", employeePersonalDetailsParam, employeeDocumentMasterParam, employeeContractorMasterParam, employeeCompanyMasterParam, employeeNominationMasterParam, employeeIdParam);
 			return Convert.ToInt32(employeeIdParam.Value);
 		}
     }

@@ -228,12 +228,17 @@ namespace GlobalHRMSApi.Models
 		public string PermenantAddressLine2 { get; set; }
 		public string TemporaryAddressLine1 { get; set; }
 		public string TemporaryAddressLine2 { get; set; }
+		public int PermenantAddressCountryId { get; set; }
+		public int PermenantAddressStateId { get; set; }
+		public int PermenantAddressCityId { get; set; }
+		public int TemporaryAddressCountryId { get; set; }
+		public int TemporaryAddressStateId { get; set; }
+		public int TemporaryAddressCityId { get; set; }
 	}
-
 	public class EmployeeCompanyDetails
 	{
 		public int CompanyId { get; set; }
-		public string AppointmentType { get; set; }
+		public int AppointmentTypeID { get; set; }
 		public string Designation { get; set; }
 		public string Category { get; set; }
 		public string Grade { get; set; }
@@ -243,6 +248,7 @@ namespace GlobalHRMSApi.Models
 		public bool OverTimeApplicability { get; set; }
 		public int ContractorId { get; set; }
 		public string EmployeeIdCode { get; set; }
+		public int ID { get; set; }
 	}
 	public class EmployeeContractorDetails
 	{
@@ -270,9 +276,11 @@ namespace GlobalHRMSApi.Models
 		public string PFAccountNumber { get; set; }
 		public bool EmployeeStateInsuranceCorporationApplicability { get; set; }
 		public string ESICIPNumber { get; set; }
+		public int ID { get; set; }
 	}
 	public class EmployeeDocumentDetails
 	{
+		public int ID { get; set; }
 		public string AadharCardNumber { get; set; }
 		public string AadharEnrolmentNumber { get; set; }
 		public string PANCardNumber { get; set; }
@@ -293,6 +301,28 @@ namespace GlobalHRMSApi.Models
 		public string EmployeeNameAsPerDrivingLicence { get; set; }
 		public string EmployeeNameAsPerPassport { get; set; }
 	}
+	public class EmployeeNominationDetails
+	{
+		public int ID { get; set; }
+		public int ContractorId { get; set; }
+		public int EmployeeId { get; set; }
+		public string Name { get; set; }
+		public string AddressOfNominee { get; set; }
+		public int NomineeCountryId { get; set; }
+		public int NomineeStateId { get; set; }
+		public int NomineeCityId { get; set; }
+		public DateTime BirthdateOfNominee { get; set; }
+		public int AgeOfNominee { get; set; }
+		public int RelationId { get; set; }
+		public int EPF { get; set; }
+		public int EPS { get; set; }
+		public int GRATUTIY { get; set; }
+		public string NameOfGuardian { get; set; }
+		public string AddressOfGuardian { get; set; }
+		public int? GuardianCountryId { get; set; }
+		public int? GuardianStateId { get; set; }
+		public int? GuardianCityId { get; set; }
+	}
 
 	public class EmployeeDetails
 	{
@@ -300,5 +330,6 @@ namespace GlobalHRMSApi.Models
 		public List<EmployeeDocumentDetails> EmployeeDocumentDetails { get; set; }
 		public List<EmployeeCompanyDetails> EmployeeCompanyDetails { get; set; }
 		public List<EmployeeContractorDetails> EmployeeContractorDetails { get; set; }
+		public List<EmployeeNominationDetails> EmployeeNominationDetails { get; set; }
 	}
 }
