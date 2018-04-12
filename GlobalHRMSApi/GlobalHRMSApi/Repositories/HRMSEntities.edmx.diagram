@@ -29,25 +29,40 @@
         <EntityTypeShape EntityType="HRMSManagementModel.StateMaster" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="HRMSManagementModel.UnitMaster" Width="1.5" PointX="9.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HRMSManagementModel.UserMaster" Width="1.5" PointX="14.75" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRMSManagementModel.EmployeeCompanyMaster" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRMSManagementModel.EmployeeContractorMaster" Width="1.5" PointX="8.25" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HRMSManagementModel.EmployeeDocumentMaster" Width="1.5" PointX="5.25" PointY="18.75" IsExpanded="true" />
         <AssociationConnector Association="HRMSManagementModel.FK_BankBranchMaster_BankMaster" ManuallyRouted="false" />
         <AssociationConnector Association="HRMSManagementModel.FK_EmployeePersonalDetails_BloodGroupMaster" ManuallyRouted="false" />
         <AssociationConnector Association="HRMSManagementModel.FK_CityMaster_StateMaster" ManuallyRouted="false" />
         <AssociationConnector Association="HRMSManagementModel.FK_DepartmentMaster_CompanyMaster" ManuallyRouted="false" />
-        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeCompanyMaster_CompanyMaster" ManuallyRouted="false" />
-        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeCompanyMaster_ContractorMaster" ManuallyRouted="false" />
-        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeContractorMaster_ContractorMaster" ManuallyRouted="false" />
         <AssociationConnector Association="HRMSManagementModel.FK_StateMaster_CountyMaster" ManuallyRouted="false" />
-        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeCompanyMaster_EmployeePersonalDetails" ManuallyRouted="false" />
-        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeContractorMaster_EmployeePersonalDetails" ManuallyRouted="false" />
-        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeDocumentMaster_EmployeePersonalDetails" ManuallyRouted="false" />
         <AssociationConnector Association="HRMSManagementModel.FK_EmployeePersonalDetails_GenderMaster" ManuallyRouted="false" />
         <AssociationConnector Association="HRMSManagementModel.FK_EmployeePersonalDetails_MaritalStatusMaster" ManuallyRouted="false" />
         <AssociationConnector Association="HRMSManagementModel.FK_EmployeePersonalDetails_ReligionMaster" ManuallyRouted="false" />
-        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeContractorMaster_ModeOfPaymentMaster" ManuallyRouted="false" />
         <EntityTypeShape EntityType="HRMSManagementModel.Users" Width="1.5" PointX="12.375" PointY="14.75" />
+        <EntityTypeShape EntityType="HRMSManagementModel.EmployeeNominationMaster" Width="1.5" PointX="17.5" PointY="5" />
+        <EntityTypeShape EntityType="HRMSManagementModel.EXCLog" Width="1.5" PointX="14.375" PointY="14.75" />
+        <EntityTypeShape EntityType="HRMSManagementModel.EXCMessage" Width="1.5" PointX="16.375" PointY="14.75" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeNominationMaster_CityMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeePersonalDetails_CityMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeePersonalDetails_CityMaster1" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeNominationMaster_ContractorMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeNominationMaster_CountyMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeePersonalDetails_CountyMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeePersonalDetails_CountyMaster1" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeNominationMaster_EmployeePersonalDetails" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeNominationMaster_StateMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeePersonalDetails_StateMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeePersonalDetails_StateMaster1" />
+        <EntityTypeShape EntityType="HRMSManagementModel.EmployeeDocumentMaster" Width="1.5" PointX="5.25" PointY="16.375" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeDocumentMaster_EmployeePersonalDetails" />
+        <EntityTypeShape EntityType="HRMSManagementModel.EmployeeContractorMaster" Width="1.5" PointX="8.25" PointY="6.375" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeContractorMaster_ContractorMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeContractorMaster_EmployeePersonalDetails" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeContractorMaster_ModeOfPaymentMaster" />
+        <EntityTypeShape EntityType="HRMSManagementModel.EmployeeCompanyMaster" Width="1.5" PointX="19" PointY="11.625" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeCompanyMaster_AppointmentTypeMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeCompanyMaster_CompanyMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeCompanyMaster_ContractorMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeCompanyMaster_EmployeePersonalDetails" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

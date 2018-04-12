@@ -17,8 +17,9 @@ namespace GlobalHRMSApi.Repositories
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ContractorMaster()
         {
-            this.EmployeeCompanyMaster = new HashSet<EmployeeCompanyMaster>();
+            this.EmployeeNominationMaster = new HashSet<EmployeeNominationMaster>();
             this.EmployeeContractorMaster = new HashSet<EmployeeContractorMaster>();
+            this.EmployeeCompanyMaster = new HashSet<EmployeeCompanyMaster>();
         }
     
         public int ID { get; set; }
@@ -28,8 +29,10 @@ namespace GlobalHRMSApi.Repositories
         public System.DateTime UpdatedDateTime { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
+        public virtual ICollection<EmployeeNominationMaster> EmployeeNominationMaster { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeContractorMaster> EmployeeContractorMaster { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
     }
 }

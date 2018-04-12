@@ -17,9 +17,10 @@ namespace GlobalHRMSApi.Repositories
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public EmployeePersonalDetails()
         {
-            this.EmployeeCompanyMaster = new HashSet<EmployeeCompanyMaster>();
-            this.EmployeeContractorMaster = new HashSet<EmployeeContractorMaster>();
+            this.EmployeeNominationMaster = new HashSet<EmployeeNominationMaster>();
             this.EmployeeDocumentMaster = new HashSet<EmployeeDocumentMaster>();
+            this.EmployeeContractorMaster = new HashSet<EmployeeContractorMaster>();
+            this.EmployeeCompanyMaster = new HashSet<EmployeeCompanyMaster>();
         }
     
         public int ID { get; set; }
@@ -40,16 +41,30 @@ namespace GlobalHRMSApi.Repositories
         public string PermenantAddressLine2 { get; set; }
         public string TemporaryAddressLine1 { get; set; }
         public string TemporaryAddressLine2 { get; set; }
+        public int PermenantAddressCountryId { get; set; }
+        public int PermenantAddressStateId { get; set; }
+        public int PermenantAddressCityId { get; set; }
+        public int TemporaryAddressCountryId { get; set; }
+        public int TemporaryAddressStateId { get; set; }
+        public int TemporaryAddressCityId { get; set; }
     
         public virtual BloodGroupMaster BloodGroupMaster { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EmployeeContractorMaster> EmployeeContractorMaster { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EmployeeDocumentMaster> EmployeeDocumentMaster { get; set; }
         public virtual GenderMaster GenderMaster { get; set; }
         public virtual MaritalStatusMaster MaritalStatusMaster { get; set; }
         public virtual ReligionMaster ReligionMaster { get; set; }
+        public virtual CityMaster CityMaster { get; set; }
+        public virtual CityMaster CityMaster1 { get; set; }
+        public virtual CountyMaster CountyMaster { get; set; }
+        public virtual CountyMaster CountyMaster1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmployeeNominationMaster> EmployeeNominationMaster { get; set; }
+        public virtual StateMaster StateMaster { get; set; }
+        public virtual StateMaster StateMaster1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmployeeDocumentMaster> EmployeeDocumentMaster { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmployeeContractorMaster> EmployeeContractorMaster { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
     }
 }

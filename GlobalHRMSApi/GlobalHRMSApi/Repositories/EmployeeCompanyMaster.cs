@@ -15,7 +15,7 @@ namespace GlobalHRMSApi.Repositories
     public partial class EmployeeCompanyMaster
     {
         public int CompanyId { get; set; }
-        public string AppointmentType { get; set; }
+        public int AppointmentTypeID { get; set; }
         public string Designation { get; set; }
         public string Category { get; set; }
         public string Grade { get; set; }
@@ -25,8 +25,10 @@ namespace GlobalHRMSApi.Repositories
         public bool OverTimeApplicability { get; set; }
         public int ContractorId { get; set; }
         public string EmployeeIdCode { get; set; }
+        public int ID { get; set; }
     
-        public virtual CompanyMaster CompanyMaster { get; set; }
+        public virtual AppointmentTypeMaster AppointmentTypeMaster { get; set; }
+        public virtual AppointmentTypeMaster AppointmentTypeMaster1 { get; set; }
         public virtual ContractorMaster ContractorMaster { get; set; }
         public virtual EmployeePersonalDetails EmployeePersonalDetails { get; set; }
     }

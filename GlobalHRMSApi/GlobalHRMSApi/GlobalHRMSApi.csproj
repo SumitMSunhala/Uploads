@@ -224,6 +224,9 @@
     <Compile Include="Repositories\CountyMaster.cs">
       <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\CreateTempUser_Result.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\DepartmentMaster.cs">
       <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
@@ -242,7 +245,16 @@
     <Compile Include="Repositories\EmployeeDocumentMaster.cs">
       <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\EmployeeNominationMaster.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\EmployeePersonalDetails.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\EXCLog.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\EXCMessage.cs">
       <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GenderMaster.cs">
@@ -282,6 +294,9 @@
       <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetEducations_Result.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\GetEmployeeDetails_Result.cs">
       <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GetGenders_Result.cs">
@@ -331,6 +346,15 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>HRMSEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\InsertCompany_Result.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\InsertDepartment_Result.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\InsertDesignation_Result.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\LeaveMaster.cs">
       <DependentUpon>HRMSEntities.tt</DependentUpon>

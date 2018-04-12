@@ -51,10 +51,13 @@ namespace GlobalHRMSApi.Repositories
         public virtual DbSet<StateMaster> StateMaster { get; set; }
         public virtual DbSet<UnitMaster> UnitMaster { get; set; }
         public virtual DbSet<UserMaster> UserMaster { get; set; }
-        public virtual DbSet<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
-        public virtual DbSet<EmployeeContractorMaster> EmployeeContractorMaster { get; set; }
-        public virtual DbSet<EmployeeDocumentMaster> EmployeeDocumentMaster { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<EmployeeNominationMaster> EmployeeNominationMaster { get; set; }
+        public virtual DbSet<EXCLog> EXCLog { get; set; }
+        public virtual DbSet<EXCMessage> EXCMessage { get; set; }
+        public virtual DbSet<EmployeeDocumentMaster> EmployeeDocumentMaster { get; set; }
+        public virtual DbSet<EmployeeContractorMaster> EmployeeContractorMaster { get; set; }
+        public virtual DbSet<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
     
         public virtual int CreateUser(string firstName, string lastName, string country, string state, string city)
         {
@@ -295,9 +298,9 @@ namespace GlobalHRMSApi.Repositories
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GetUsers");
         }
     
-        public virtual int InsertEmployeeDetails()
+        public virtual int InsertEmployeeDetails(ObjectParameter employeeId)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertEmployeeDetails");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertEmployeeDetails", employeeId);
         }
     
         public virtual ObjectResult<GetMaritalStatus_Result> GetMaritalStatus(Nullable<int> iD)
@@ -349,6 +352,131 @@ namespace GlobalHRMSApi.Repositories
                 new ObjectParameter("password", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("RegisterUser", userNameParameter, firstNameParameter, lastNameParameter, emailParameter, mobileParameter, passwordParameter, retVal);
+        }
+    
+        public virtual ObjectResult<CreateTempUser_Result> CreateTempUser(string firstName, string lastName, string country, string state, string city)
+        {
+            var firstNameParameter = firstName != null ?
+                new ObjectParameter("FirstName", firstName) :
+                new ObjectParameter("FirstName", typeof(string));
+    
+            var lastNameParameter = lastName != null ?
+                new ObjectParameter("LastName", lastName) :
+                new ObjectParameter("LastName", typeof(string));
+    
+            var countryParameter = country != null ?
+                new ObjectParameter("Country", country) :
+                new ObjectParameter("Country", typeof(string));
+    
+            var stateParameter = state != null ?
+                new ObjectParameter("State", state) :
+                new ObjectParameter("State", typeof(string));
+    
+            var cityParameter = city != null ?
+                new ObjectParameter("City", city) :
+                new ObjectParameter("City", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CreateTempUser_Result>("CreateTempUser", firstNameParameter, lastNameParameter, countryParameter, stateParameter, cityParameter);
+        }
+    
+        public virtual ObjectResult<GetEmployeeDetails_Result> GetEmployeeDetails(Nullable<int> employeeId)
+        {
+            var employeeIdParameter = employeeId.HasValue ?
+                new ObjectParameter("employeeId", employeeId) :
+                new ObjectParameter("employeeId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmployeeDetails_Result>("GetEmployeeDetails", employeeIdParameter);
+        }
+    
+        public virtual ObjectResult<InsertCompany_Result> InsertCompany(string name, string address, Nullable<int> countryId, Nullable<int> stateId, Nullable<int> cityId, string zipCode, string phone, string emailId, string webSite, Nullable<System.DateTime> createdDateTime, Nullable<System.DateTime> updatedDateTime, string logo)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("Address", address) :
+                new ObjectParameter("Address", typeof(string));
+    
+            var countryIdParameter = countryId.HasValue ?
+                new ObjectParameter("CountryId", countryId) :
+                new ObjectParameter("CountryId", typeof(int));
+    
+            var stateIdParameter = stateId.HasValue ?
+                new ObjectParameter("StateId", stateId) :
+                new ObjectParameter("StateId", typeof(int));
+    
+            var cityIdParameter = cityId.HasValue ?
+                new ObjectParameter("CityId", cityId) :
+                new ObjectParameter("CityId", typeof(int));
+    
+            var zipCodeParameter = zipCode != null ?
+                new ObjectParameter("ZipCode", zipCode) :
+                new ObjectParameter("ZipCode", typeof(string));
+    
+            var phoneParameter = phone != null ?
+                new ObjectParameter("Phone", phone) :
+                new ObjectParameter("Phone", typeof(string));
+    
+            var emailIdParameter = emailId != null ?
+                new ObjectParameter("EmailId", emailId) :
+                new ObjectParameter("EmailId", typeof(string));
+    
+            var webSiteParameter = webSite != null ?
+                new ObjectParameter("WebSite", webSite) :
+                new ObjectParameter("WebSite", typeof(string));
+    
+            var createdDateTimeParameter = createdDateTime.HasValue ?
+                new ObjectParameter("CreatedDateTime", createdDateTime) :
+                new ObjectParameter("CreatedDateTime", typeof(System.DateTime));
+    
+            var updatedDateTimeParameter = updatedDateTime.HasValue ?
+                new ObjectParameter("UpdatedDateTime", updatedDateTime) :
+                new ObjectParameter("UpdatedDateTime", typeof(System.DateTime));
+    
+            var logoParameter = logo != null ?
+                new ObjectParameter("Logo", logo) :
+                new ObjectParameter("Logo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsertCompany_Result>("InsertCompany", nameParameter, addressParameter, countryIdParameter, stateIdParameter, cityIdParameter, zipCodeParameter, phoneParameter, emailIdParameter, webSiteParameter, createdDateTimeParameter, updatedDateTimeParameter, logoParameter);
+        }
+    
+        public virtual ObjectResult<InsertDepartment_Result> InsertDepartment(string name, Nullable<int> companyId, Nullable<System.DateTime> createdDateTime, Nullable<System.DateTime> updatedDateTime)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var companyIdParameter = companyId.HasValue ?
+                new ObjectParameter("CompanyId", companyId) :
+                new ObjectParameter("CompanyId", typeof(int));
+    
+            var createdDateTimeParameter = createdDateTime.HasValue ?
+                new ObjectParameter("CreatedDateTime", createdDateTime) :
+                new ObjectParameter("CreatedDateTime", typeof(System.DateTime));
+    
+            var updatedDateTimeParameter = updatedDateTime.HasValue ?
+                new ObjectParameter("UpdatedDateTime", updatedDateTime) :
+                new ObjectParameter("UpdatedDateTime", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsertDepartment_Result>("InsertDepartment", nameParameter, companyIdParameter, createdDateTimeParameter, updatedDateTimeParameter);
+        }
+    
+        public virtual ObjectResult<InsertDesignation_Result> InsertDesignation(string name, Nullable<System.DateTime> createdDateTime, Nullable<System.DateTime> updatedDateTime)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var createdDateTimeParameter = createdDateTime.HasValue ?
+                new ObjectParameter("CreatedDateTime", createdDateTime) :
+                new ObjectParameter("CreatedDateTime", typeof(System.DateTime));
+    
+            var updatedDateTimeParameter = updatedDateTime.HasValue ?
+                new ObjectParameter("UpdatedDateTime", updatedDateTime) :
+                new ObjectParameter("UpdatedDateTime", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsertDesignation_Result>("InsertDesignation", nameParameter, createdDateTimeParameter, updatedDateTimeParameter);
         }
     }
 }

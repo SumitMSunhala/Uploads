@@ -14,6 +14,7 @@ namespace GlobalHRMSApi.Repositories
     
     public partial class EmployeeDocumentMaster
     {
+        public int ID { get; set; }
         public string AadharCardNumber { get; set; }
         public string AadharEnrolmentNumber { get; set; }
         public string PANCardNumber { get; set; }

@@ -137,24 +137,12 @@
           <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'HRMSManagement.dbo.EmployeeCompanyMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="EmployeeCompanyMaster">
           <Key>
-            <PropertyRef Name="CompanyId" />
-            <PropertyRef Name="AppointmentType" />
-            <PropertyRef Name="Designation" />
-            <PropertyRef Name="Category" />
-            <PropertyRef Name="Grade" />
-            <PropertyRef Name="Department" />
-            <PropertyRef Name="Plant" />
-            <PropertyRef Name="EmployeeId" />
-            <PropertyRef Name="OverTimeApplicability" />
-            <PropertyRef Name="ContractorId" />
-            <PropertyRef Name="EmployeeIdCode" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="CompanyId" Type="int" Nullable="false" />
-          <Property Name="AppointmentType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AppointmentTypeID" Type="int" Nullable="false" />
           <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Grade" Type="varchar" MaxLength="50" Nullable="false" />
@@ -164,35 +152,11 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeCompanyMaster' does not
           <Property Name="OverTimeApplicability" Type="bit" Nullable="false" />
           <Property Name="ContractorId" Type="int" Nullable="false" />
           <Property Name="EmployeeIdCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'HRMSManagement.dbo.EmployeeContractorMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="EmployeeContractorMaster">
           <Key>
-            <PropertyRef Name="ContractorId" />
-            <PropertyRef Name="DateOfJoining" />
-            <PropertyRef Name="DateOfResignation" />
-            <PropertyRef Name="DateOfLeaving" />
-            <PropertyRef Name="DateOfTermination" />
-            <PropertyRef Name="DateOfRetirement" />
-            <PropertyRef Name="DateOfConfirmation" />
-            <PropertyRef Name="ReasonForLeaving" />
-            <PropertyRef Name="ReasonForTermination" />
-            <PropertyRef Name="EmployeeId" />
-            <PropertyRef Name="ModeOfPaymentId" />
-            <PropertyRef Name="SavingBankAccountNumber" />
-            <PropertyRef Name="NameOfBank" />
-            <PropertyRef Name="BankAddress" />
-            <PropertyRef Name="BranchOfBank" />
-            <PropertyRef Name="IFSCNumber" />
-            <PropertyRef Name="MICRNumber" />
-            <PropertyRef Name="ProfessionalTaxApplicability" />
-            <PropertyRef Name="GujaratLabourWelfareFundApplicability" />
-            <PropertyRef Name="ProvidentfundApplicability" />
-            <PropertyRef Name="UniversalAccountNumber" />
-            <PropertyRef Name="PFAccountNumber" />
-            <PropertyRef Name="EmployeeStateInsuranceCorporationApplicability" />
-            <PropertyRef Name="ESICIPNumber" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="ContractorId" Type="int" Nullable="false" />
           <Property Name="DateOfJoining" Type="datetime" Nullable="false" />
@@ -218,31 +182,13 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeContractorMaster' does 
           <Property Name="PFAccountNumber" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="EmployeeStateInsuranceCorporationApplicability" Type="bit" Nullable="false" />
           <Property Name="ESICIPNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="EmployeeDocumentMaster">
           <Key>
-            <PropertyRef Name="AadharCardNumber" />
-            <PropertyRef Name="AadharEnrolmentNumber" />
-            <PropertyRef Name="PANCardNumber" />
-            <PropertyRef Name="ElectionCardNumber" />
-            <PropertyRef Name="RationCardNumber" />
-            <PropertyRef Name="NationalPopulationRegister" />
-            <PropertyRef Name="DrivingLicenceNumber" />
-            <PropertyRef Name="DrivingLicenceNumberValidUpTo" />
-            <PropertyRef Name="PassportNumber" />
-            <PropertyRef Name="PassportNumberValidUpTo" />
-            <PropertyRef Name="EmployeeId" />
-            <PropertyRef Name="EmployeeNameAsPerAadharCard" />
-            <PropertyRef Name="FatherNameAsPerAadharCard" />
-            <PropertyRef Name="EmployeeNameAsPerPanCard" />
-            <PropertyRef Name="EmployeeNameAsPerElectionCard" />
-            <PropertyRef Name="EmployeeNameAsPerRationCard" />
-            <PropertyRef Name="EmployeeNameAsPerNationalPopulationRegister" />
-            <PropertyRef Name="EmployeeNameAsPerDrivingLicence" />
-            <PropertyRef Name="EmployeeNameAsPerPassport" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AadharCardNumber" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="AadharEnrolmentNumber" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PANCardNumber" Type="varchar" MaxLength="50" Nullable="false" />
@@ -262,6 +208,30 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Name="EmployeeNameAsPerNationalPopulationRegister" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="EmployeeNameAsPerDrivingLicence" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="EmployeeNameAsPerPassport" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeNominationMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContractorId" Type="int" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="AddressOfNominee" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="NomineeCountryId" Type="int" Nullable="false" />
+          <Property Name="NomineeStateId" Type="int" Nullable="false" />
+          <Property Name="NomineeCityId" Type="int" Nullable="false" />
+          <Property Name="BirthdateOfNominee" Type="datetime" Nullable="false" />
+          <Property Name="AgeOfNominee" Type="int" Nullable="false" />
+          <Property Name="RelationId" Type="int" Nullable="false" />
+          <Property Name="EPF" Type="int" Nullable="false" />
+          <Property Name="EPS" Type="int" Nullable="false" />
+          <Property Name="GRATUTIY" Type="int" Nullable="false" />
+          <Property Name="NameOfGuardian" Type="varchar" MaxLength="500" />
+          <Property Name="AddressOfGuardian" Type="varchar" MaxLength="500" />
+          <Property Name="GuardianCountryId" Type="int" />
+          <Property Name="GuardianStateId" Type="int" />
+          <Property Name="GuardianCityId" Type="int" />
         </EntityType>
         <EntityType Name="EmployeePersonalDetails">
           <Key>
@@ -285,6 +255,38 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Name="PermenantAddressLine2" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="TemporaryAddressLine1" Type="varchar" MaxLength="500" Nullable="false" />
           <Property Name="TemporaryAddressLine2" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="PermenantAddressCountryId" Type="int" Nullable="false" />
+          <Property Name="PermenantAddressStateId" Type="int" Nullable="false" />
+          <Property Name="PermenantAddressCityId" Type="int" Nullable="false" />
+          <Property Name="TemporaryAddressCountryId" Type="int" Nullable="false" />
+          <Property Name="TemporaryAddressStateId" Type="int" Nullable="false" />
+          <Property Name="TemporaryAddressCityId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EXCLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserToken" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ExceptionDateTime" Type="datetime" Nullable="false" />
+          <Property Name="Thread" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Level" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Logger" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Exception" Type="nvarchar(max)" />
+          <Property Name="Source" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="EXCMessage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LanguagueCode" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedUserID" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedUserID" Type="int" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="GenderMaster">
           <Key>
@@ -454,15 +456,27 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EmployeeCompanyMaster_CompanyMaster">
-          <End Role="CompanyMaster" Type="Self.CompanyMaster" Multiplicity="1" />
+        <Association Name="FK_EmployeeCompanyMaster_AppointmentTypeMaster">
+          <End Role="AppointmentTypeMaster" Type="Self.AppointmentTypeMaster" Multiplicity="1" />
           <End Role="EmployeeCompanyMaster" Type="Self.EmployeeCompanyMaster" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CompanyMaster">
+            <Principal Role="AppointmentTypeMaster">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="EmployeeCompanyMaster">
-              <PropertyRef Name="CompanyId" />
+              <PropertyRef Name="AppointmentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeCompanyMaster_CompanyMaster">
+          <End Role="AppointmentTypeMaster" Type="Self.AppointmentTypeMaster" Multiplicity="1" />
+          <End Role="EmployeeCompanyMaster" Type="Self.EmployeeCompanyMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppointmentTypeMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeCompanyMaster">
+              <PropertyRef Name="AppointmentTypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -538,6 +552,66 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_EmployeeNominationMaster_CityMaster">
+          <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="1" />
+          <End Role="EmployeeNominationMaster" Type="Self.EmployeeNominationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeNominationMaster">
+              <PropertyRef Name="NomineeCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeNominationMaster_ContractorMaster">
+          <End Role="ContractorMaster" Type="Self.ContractorMaster" Multiplicity="1" />
+          <End Role="EmployeeNominationMaster" Type="Self.EmployeeNominationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeNominationMaster">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeNominationMaster_CountyMaster">
+          <End Role="CountyMaster" Type="Self.CountyMaster" Multiplicity="1" />
+          <End Role="EmployeeNominationMaster" Type="Self.EmployeeNominationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountyMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeNominationMaster">
+              <PropertyRef Name="NomineeCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeNominationMaster_EmployeePersonalDetails">
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="1" />
+          <End Role="EmployeeNominationMaster" Type="Self.EmployeeNominationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeNominationMaster">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeNominationMaster_StateMaster">
+          <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="1" />
+          <End Role="EmployeeNominationMaster" Type="Self.EmployeeNominationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeNominationMaster">
+              <PropertyRef Name="NomineeStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_EmployeePersonalDetails_BloodGroupMaster">
           <End Role="BloodGroupMaster" Type="Self.BloodGroupMaster" Multiplicity="1" />
           <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="*" />
@@ -547,6 +621,54 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </Principal>
             <Dependent Role="EmployeePersonalDetails">
               <PropertyRef Name="BloodGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePersonalDetails_CityMaster">
+          <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="1" />
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeePersonalDetails">
+              <PropertyRef Name="PermenantAddressCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePersonalDetails_CityMaster1">
+          <End Role="CityMaster" Type="Self.CityMaster" Multiplicity="1" />
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeePersonalDetails">
+              <PropertyRef Name="TemporaryAddressCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePersonalDetails_CountyMaster">
+          <End Role="CountyMaster" Type="Self.CountyMaster" Multiplicity="1" />
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountyMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeePersonalDetails">
+              <PropertyRef Name="PermenantAddressCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePersonalDetails_CountyMaster1">
+          <End Role="CountyMaster" Type="Self.CountyMaster" Multiplicity="1" />
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountyMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeePersonalDetails">
+              <PropertyRef Name="TemporaryAddressCountryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -586,6 +708,30 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_EmployeePersonalDetails_StateMaster">
+          <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="1" />
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeePersonalDetails">
+              <PropertyRef Name="PermenantAddressStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePersonalDetails_StateMaster1">
+          <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="1" />
+          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeePersonalDetails">
+              <PropertyRef Name="TemporaryAddressStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_StateMaster_CountyMaster">
           <End Role="CountyMaster" Type="Self.CountyMaster" Multiplicity="1" />
           <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="*" />
@@ -598,6 +744,13 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="CreateTempUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FirstName" Type="varchar" Mode="In" />
+          <Parameter Name="LastName" Type="varchar" Mode="In" />
+          <Parameter Name="Country" Type="varchar" Mode="In" />
+          <Parameter Name="State" Type="varchar" Mode="In" />
+          <Parameter Name="City" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="CreateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="FirstName" Type="varchar" Mode="In" />
           <Parameter Name="LastName" Type="varchar" Mode="In" />
@@ -643,6 +796,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
         <Function Name="GetEducations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
+        <Function Name="GetEmployeeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="employeeId" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetGenders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
@@ -677,7 +833,34 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
         <Function Name="GetUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="InsertEmployeeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="InsertCompany" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="CountryId" Type="int" Mode="In" />
+          <Parameter Name="StateId" Type="int" Mode="In" />
+          <Parameter Name="CityId" Type="int" Mode="In" />
+          <Parameter Name="ZipCode" Type="varchar" Mode="In" />
+          <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+          <Parameter Name="EmailId" Type="varchar" Mode="In" />
+          <Parameter Name="WebSite" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedDateTime" Type="datetime" Mode="In" />
+          <Parameter Name="UpdatedDateTime" Type="datetime" Mode="In" />
+          <Parameter Name="Logo" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="InsertDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyId" Type="int" Mode="In" />
+          <Parameter Name="CreatedDateTime" Type="datetime" Mode="In" />
+          <Parameter Name="UpdatedDateTime" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="InsertDesignation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="CreatedDateTime" Type="datetime" Mode="In" />
+          <Parameter Name="UpdatedDateTime" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="InsertEmployeeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="employeeId" Type="int" Mode="InOut" />
+        </Function>
         <Function Name="LoginUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userName" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
@@ -705,7 +888,13 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <EntitySet Name="DepartmentMaster" EntityType="Self.DepartmentMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DesignationMaster" EntityType="Self.DesignationMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EducationMaster" EntityType="Self.EducationMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeCompanyMaster" EntityType="Self.EmployeeCompanyMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeContractorMaster" EntityType="Self.EmployeeContractorMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeDocumentMaster" EntityType="Self.EmployeeDocumentMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeNominationMaster" EntityType="Self.EmployeeNominationMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeePersonalDetails" EntityType="Self.EmployeePersonalDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EXCLog" EntityType="Self.EXCLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EXCMessage" EntityType="Self.EXCMessage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GenderMaster" EntityType="Self.GenderMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GradeMaster" EntityType="Self.GradeMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LeaveMaster" EntityType="Self.LeaveMaster" Schema="dbo" store:Type="Tables" />
@@ -718,72 +907,6 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <EntitySet Name="UnitMaster" EntityType="Self.UnitMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserMaster" EntityType="Self.UserMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="EmployeeCompanyMaster" EntityType="Self.EmployeeCompanyMaster" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [EmployeeCompanyMaster].[CompanyId] AS [CompanyId], 
-    [EmployeeCompanyMaster].[AppointmentType] AS [AppointmentType], 
-    [EmployeeCompanyMaster].[Designation] AS [Designation], 
-    [EmployeeCompanyMaster].[Category] AS [Category], 
-    [EmployeeCompanyMaster].[Grade] AS [Grade], 
-    [EmployeeCompanyMaster].[Department] AS [Department], 
-    [EmployeeCompanyMaster].[Plant] AS [Plant], 
-    [EmployeeCompanyMaster].[EmployeeId] AS [EmployeeId], 
-    [EmployeeCompanyMaster].[OverTimeApplicability] AS [OverTimeApplicability], 
-    [EmployeeCompanyMaster].[ContractorId] AS [ContractorId], 
-    [EmployeeCompanyMaster].[EmployeeIdCode] AS [EmployeeIdCode]
-    FROM [dbo].[EmployeeCompanyMaster] AS [EmployeeCompanyMaster]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="EmployeeContractorMaster" EntityType="Self.EmployeeContractorMaster" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [EmployeeContractorMaster].[ContractorId] AS [ContractorId], 
-    [EmployeeContractorMaster].[DateOfJoining] AS [DateOfJoining], 
-    [EmployeeContractorMaster].[DateOfResignation] AS [DateOfResignation], 
-    [EmployeeContractorMaster].[DateOfLeaving] AS [DateOfLeaving], 
-    [EmployeeContractorMaster].[DateOfTermination] AS [DateOfTermination], 
-    [EmployeeContractorMaster].[DateOfRetirement] AS [DateOfRetirement], 
-    [EmployeeContractorMaster].[DateOfConfirmation] AS [DateOfConfirmation], 
-    [EmployeeContractorMaster].[ReasonForLeaving] AS [ReasonForLeaving], 
-    [EmployeeContractorMaster].[ReasonForTermination] AS [ReasonForTermination], 
-    [EmployeeContractorMaster].[EmployeeId] AS [EmployeeId], 
-    [EmployeeContractorMaster].[ModeOfPaymentId] AS [ModeOfPaymentId], 
-    [EmployeeContractorMaster].[SavingBankAccountNumber] AS [SavingBankAccountNumber], 
-    [EmployeeContractorMaster].[NameOfBank] AS [NameOfBank], 
-    [EmployeeContractorMaster].[BankAddress] AS [BankAddress], 
-    [EmployeeContractorMaster].[BranchOfBank] AS [BranchOfBank], 
-    [EmployeeContractorMaster].[IFSCNumber] AS [IFSCNumber], 
-    [EmployeeContractorMaster].[MICRNumber] AS [MICRNumber], 
-    [EmployeeContractorMaster].[ProfessionalTaxApplicability] AS [ProfessionalTaxApplicability], 
-    [EmployeeContractorMaster].[GujaratLabourWelfareFundApplicability] AS [GujaratLabourWelfareFundApplicability], 
-    [EmployeeContractorMaster].[ProvidentfundApplicability] AS [ProvidentfundApplicability], 
-    [EmployeeContractorMaster].[UniversalAccountNumber] AS [UniversalAccountNumber], 
-    [EmployeeContractorMaster].[PFAccountNumber] AS [PFAccountNumber], 
-    [EmployeeContractorMaster].[EmployeeStateInsuranceCorporationApplicability] AS [EmployeeStateInsuranceCorporationApplicability], 
-    [EmployeeContractorMaster].[ESICIPNumber] AS [ESICIPNumber]
-    FROM [dbo].[EmployeeContractorMaster] AS [EmployeeContractorMaster]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="EmployeeDocumentMaster" EntityType="Self.EmployeeDocumentMaster" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [EmployeeDocumentMaster].[AadharCardNumber] AS [AadharCardNumber], 
-    [EmployeeDocumentMaster].[AadharEnrolmentNumber] AS [AadharEnrolmentNumber], 
-    [EmployeeDocumentMaster].[PANCardNumber] AS [PANCardNumber], 
-    [EmployeeDocumentMaster].[ElectionCardNumber] AS [ElectionCardNumber], 
-    [EmployeeDocumentMaster].[RationCardNumber] AS [RationCardNumber], 
-    [EmployeeDocumentMaster].[NationalPopulationRegister] AS [NationalPopulationRegister], 
-    [EmployeeDocumentMaster].[DrivingLicenceNumber] AS [DrivingLicenceNumber], 
-    [EmployeeDocumentMaster].[DrivingLicenceNumberValidUpTo] AS [DrivingLicenceNumberValidUpTo], 
-    [EmployeeDocumentMaster].[PassportNumber] AS [PassportNumber], 
-    [EmployeeDocumentMaster].[PassportNumberValidUpTo] AS [PassportNumberValidUpTo], 
-    [EmployeeDocumentMaster].[EmployeeId] AS [EmployeeId], 
-    [EmployeeDocumentMaster].[EmployeeNameAsPerAadharCard] AS [EmployeeNameAsPerAadharCard], 
-    [EmployeeDocumentMaster].[FatherNameAsPerAadharCard] AS [FatherNameAsPerAadharCard], 
-    [EmployeeDocumentMaster].[EmployeeNameAsPerPanCard] AS [EmployeeNameAsPerPanCard], 
-    [EmployeeDocumentMaster].[EmployeeNameAsPerElectionCard] AS [EmployeeNameAsPerElectionCard], 
-    [EmployeeDocumentMaster].[EmployeeNameAsPerRationCard] AS [EmployeeNameAsPerRationCard], 
-    [EmployeeDocumentMaster].[EmployeeNameAsPerNationalPopulationRegister] AS [EmployeeNameAsPerNationalPopulationRegister], 
-    [EmployeeDocumentMaster].[EmployeeNameAsPerDrivingLicence] AS [EmployeeNameAsPerDrivingLicence], 
-    [EmployeeDocumentMaster].[EmployeeNameAsPerPassport] AS [EmployeeNameAsPerPassport]
-    FROM [dbo].[EmployeeDocumentMaster] AS [EmployeeDocumentMaster]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_BankBranchMaster_BankMaster" Association="Self.FK_BankBranchMaster_BankMaster">
             <End Role="BankMaster" EntitySet="BankMaster" />
             <End Role="BankBranchMaster" EntitySet="BankBranchMaster" />
@@ -796,8 +919,12 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             <End Role="CompanyMaster" EntitySet="CompanyMaster" />
             <End Role="DepartmentMaster" EntitySet="DepartmentMaster" />
           </AssociationSet>
+          <AssociationSet Name="FK_EmployeeCompanyMaster_AppointmentTypeMaster" Association="Self.FK_EmployeeCompanyMaster_AppointmentTypeMaster">
+            <End Role="AppointmentTypeMaster" EntitySet="AppointmentTypeMaster" />
+            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
+          </AssociationSet>
           <AssociationSet Name="FK_EmployeeCompanyMaster_CompanyMaster" Association="Self.FK_EmployeeCompanyMaster_CompanyMaster">
-            <End Role="CompanyMaster" EntitySet="CompanyMaster" />
+            <End Role="AppointmentTypeMaster" EntitySet="AppointmentTypeMaster" />
             <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
           </AssociationSet>
           <AssociationSet Name="FK_EmployeeCompanyMaster_ContractorMaster" Association="Self.FK_EmployeeCompanyMaster_ContractorMaster">
@@ -824,8 +951,44 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
             <End Role="EmployeeDocumentMaster" EntitySet="EmployeeDocumentMaster" />
           </AssociationSet>
+          <AssociationSet Name="FK_EmployeeNominationMaster_CityMaster" Association="Self.FK_EmployeeNominationMaster_CityMaster">
+            <End Role="CityMaster" EntitySet="CityMaster" />
+            <End Role="EmployeeNominationMaster" EntitySet="EmployeeNominationMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeNominationMaster_ContractorMaster" Association="Self.FK_EmployeeNominationMaster_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="EmployeeNominationMaster" EntitySet="EmployeeNominationMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeNominationMaster_CountyMaster" Association="Self.FK_EmployeeNominationMaster_CountyMaster">
+            <End Role="CountyMaster" EntitySet="CountyMaster" />
+            <End Role="EmployeeNominationMaster" EntitySet="EmployeeNominationMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeNominationMaster_EmployeePersonalDetails" Association="Self.FK_EmployeeNominationMaster_EmployeePersonalDetails">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="EmployeeNominationMaster" EntitySet="EmployeeNominationMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeNominationMaster_StateMaster" Association="Self.FK_EmployeeNominationMaster_StateMaster">
+            <End Role="StateMaster" EntitySet="StateMaster" />
+            <End Role="EmployeeNominationMaster" EntitySet="EmployeeNominationMaster" />
+          </AssociationSet>
           <AssociationSet Name="FK_EmployeePersonalDetails_BloodGroupMaster" Association="Self.FK_EmployeePersonalDetails_BloodGroupMaster">
             <End Role="BloodGroupMaster" EntitySet="BloodGroupMaster" />
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePersonalDetails_CityMaster" Association="Self.FK_EmployeePersonalDetails_CityMaster">
+            <End Role="CityMaster" EntitySet="CityMaster" />
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePersonalDetails_CityMaster1" Association="Self.FK_EmployeePersonalDetails_CityMaster1">
+            <End Role="CityMaster" EntitySet="CityMaster" />
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePersonalDetails_CountyMaster" Association="Self.FK_EmployeePersonalDetails_CountyMaster">
+            <End Role="CountyMaster" EntitySet="CountyMaster" />
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePersonalDetails_CountyMaster1" Association="Self.FK_EmployeePersonalDetails_CountyMaster1">
+            <End Role="CountyMaster" EntitySet="CountyMaster" />
             <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_EmployeePersonalDetails_GenderMaster" Association="Self.FK_EmployeePersonalDetails_GenderMaster">
@@ -838,6 +1001,14 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           </AssociationSet>
           <AssociationSet Name="FK_EmployeePersonalDetails_ReligionMaster" Association="Self.FK_EmployeePersonalDetails_ReligionMaster">
             <End Role="ReligionMaster" EntitySet="ReligionMaster" />
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePersonalDetails_StateMaster" Association="Self.FK_EmployeePersonalDetails_StateMaster">
+            <End Role="StateMaster" EntitySet="StateMaster" />
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePersonalDetails_StateMaster1" Association="Self.FK_EmployeePersonalDetails_StateMaster1">
+            <End Role="StateMaster" EntitySet="StateMaster" />
             <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
           </AssociationSet>
           <AssociationSet Name="FK_StateMaster_CountyMaster" Association="Self.FK_StateMaster_CountyMaster">
@@ -858,7 +1029,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
+          <NavigationProperty Name="EmployeeCompanyMaster" Relationship="HRMSManagementModel.FK_EmployeeCompanyMaster_AppointmentTypeMaster" FromRole="AppointmentTypeMaster" ToRole="EmployeeCompanyMaster" />
+          <NavigationProperty Name="EmployeeCompanyMaster1" Relationship="HRMSManagementModel.FK_EmployeeCompanyMaster_CompanyMaster" FromRole="AppointmentTypeMaster" ToRole="EmployeeCompanyMaster" />
+          </EntityType>
         <EntityType Name="BankBranchMaster">
           <Key>
             <PropertyRef Name="ID" />
@@ -914,6 +1087,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="StateMaster" Relationship="Self.FK_CityMaster_StateMaster" FromRole="CityMaster" ToRole="StateMaster" />
+          <NavigationProperty Name="EmployeeNominationMaster" Relationship="HRMSManagementModel.FK_EmployeeNominationMaster_CityMaster" FromRole="CityMaster" ToRole="EmployeeNominationMaster" />
+          <NavigationProperty Name="EmployeePersonalDetails" Relationship="HRMSManagementModel.FK_EmployeePersonalDetails_CityMaster" FromRole="CityMaster" ToRole="EmployeePersonalDetails" />
+          <NavigationProperty Name="EmployeePersonalDetails1" Relationship="HRMSManagementModel.FK_EmployeePersonalDetails_CityMaster1" FromRole="CityMaster" ToRole="EmployeePersonalDetails" />
         </EntityType>
         <EntityType Name="CompanyMaster">
           <Key>
@@ -934,7 +1110,6 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="DepartmentMaster" Relationship="Self.FK_DepartmentMaster_CompanyMaster" FromRole="CompanyMaster" ToRole="DepartmentMaster" />
-          <NavigationProperty Name="EmployeeCompanyMaster" Relationship="Self.FK_EmployeeCompanyMaster_CompanyMaster" FromRole="CompanyMaster" ToRole="EmployeeCompanyMaster" />
         </EntityType>
         <EntityType Name="ContractorMaster">
           <Key>
@@ -945,8 +1120,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="EmployeeCompanyMaster" Relationship="Self.FK_EmployeeCompanyMaster_ContractorMaster" FromRole="ContractorMaster" ToRole="EmployeeCompanyMaster" />
-          <NavigationProperty Name="EmployeeContractorMaster" Relationship="Self.FK_EmployeeContractorMaster_ContractorMaster" FromRole="ContractorMaster" ToRole="EmployeeContractorMaster" />
+          <NavigationProperty Name="EmployeeNominationMaster" Relationship="HRMSManagementModel.FK_EmployeeNominationMaster_ContractorMaster" FromRole="ContractorMaster" ToRole="EmployeeNominationMaster" />
+          <NavigationProperty Name="EmployeeContractorMaster" Relationship="HRMSManagementModel.FK_EmployeeContractorMaster_ContractorMaster" FromRole="ContractorMaster" ToRole="EmployeeContractorMaster" />
+          <NavigationProperty Name="EmployeeCompanyMaster" Relationship="HRMSManagementModel.FK_EmployeeCompanyMaster_ContractorMaster" FromRole="ContractorMaster" ToRole="EmployeeCompanyMaster" />
         </EntityType>
         <EntityType Name="CountyMaster">
           <Key>
@@ -958,6 +1134,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="StateMaster" Relationship="Self.FK_StateMaster_CountyMaster" FromRole="CountyMaster" ToRole="StateMaster" />
+          <NavigationProperty Name="EmployeeNominationMaster" Relationship="HRMSManagementModel.FK_EmployeeNominationMaster_CountyMaster" FromRole="CountyMaster" ToRole="EmployeeNominationMaster" />
+          <NavigationProperty Name="EmployeePersonalDetails" Relationship="HRMSManagementModel.FK_EmployeePersonalDetails_CountyMaster" FromRole="CountyMaster" ToRole="EmployeePersonalDetails" />
+          <NavigationProperty Name="EmployeePersonalDetails1" Relationship="HRMSManagementModel.FK_EmployeePersonalDetails_CountyMaster1" FromRole="CountyMaster" ToRole="EmployeePersonalDetails" />
         </EntityType>
         <EntityType Name="DepartmentMaster">
           <Key>
@@ -1014,12 +1193,25 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Name="TemporaryAddressLine1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TemporaryAddressLine2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="BloodGroupMaster" Relationship="Self.FK_EmployeePersonalDetails_BloodGroupMaster" FromRole="EmployeePersonalDetails" ToRole="BloodGroupMaster" />
-          <NavigationProperty Name="EmployeeCompanyMaster" Relationship="Self.FK_EmployeeCompanyMaster_EmployeePersonalDetails" FromRole="EmployeePersonalDetails" ToRole="EmployeeCompanyMaster" />
-          <NavigationProperty Name="EmployeeContractorMaster" Relationship="Self.FK_EmployeeContractorMaster_EmployeePersonalDetails" FromRole="EmployeePersonalDetails" ToRole="EmployeeContractorMaster" />
-          <NavigationProperty Name="EmployeeDocumentMaster" Relationship="Self.FK_EmployeeDocumentMaster_EmployeePersonalDetails" FromRole="EmployeePersonalDetails" ToRole="EmployeeDocumentMaster" />
           <NavigationProperty Name="GenderMaster" Relationship="Self.FK_EmployeePersonalDetails_GenderMaster" FromRole="EmployeePersonalDetails" ToRole="GenderMaster" />
           <NavigationProperty Name="MaritalStatusMaster" Relationship="Self.FK_EmployeePersonalDetails_MaritalStatusMaster" FromRole="EmployeePersonalDetails" ToRole="MaritalStatusMaster" />
           <NavigationProperty Name="ReligionMaster" Relationship="Self.FK_EmployeePersonalDetails_ReligionMaster" FromRole="EmployeePersonalDetails" ToRole="ReligionMaster" />
+          <Property Name="PermenantAddressCountryId" Type="Int32" Nullable="false" />
+          <Property Name="PermenantAddressStateId" Type="Int32" Nullable="false" />
+          <Property Name="PermenantAddressCityId" Type="Int32" Nullable="false" />
+          <Property Name="TemporaryAddressCountryId" Type="Int32" Nullable="false" />
+          <Property Name="TemporaryAddressStateId" Type="Int32" Nullable="false" />
+          <Property Name="TemporaryAddressCityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CityMaster" Relationship="HRMSManagementModel.FK_EmployeePersonalDetails_CityMaster" FromRole="EmployeePersonalDetails" ToRole="CityMaster" />
+          <NavigationProperty Name="CityMaster1" Relationship="HRMSManagementModel.FK_EmployeePersonalDetails_CityMaster1" FromRole="EmployeePersonalDetails" ToRole="CityMaster" />
+          <NavigationProperty Name="CountyMaster" Relationship="HRMSManagementModel.FK_EmployeePersonalDetails_CountyMaster" FromRole="EmployeePersonalDetails" ToRole="CountyMaster" />
+          <NavigationProperty Name="CountyMaster1" Relationship="HRMSManagementModel.FK_EmployeePersonalDetails_CountyMaster1" FromRole="EmployeePersonalDetails" ToRole="CountyMaster" />
+          <NavigationProperty Name="EmployeeNominationMaster" Relationship="HRMSManagementModel.FK_EmployeeNominationMaster_EmployeePersonalDetails" FromRole="EmployeePersonalDetails" ToRole="EmployeeNominationMaster" />
+          <NavigationProperty Name="StateMaster" Relationship="HRMSManagementModel.FK_EmployeePersonalDetails_StateMaster" FromRole="EmployeePersonalDetails" ToRole="StateMaster" />
+          <NavigationProperty Name="StateMaster1" Relationship="HRMSManagementModel.FK_EmployeePersonalDetails_StateMaster1" FromRole="EmployeePersonalDetails" ToRole="StateMaster" />
+          <NavigationProperty Name="EmployeeDocumentMaster" Relationship="HRMSManagementModel.FK_EmployeeDocumentMaster_EmployeePersonalDetails" FromRole="EmployeePersonalDetails" ToRole="EmployeeDocumentMaster" />
+          <NavigationProperty Name="EmployeeContractorMaster" Relationship="HRMSManagementModel.FK_EmployeeContractorMaster_EmployeePersonalDetails" FromRole="EmployeePersonalDetails" ToRole="EmployeeContractorMaster" />
+          <NavigationProperty Name="EmployeeCompanyMaster" Relationship="HRMSManagementModel.FK_EmployeeCompanyMaster_EmployeePersonalDetails" FromRole="EmployeePersonalDetails" ToRole="EmployeeCompanyMaster" />
         </EntityType>
         <EntityType Name="GenderMaster">
           <Key>
@@ -1090,7 +1282,7 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="EmployeeContractorMaster" Relationship="Self.FK_EmployeeContractorMaster_ModeOfPaymentMaster" FromRole="ModeOfPaymentMaster" ToRole="EmployeeContractorMaster" />
+          <NavigationProperty Name="EmployeeContractorMaster" Relationship="HRMSManagementModel.FK_EmployeeContractorMaster_ModeOfPaymentMaster" FromRole="ModeOfPaymentMaster" ToRole="EmployeeContractorMaster" />
         </EntityType>
         <EntityType Name="RelationMaster">
           <Key>
@@ -1125,6 +1317,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="CityMaster" Relationship="Self.FK_CityMaster_StateMaster" FromRole="StateMaster" ToRole="CityMaster" />
           <NavigationProperty Name="CountyMaster" Relationship="Self.FK_StateMaster_CountyMaster" FromRole="StateMaster" ToRole="CountyMaster" />
+          <NavigationProperty Name="EmployeeNominationMaster" Relationship="HRMSManagementModel.FK_EmployeeNominationMaster_StateMaster" FromRole="StateMaster" ToRole="EmployeeNominationMaster" />
+          <NavigationProperty Name="EmployeePersonalDetails" Relationship="HRMSManagementModel.FK_EmployeePersonalDetails_StateMaster" FromRole="StateMaster" ToRole="EmployeePersonalDetails" />
+          <NavigationProperty Name="EmployeePersonalDetails1" Relationship="HRMSManagementModel.FK_EmployeePersonalDetails_StateMaster1" FromRole="StateMaster" ToRole="EmployeePersonalDetails" />
         </EntityType>
         <EntityType Name="UnitMaster">
           <Key>
@@ -1146,133 +1341,6 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-        </EntityType>
-        <EntityType Name="EmployeeCompanyMaster">
-          <Key>
-            <PropertyRef Name="CompanyId" />
-            <PropertyRef Name="AppointmentType" />
-            <PropertyRef Name="Designation" />
-            <PropertyRef Name="Category" />
-            <PropertyRef Name="Grade" />
-            <PropertyRef Name="Department" />
-            <PropertyRef Name="Plant" />
-            <PropertyRef Name="EmployeeId" />
-            <PropertyRef Name="OverTimeApplicability" />
-            <PropertyRef Name="ContractorId" />
-            <PropertyRef Name="EmployeeIdCode" />
-          </Key>
-          <Property Name="CompanyId" Type="Int32" Nullable="false" />
-          <Property Name="AppointmentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Plant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
-          <Property Name="OverTimeApplicability" Type="Boolean" Nullable="false" />
-          <Property Name="ContractorId" Type="Int32" Nullable="false" />
-          <Property Name="EmployeeIdCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="CompanyMaster" Relationship="Self.FK_EmployeeCompanyMaster_CompanyMaster" FromRole="EmployeeCompanyMaster" ToRole="CompanyMaster" />
-          <NavigationProperty Name="ContractorMaster" Relationship="Self.FK_EmployeeCompanyMaster_ContractorMaster" FromRole="EmployeeCompanyMaster" ToRole="ContractorMaster" />
-          <NavigationProperty Name="EmployeePersonalDetails" Relationship="Self.FK_EmployeeCompanyMaster_EmployeePersonalDetails" FromRole="EmployeeCompanyMaster" ToRole="EmployeePersonalDetails" />
-        </EntityType>
-        <EntityType Name="EmployeeContractorMaster">
-          <Key>
-            <PropertyRef Name="ContractorId" />
-            <PropertyRef Name="DateOfJoining" />
-            <PropertyRef Name="DateOfResignation" />
-            <PropertyRef Name="DateOfLeaving" />
-            <PropertyRef Name="DateOfTermination" />
-            <PropertyRef Name="DateOfRetirement" />
-            <PropertyRef Name="DateOfConfirmation" />
-            <PropertyRef Name="ReasonForLeaving" />
-            <PropertyRef Name="ReasonForTermination" />
-            <PropertyRef Name="EmployeeId" />
-            <PropertyRef Name="ModeOfPaymentId" />
-            <PropertyRef Name="SavingBankAccountNumber" />
-            <PropertyRef Name="NameOfBank" />
-            <PropertyRef Name="BankAddress" />
-            <PropertyRef Name="BranchOfBank" />
-            <PropertyRef Name="IFSCNumber" />
-            <PropertyRef Name="MICRNumber" />
-            <PropertyRef Name="ProfessionalTaxApplicability" />
-            <PropertyRef Name="GujaratLabourWelfareFundApplicability" />
-            <PropertyRef Name="ProvidentfundApplicability" />
-            <PropertyRef Name="UniversalAccountNumber" />
-            <PropertyRef Name="PFAccountNumber" />
-            <PropertyRef Name="EmployeeStateInsuranceCorporationApplicability" />
-            <PropertyRef Name="ESICIPNumber" />
-          </Key>
-          <Property Name="ContractorId" Type="Int32" Nullable="false" />
-          <Property Name="DateOfJoining" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DateOfResignation" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DateOfLeaving" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DateOfTermination" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DateOfRetirement" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="DateOfConfirmation" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ReasonForLeaving" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ReasonForTermination" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
-          <Property Name="ModeOfPaymentId" Type="Int32" Nullable="false" />
-          <Property Name="SavingBankAccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NameOfBank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="BankAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="BranchOfBank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="IFSCNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MICRNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ProfessionalTaxApplicability" Type="Boolean" Nullable="false" />
-          <Property Name="GujaratLabourWelfareFundApplicability" Type="Boolean" Nullable="false" />
-          <Property Name="ProvidentfundApplicability" Type="Boolean" Nullable="false" />
-          <Property Name="UniversalAccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PFAccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EmployeeStateInsuranceCorporationApplicability" Type="Boolean" Nullable="false" />
-          <Property Name="ESICIPNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="ContractorMaster" Relationship="Self.FK_EmployeeContractorMaster_ContractorMaster" FromRole="EmployeeContractorMaster" ToRole="ContractorMaster" />
-          <NavigationProperty Name="EmployeePersonalDetails" Relationship="Self.FK_EmployeeContractorMaster_EmployeePersonalDetails" FromRole="EmployeeContractorMaster" ToRole="EmployeePersonalDetails" />
-          <NavigationProperty Name="ModeOfPaymentMaster" Relationship="Self.FK_EmployeeContractorMaster_ModeOfPaymentMaster" FromRole="EmployeeContractorMaster" ToRole="ModeOfPaymentMaster" />
-        </EntityType>
-        <EntityType Name="EmployeeDocumentMaster">
-          <Key>
-            <PropertyRef Name="AadharCardNumber" />
-            <PropertyRef Name="AadharEnrolmentNumber" />
-            <PropertyRef Name="PANCardNumber" />
-            <PropertyRef Name="ElectionCardNumber" />
-            <PropertyRef Name="RationCardNumber" />
-            <PropertyRef Name="NationalPopulationRegister" />
-            <PropertyRef Name="DrivingLicenceNumber" />
-            <PropertyRef Name="DrivingLicenceNumberValidUpTo" />
-            <PropertyRef Name="PassportNumber" />
-            <PropertyRef Name="PassportNumberValidUpTo" />
-            <PropertyRef Name="EmployeeId" />
-            <PropertyRef Name="EmployeeNameAsPerAadharCard" />
-            <PropertyRef Name="FatherNameAsPerAadharCard" />
-            <PropertyRef Name="EmployeeNameAsPerPanCard" />
-            <PropertyRef Name="EmployeeNameAsPerElectionCard" />
-            <PropertyRef Name="EmployeeNameAsPerRationCard" />
-            <PropertyRef Name="EmployeeNameAsPerNationalPopulationRegister" />
-            <PropertyRef Name="EmployeeNameAsPerDrivingLicence" />
-            <PropertyRef Name="EmployeeNameAsPerPassport" />
-          </Key>
-          <Property Name="AadharCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="AadharEnrolmentNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PANCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ElectionCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="RationCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NationalPopulationRegister" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DrivingLicenceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DrivingLicenceNumberValidUpTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PassportNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PassportNumberValidUpTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
-          <Property Name="EmployeeNameAsPerAadharCard" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="FatherNameAsPerAadharCard" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EmployeeNameAsPerPanCard" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EmployeeNameAsPerElectionCard" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EmployeeNameAsPerRationCard" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EmployeeNameAsPerNationalPopulationRegister" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EmployeeNameAsPerDrivingLicence" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="EmployeeNameAsPerPassport" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="EmployeePersonalDetails" Relationship="Self.FK_EmployeeDocumentMaster_EmployeePersonalDetails" FromRole="EmployeeDocumentMaster" ToRole="EmployeePersonalDetails" />
         </EntityType>
         <Association Name="FK_BankBranchMaster_BankMaster">
           <End Role="BankMaster" Type="Self.BankMaster" Multiplicity="1" />
@@ -1322,42 +1390,6 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EmployeeCompanyMaster_CompanyMaster">
-          <End Role="CompanyMaster" Type="Self.CompanyMaster" Multiplicity="1" />
-          <End Role="EmployeeCompanyMaster" Type="Self.EmployeeCompanyMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CompanyMaster">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="EmployeeCompanyMaster">
-              <PropertyRef Name="CompanyId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeCompanyMaster_ContractorMaster">
-          <End Role="ContractorMaster" Type="Self.ContractorMaster" Multiplicity="1" />
-          <End Role="EmployeeCompanyMaster" Type="Self.EmployeeCompanyMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ContractorMaster">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="EmployeeCompanyMaster">
-              <PropertyRef Name="ContractorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeContractorMaster_ContractorMaster">
-          <End Role="ContractorMaster" Type="Self.ContractorMaster" Multiplicity="1" />
-          <End Role="EmployeeContractorMaster" Type="Self.EmployeeContractorMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ContractorMaster">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="EmployeeContractorMaster">
-              <PropertyRef Name="ContractorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_StateMaster_CountyMaster">
           <End Role="CountyMaster" Type="Self.CountyMaster" Multiplicity="1" />
           <End Role="StateMaster" Type="Self.StateMaster" Multiplicity="*" />
@@ -1367,42 +1399,6 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </Principal>
             <Dependent Role="StateMaster">
               <PropertyRef Name="CountryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeCompanyMaster_EmployeePersonalDetails">
-          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="1" />
-          <End Role="EmployeeCompanyMaster" Type="Self.EmployeeCompanyMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeePersonalDetails">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="EmployeeCompanyMaster">
-              <PropertyRef Name="EmployeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeContractorMaster_EmployeePersonalDetails">
-          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="1" />
-          <End Role="EmployeeContractorMaster" Type="Self.EmployeeContractorMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeePersonalDetails">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="EmployeeContractorMaster">
-              <PropertyRef Name="EmployeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeDocumentMaster_EmployeePersonalDetails">
-          <End Role="EmployeePersonalDetails" Type="Self.EmployeePersonalDetails" Multiplicity="1" />
-          <End Role="EmployeeDocumentMaster" Type="Self.EmployeeDocumentMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeePersonalDetails">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="EmployeeDocumentMaster">
-              <PropertyRef Name="EmployeeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1442,18 +1438,6 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EmployeeContractorMaster_ModeOfPaymentMaster">
-          <End Role="ModeOfPaymentMaster" Type="Self.ModeOfPaymentMaster" Multiplicity="1" />
-          <End Role="EmployeeContractorMaster" Type="Self.EmployeeContractorMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ModeOfPaymentMaster">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="EmployeeContractorMaster">
-              <PropertyRef Name="ModeOfPaymentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="HRMSManagementEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AppointmentTypeMaster" EntityType="Self.AppointmentTypeMaster" />
           <EntitySet Name="BankBranchMaster" EntityType="Self.BankBranchMaster" />
@@ -1479,9 +1463,6 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <EntitySet Name="StateMaster" EntityType="Self.StateMaster" />
           <EntitySet Name="UnitMaster" EntityType="Self.UnitMaster" />
           <EntitySet Name="UserMaster" EntityType="Self.UserMaster" />
-          <EntitySet Name="EmployeeCompanyMaster" EntityType="Self.EmployeeCompanyMaster" />
-          <EntitySet Name="EmployeeContractorMaster" EntityType="Self.EmployeeContractorMaster" />
-          <EntitySet Name="EmployeeDocumentMaster" EntityType="Self.EmployeeDocumentMaster" />
           <AssociationSet Name="FK_BankBranchMaster_BankMaster" Association="Self.FK_BankBranchMaster_BankMaster">
             <End Role="BankMaster" EntitySet="BankMaster" />
             <End Role="BankBranchMaster" EntitySet="BankBranchMaster" />
@@ -1498,33 +1479,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             <End Role="CompanyMaster" EntitySet="CompanyMaster" />
             <End Role="DepartmentMaster" EntitySet="DepartmentMaster" />
           </AssociationSet>
-          <AssociationSet Name="FK_EmployeeCompanyMaster_CompanyMaster" Association="Self.FK_EmployeeCompanyMaster_CompanyMaster">
-            <End Role="CompanyMaster" EntitySet="CompanyMaster" />
-            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeCompanyMaster_ContractorMaster" Association="Self.FK_EmployeeCompanyMaster_ContractorMaster">
-            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
-            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeContractorMaster_ContractorMaster" Association="Self.FK_EmployeeContractorMaster_ContractorMaster">
-            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
-            <End Role="EmployeeContractorMaster" EntitySet="EmployeeContractorMaster" />
-          </AssociationSet>
           <AssociationSet Name="FK_StateMaster_CountyMaster" Association="Self.FK_StateMaster_CountyMaster">
             <End Role="CountyMaster" EntitySet="CountyMaster" />
             <End Role="StateMaster" EntitySet="StateMaster" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeCompanyMaster_EmployeePersonalDetails" Association="Self.FK_EmployeeCompanyMaster_EmployeePersonalDetails">
-            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
-            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeContractorMaster_EmployeePersonalDetails" Association="Self.FK_EmployeeContractorMaster_EmployeePersonalDetails">
-            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
-            <End Role="EmployeeContractorMaster" EntitySet="EmployeeContractorMaster" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeDocumentMaster_EmployeePersonalDetails" Association="Self.FK_EmployeeDocumentMaster_EmployeePersonalDetails">
-            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
-            <End Role="EmployeeDocumentMaster" EntitySet="EmployeeDocumentMaster" />
           </AssociationSet>
           <AssociationSet Name="FK_EmployeePersonalDetails_GenderMaster" Association="Self.FK_EmployeePersonalDetails_GenderMaster">
             <End Role="GenderMaster" EntitySet="GenderMaster" />
@@ -1537,10 +1494,6 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <AssociationSet Name="FK_EmployeePersonalDetails_ReligionMaster" Association="Self.FK_EmployeePersonalDetails_ReligionMaster">
             <End Role="ReligionMaster" EntitySet="ReligionMaster" />
             <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeContractorMaster_ModeOfPaymentMaster" Association="Self.FK_EmployeeContractorMaster_ModeOfPaymentMaster">
-            <End Role="ModeOfPaymentMaster" EntitySet="ModeOfPaymentMaster" />
-            <End Role="EmployeeContractorMaster" EntitySet="EmployeeContractorMaster" />
           </AssociationSet>
           <FunctionImport Name="CreateUser">
             <Parameter Name="FirstName" Mode="In" Type="String" />
@@ -1618,7 +1571,9 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetUsers" />
-          <FunctionImport Name="InsertEmployeeDetails" />
+          <FunctionImport Name="InsertEmployeeDetails" >
+          <Parameter Name="employeeId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="GetMaritalStatus" ReturnType="Collection(HRMSManagementModel.GetMaritalStatus_Result)">
           <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1637,6 +1592,123 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
             <Parameter Name="password" Mode="In" Type="String" />
             <Parameter Name="retVal" Mode="InOut" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="EmployeeNominationMaster" EntityType="HRMSManagementModel.EmployeeNominationMaster" />
+          <EntitySet Name="EXCLog" EntityType="HRMSManagementModel.EXCLog" />
+          <EntitySet Name="EXCMessage" EntityType="HRMSManagementModel.EXCMessage" />
+          <AssociationSet Name="FK_EmployeeNominationMaster_CityMaster" Association="HRMSManagementModel.FK_EmployeeNominationMaster_CityMaster">
+            <End Role="CityMaster" EntitySet="CityMaster" />
+            <End Role="EmployeeNominationMaster" EntitySet="EmployeeNominationMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePersonalDetails_CityMaster" Association="HRMSManagementModel.FK_EmployeePersonalDetails_CityMaster">
+            <End Role="CityMaster" EntitySet="CityMaster" />
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePersonalDetails_CityMaster1" Association="HRMSManagementModel.FK_EmployeePersonalDetails_CityMaster1">
+            <End Role="CityMaster" EntitySet="CityMaster" />
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeNominationMaster_ContractorMaster" Association="HRMSManagementModel.FK_EmployeeNominationMaster_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="EmployeeNominationMaster" EntitySet="EmployeeNominationMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeNominationMaster_CountyMaster" Association="HRMSManagementModel.FK_EmployeeNominationMaster_CountyMaster">
+            <End Role="CountyMaster" EntitySet="CountyMaster" />
+            <End Role="EmployeeNominationMaster" EntitySet="EmployeeNominationMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePersonalDetails_CountyMaster" Association="HRMSManagementModel.FK_EmployeePersonalDetails_CountyMaster">
+            <End Role="CountyMaster" EntitySet="CountyMaster" />
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePersonalDetails_CountyMaster1" Association="HRMSManagementModel.FK_EmployeePersonalDetails_CountyMaster1">
+            <End Role="CountyMaster" EntitySet="CountyMaster" />
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeNominationMaster_EmployeePersonalDetails" Association="HRMSManagementModel.FK_EmployeeNominationMaster_EmployeePersonalDetails">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="EmployeeNominationMaster" EntitySet="EmployeeNominationMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeNominationMaster_StateMaster" Association="HRMSManagementModel.FK_EmployeeNominationMaster_StateMaster">
+            <End Role="StateMaster" EntitySet="StateMaster" />
+            <End Role="EmployeeNominationMaster" EntitySet="EmployeeNominationMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePersonalDetails_StateMaster" Association="HRMSManagementModel.FK_EmployeePersonalDetails_StateMaster">
+            <End Role="StateMaster" EntitySet="StateMaster" />
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeePersonalDetails_StateMaster1" Association="HRMSManagementModel.FK_EmployeePersonalDetails_StateMaster1">
+            <End Role="StateMaster" EntitySet="StateMaster" />
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+          </AssociationSet>
+          <FunctionImport Name="CreateTempUser" ReturnType="Collection(HRMSManagementModel.CreateTempUser_Result)">
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="Country" Mode="In" Type="String" />
+            <Parameter Name="State" Mode="In" Type="String" />
+            <Parameter Name="City" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetEmployeeDetails" ReturnType="Collection(HRMSManagementModel.GetEmployeeDetails_Result)">
+          <Parameter Name="employeeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertCompany" ReturnType="Collection(HRMSManagementModel.InsertCompany_Result)">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="CountryId" Mode="In" Type="Int32" />
+            <Parameter Name="StateId" Mode="In" Type="Int32" />
+            <Parameter Name="CityId" Mode="In" Type="Int32" />
+            <Parameter Name="ZipCode" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
+            <Parameter Name="EmailId" Mode="In" Type="String" />
+            <Parameter Name="WebSite" Mode="In" Type="String" />
+            <Parameter Name="CreatedDateTime" Mode="In" Type="DateTime" />
+            <Parameter Name="UpdatedDateTime" Mode="In" Type="DateTime" />
+            <Parameter Name="Logo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertDepartment" ReturnType="Collection(HRMSManagementModel.InsertDepartment_Result)">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+            <Parameter Name="CreatedDateTime" Mode="In" Type="DateTime" />
+            <Parameter Name="UpdatedDateTime" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="InsertDesignation" ReturnType="Collection(HRMSManagementModel.InsertDesignation_Result)">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="CreatedDateTime" Mode="In" Type="DateTime" />
+            <Parameter Name="UpdatedDateTime" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="EmployeeDocumentMaster" EntityType="HRMSManagementModel.EmployeeDocumentMaster" />
+          <AssociationSet Name="FK_EmployeeDocumentMaster_EmployeePersonalDetails" Association="HRMSManagementModel.FK_EmployeeDocumentMaster_EmployeePersonalDetails">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="EmployeeDocumentMaster" EntitySet="EmployeeDocumentMaster" />
+          </AssociationSet>
+          <EntitySet Name="EmployeeContractorMaster" EntityType="HRMSManagementModel.EmployeeContractorMaster" />
+          <AssociationSet Name="FK_EmployeeContractorMaster_ContractorMaster" Association="HRMSManagementModel.FK_EmployeeContractorMaster_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="EmployeeContractorMaster" EntitySet="EmployeeContractorMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeContractorMaster_EmployeePersonalDetails" Association="HRMSManagementModel.FK_EmployeeContractorMaster_EmployeePersonalDetails">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="EmployeeContractorMaster" EntitySet="EmployeeContractorMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeContractorMaster_ModeOfPaymentMaster" Association="HRMSManagementModel.FK_EmployeeContractorMaster_ModeOfPaymentMaster">
+            <End Role="ModeOfPaymentMaster" EntitySet="ModeOfPaymentMaster" />
+            <End Role="EmployeeContractorMaster" EntitySet="EmployeeContractorMaster" />
+          </AssociationSet>
+          <EntitySet Name="EmployeeCompanyMaster" EntityType="HRMSManagementModel.EmployeeCompanyMaster" />
+          <AssociationSet Name="FK_EmployeeCompanyMaster_AppointmentTypeMaster" Association="HRMSManagementModel.FK_EmployeeCompanyMaster_AppointmentTypeMaster">
+            <End Role="AppointmentTypeMaster" EntitySet="AppointmentTypeMaster" />
+            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeCompanyMaster_CompanyMaster" Association="HRMSManagementModel.FK_EmployeeCompanyMaster_CompanyMaster">
+            <End Role="AppointmentTypeMaster" EntitySet="AppointmentTypeMaster" />
+            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeCompanyMaster_ContractorMaster" Association="HRMSManagementModel.FK_EmployeeCompanyMaster_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeCompanyMaster_EmployeePersonalDetails" Association="HRMSManagementModel.FK_EmployeeCompanyMaster_EmployeePersonalDetails">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="GetAppointmentTypes_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -1825,6 +1897,507 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <Property Name="Mobile" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="EmployeeNominationMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContractorId" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AddressOfNominee" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="NomineeCountryId" Type="Int32" Nullable="false" />
+          <Property Name="NomineeStateId" Type="Int32" Nullable="false" />
+          <Property Name="NomineeCityId" Type="Int32" Nullable="false" />
+          <Property Name="BirthdateOfNominee" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AgeOfNominee" Type="Int32" Nullable="false" />
+          <Property Name="RelationId" Type="Int32" Nullable="false" />
+          <Property Name="EPF" Type="Int32" Nullable="false" />
+          <Property Name="EPS" Type="Int32" Nullable="false" />
+          <Property Name="GRATUTIY" Type="Int32" Nullable="false" />
+          <Property Name="NameOfGuardian" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AddressOfGuardian" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="GuardianCountryId" Type="Int32" />
+          <Property Name="GuardianStateId" Type="Int32" />
+          <Property Name="GuardianCityId" Type="Int32" />
+          <NavigationProperty Name="CityMaster" Relationship="HRMSManagementModel.FK_EmployeeNominationMaster_CityMaster" FromRole="EmployeeNominationMaster" ToRole="CityMaster" />
+          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_EmployeeNominationMaster_ContractorMaster" FromRole="EmployeeNominationMaster" ToRole="ContractorMaster" />
+          <NavigationProperty Name="CountyMaster" Relationship="HRMSManagementModel.FK_EmployeeNominationMaster_CountyMaster" FromRole="EmployeeNominationMaster" ToRole="CountyMaster" />
+          <NavigationProperty Name="EmployeePersonalDetails" Relationship="HRMSManagementModel.FK_EmployeeNominationMaster_EmployeePersonalDetails" FromRole="EmployeeNominationMaster" ToRole="EmployeePersonalDetails" />
+          <NavigationProperty Name="StateMaster" Relationship="HRMSManagementModel.FK_EmployeeNominationMaster_StateMaster" FromRole="EmployeeNominationMaster" ToRole="StateMaster" />
+        </EntityType>
+        <EntityType Name="EXCLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserToken" Type="Guid" Nullable="false" />
+          <Property Name="ExceptionDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Thread" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Level" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Logger" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Exception" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EXCMessage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguagueCode" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedUserID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedUserID" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <Association Name="FK_EmployeeNominationMaster_CityMaster">
+          <End Type="HRMSManagementModel.CityMaster" Role="CityMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeNominationMaster" Role="EmployeeNominationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeNominationMaster">
+              <PropertyRef Name="NomineeCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePersonalDetails_CityMaster">
+          <End Type="HRMSManagementModel.CityMaster" Role="CityMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeePersonalDetails" Role="EmployeePersonalDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeePersonalDetails">
+              <PropertyRef Name="PermenantAddressCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePersonalDetails_CityMaster1">
+          <End Type="HRMSManagementModel.CityMaster" Role="CityMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeePersonalDetails" Role="EmployeePersonalDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CityMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeePersonalDetails">
+              <PropertyRef Name="TemporaryAddressCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeNominationMaster_ContractorMaster">
+          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeNominationMaster" Role="EmployeeNominationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeNominationMaster">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeNominationMaster_CountyMaster">
+          <End Type="HRMSManagementModel.CountyMaster" Role="CountyMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeNominationMaster" Role="EmployeeNominationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountyMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeNominationMaster">
+              <PropertyRef Name="NomineeCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePersonalDetails_CountyMaster">
+          <End Type="HRMSManagementModel.CountyMaster" Role="CountyMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeePersonalDetails" Role="EmployeePersonalDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountyMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeePersonalDetails">
+              <PropertyRef Name="PermenantAddressCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePersonalDetails_CountyMaster1">
+          <End Type="HRMSManagementModel.CountyMaster" Role="CountyMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeePersonalDetails" Role="EmployeePersonalDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CountyMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeePersonalDetails">
+              <PropertyRef Name="TemporaryAddressCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeNominationMaster_EmployeePersonalDetails">
+          <End Type="HRMSManagementModel.EmployeePersonalDetails" Role="EmployeePersonalDetails" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeNominationMaster" Role="EmployeeNominationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeNominationMaster">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeNominationMaster_StateMaster">
+          <End Type="HRMSManagementModel.StateMaster" Role="StateMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeNominationMaster" Role="EmployeeNominationMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeNominationMaster">
+              <PropertyRef Name="NomineeStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePersonalDetails_StateMaster">
+          <End Type="HRMSManagementModel.StateMaster" Role="StateMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeePersonalDetails" Role="EmployeePersonalDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeePersonalDetails">
+              <PropertyRef Name="PermenantAddressStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeePersonalDetails_StateMaster1">
+          <End Type="HRMSManagementModel.StateMaster" Role="StateMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeePersonalDetails" Role="EmployeePersonalDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeePersonalDetails">
+              <PropertyRef Name="TemporaryAddressStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="CreateTempUser_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="State" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetEmployeeDetails_Result">
+          <Property Type="String" Name="TableName" Nullable="false" MaxLength="24" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="MaritalStatusId" Nullable="false" />
+          <Property Type="DateTime" Name="DateOfMarriage" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Age" Nullable="false" />
+          <Property Type="Int32" Name="ReligionId" Nullable="false" />
+          <Property Type="Int32" Name="GenderId" Nullable="false" />
+          <Property Type="Int32" Name="BloodGroupId" Nullable="false" />
+          <Property Type="String" Name="Height" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Weight" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Education" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MobileNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="EmergencyContactNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="EmailId" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PermenantAddressLine1" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="PermenantAddressLine2" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="TemporaryAddressLine1" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="TemporaryAddressLine2" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="PermenantAddressCountryId" Nullable="false" />
+          <Property Type="Int32" Name="PermenantAddressStateId" Nullable="false" />
+          <Property Type="Int32" Name="PermenantAddressCityId" Nullable="false" />
+          <Property Type="Int32" Name="TemporaryAddressCountryId" Nullable="false" />
+          <Property Type="Int32" Name="TemporaryAddressStateId" Nullable="false" />
+          <Property Type="Int32" Name="TemporaryAddressCityId" Nullable="false" />
+          <Property Type="Int32" Name="ContractorId" Nullable="false" />
+          <Property Type="Int32" Name="EmployeeId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="AddressOfNominee" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="NomineeCountryId" Nullable="false" />
+          <Property Type="Int32" Name="NomineeStateId" Nullable="false" />
+          <Property Type="Int32" Name="NomineeCityId" Nullable="false" />
+          <Property Type="DateTime" Name="BirthdateOfNominee" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="AgeOfNominee" Nullable="false" />
+          <Property Type="Int32" Name="RelationId" Nullable="false" />
+          <Property Type="Int32" Name="EPF" Nullable="false" />
+          <Property Type="Int32" Name="EPS" Nullable="false" />
+          <Property Type="Int32" Name="GRATUTIY" Nullable="false" />
+          <Property Type="String" Name="NameOfGuardian" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="AddressOfGuardian" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="GuardianCountryId" Nullable="true" />
+          <Property Type="Int32" Name="GuardianStateId" Nullable="true" />
+          <Property Type="Int32" Name="GuardianCityId" Nullable="true" />
+          <Property Type="String" Name="AadharCardNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="AadharEnrolmentNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PANCardNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ElectionCardNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RationCardNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NationalPopulationRegister" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DrivingLicenceNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DrivingLicenceNumberValidUpTo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PassportNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PassportNumberValidUpTo" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="EmployeeId1" Nullable="false" />
+          <Property Type="String" Name="EmployeeNameAsPerAadharCard" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="FatherNameAsPerAadharCard" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="EmployeeNameAsPerPanCard" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="EmployeeNameAsPerElectionCard" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="EmployeeNameAsPerRationCard" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="EmployeeNameAsPerNationalPopulationRegister" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="EmployeeNameAsPerDrivingLicence" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="EmployeeNameAsPerPassport" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="ContractorId1" Nullable="false" />
+          <Property Type="DateTime" Name="DateOfJoining" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="DateOfResignation" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="DateOfLeaving" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="DateOfTermination" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="DateOfRetirement" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="DateOfConfirmation" Nullable="false" Precision="23" />
+          <Property Type="String" Name="ReasonForLeaving" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="ReasonForTermination" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="EmployeeId2" Nullable="false" />
+          <Property Type="Int32" Name="ModeOfPaymentId" Nullable="false" />
+          <Property Type="String" Name="SavingBankAccountNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NameOfBank" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="BankAddress" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="BranchOfBank" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="IFSCNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MICRNumber" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="ProfessionalTaxApplicability" Nullable="true" />
+          <Property Type="Boolean" Name="GujaratLabourWelfareFundApplicability" Nullable="true" />
+          <Property Type="Boolean" Name="ProvidentfundApplicability" Nullable="true" />
+          <Property Type="String" Name="UniversalAccountNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PFAccountNumber" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="EmployeeStateInsuranceCorporationApplicability" Nullable="true" />
+          <Property Type="String" Name="ESICIPNumber" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="CompanyId" Nullable="false" />
+          <Property Type="Int32" Name="AppointmentTypeID" Nullable="false" />
+          <Property Type="String" Name="Designation" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Category" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Grade" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Plant" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="EmployeeId3" Nullable="false" />
+          <Property Type="Boolean" Name="OverTimeApplicability" Nullable="true" />
+          <Property Type="Int32" Name="ContractorId2" Nullable="false" />
+          <Property Type="String" Name="EmployeeIdCode" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="InsertCompany_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <Property Type="Int32" Name="StateId" Nullable="false" />
+          <Property Type="Int32" Name="CityId" Nullable="false" />
+          <Property Type="String" Name="ZipCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Phone" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="EmailId" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="WebSite" Nullable="true" MaxLength="150" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDateTime" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="UpdatedDateTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Logo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="InsertDepartment_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="CompanyId" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDateTime" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="UpdatedDateTime" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="InsertDesignation_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDateTime" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="UpdatedDateTime" Nullable="false" Precision="23" />
+        </ComplexType>
+        <EntityType Name="EmployeeDocumentMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AadharCardNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AadharEnrolmentNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PANCardNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ElectionCardNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RationCardNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NationalPopulationRegister" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DrivingLicenceNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DrivingLicenceNumberValidUpTo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PassportNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PassportNumberValidUpTo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeNameAsPerAadharCard" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FatherNameAsPerAadharCard" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeNameAsPerPanCard" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeNameAsPerElectionCard" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeNameAsPerRationCard" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeNameAsPerNationalPopulationRegister" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeNameAsPerDrivingLicence" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeNameAsPerPassport" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EmployeePersonalDetails" Relationship="HRMSManagementModel.FK_EmployeeDocumentMaster_EmployeePersonalDetails" FromRole="EmployeeDocumentMaster" ToRole="EmployeePersonalDetails" />
+        </EntityType>
+        <Association Name="FK_EmployeeDocumentMaster_EmployeePersonalDetails">
+          <End Type="HRMSManagementModel.EmployeePersonalDetails" Role="EmployeePersonalDetails" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeDocumentMaster" Role="EmployeeDocumentMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeDocumentMaster">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EmployeeContractorMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ContractorId" Type="Int32" Nullable="false" />
+          <Property Name="DateOfJoining" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateOfResignation" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateOfLeaving" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateOfTermination" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateOfRetirement" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateOfConfirmation" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReasonForLeaving" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ReasonForTermination" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="ModeOfPaymentId" Type="Int32" Nullable="false" />
+          <Property Name="SavingBankAccountNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NameOfBank" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankAddress" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="BranchOfBank" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IFSCNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MICRNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProfessionalTaxApplicability" Type="Boolean" Nullable="false" />
+          <Property Name="GujaratLabourWelfareFundApplicability" Type="Boolean" Nullable="false" />
+          <Property Name="ProvidentfundApplicability" Type="Boolean" Nullable="false" />
+          <Property Name="UniversalAccountNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PFAccountNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeStateInsuranceCorporationApplicability" Type="Boolean" Nullable="false" />
+          <Property Name="ESICIPNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_EmployeeContractorMaster_ContractorMaster" FromRole="EmployeeContractorMaster" ToRole="ContractorMaster" />
+          <NavigationProperty Name="EmployeePersonalDetails" Relationship="HRMSManagementModel.FK_EmployeeContractorMaster_EmployeePersonalDetails" FromRole="EmployeeContractorMaster" ToRole="EmployeePersonalDetails" />
+          <NavigationProperty Name="ModeOfPaymentMaster" Relationship="HRMSManagementModel.FK_EmployeeContractorMaster_ModeOfPaymentMaster" FromRole="EmployeeContractorMaster" ToRole="ModeOfPaymentMaster" />
+        </EntityType>
+        <Association Name="FK_EmployeeContractorMaster_ContractorMaster">
+          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeContractorMaster" Role="EmployeeContractorMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeContractorMaster">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeContractorMaster_EmployeePersonalDetails">
+          <End Type="HRMSManagementModel.EmployeePersonalDetails" Role="EmployeePersonalDetails" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeContractorMaster" Role="EmployeeContractorMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeContractorMaster">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeContractorMaster_ModeOfPaymentMaster">
+          <End Type="HRMSManagementModel.ModeOfPaymentMaster" Role="ModeOfPaymentMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeContractorMaster" Role="EmployeeContractorMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ModeOfPaymentMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeContractorMaster">
+              <PropertyRef Name="ModeOfPaymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EmployeeCompanyMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="AppointmentTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Designation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Grade" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Plant" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="OverTimeApplicability" Type="Boolean" Nullable="false" />
+          <Property Name="ContractorId" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeIdCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="AppointmentTypeMaster" Relationship="HRMSManagementModel.FK_EmployeeCompanyMaster_AppointmentTypeMaster" FromRole="EmployeeCompanyMaster" ToRole="AppointmentTypeMaster" />
+          <NavigationProperty Name="AppointmentTypeMaster1" Relationship="HRMSManagementModel.FK_EmployeeCompanyMaster_CompanyMaster" FromRole="EmployeeCompanyMaster" ToRole="AppointmentTypeMaster" />
+          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_EmployeeCompanyMaster_ContractorMaster" FromRole="EmployeeCompanyMaster" ToRole="ContractorMaster" />
+          <NavigationProperty Name="EmployeePersonalDetails" Relationship="HRMSManagementModel.FK_EmployeeCompanyMaster_EmployeePersonalDetails" FromRole="EmployeeCompanyMaster" ToRole="EmployeePersonalDetails" />
+        </EntityType>
+        <Association Name="FK_EmployeeCompanyMaster_AppointmentTypeMaster">
+          <End Type="HRMSManagementModel.AppointmentTypeMaster" Role="AppointmentTypeMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeCompanyMaster" Role="EmployeeCompanyMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppointmentTypeMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeCompanyMaster">
+              <PropertyRef Name="AppointmentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeCompanyMaster_CompanyMaster">
+          <End Type="HRMSManagementModel.AppointmentTypeMaster" Role="AppointmentTypeMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeCompanyMaster" Role="EmployeeCompanyMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppointmentTypeMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeCompanyMaster">
+              <PropertyRef Name="AppointmentTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeCompanyMaster_ContractorMaster">
+          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeCompanyMaster" Role="EmployeeCompanyMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeCompanyMaster">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeCompanyMaster_EmployeePersonalDetails">
+          <End Type="HRMSManagementModel.EmployeePersonalDetails" Role="EmployeePersonalDetails" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeCompanyMaster" Role="EmployeeCompanyMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeCompanyMaster">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1978,6 +2551,12 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           <EntitySetMapping Name="EmployeePersonalDetails">
             <EntityTypeMapping TypeName="HRMSManagementModel.EmployeePersonalDetails">
               <MappingFragment StoreEntitySet="EmployeePersonalDetails">
+                <ScalarProperty Name="TemporaryAddressCityId" ColumnName="TemporaryAddressCityId" />
+                <ScalarProperty Name="TemporaryAddressStateId" ColumnName="TemporaryAddressStateId" />
+                <ScalarProperty Name="TemporaryAddressCountryId" ColumnName="TemporaryAddressCountryId" />
+                <ScalarProperty Name="PermenantAddressCityId" ColumnName="PermenantAddressCityId" />
+                <ScalarProperty Name="PermenantAddressStateId" ColumnName="PermenantAddressStateId" />
+                <ScalarProperty Name="PermenantAddressCountryId" ColumnName="PermenantAddressCountryId" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="MaritalStatusId" ColumnName="MaritalStatusId" />
@@ -2127,78 +2706,6 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
                 <ScalarProperty Name="Country" ColumnName="Country" />
                 <ScalarProperty Name="State" ColumnName="State" />
                 <ScalarProperty Name="City" ColumnName="City" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EmployeeCompanyMaster">
-            <EntityTypeMapping TypeName="HRMSManagementModel.EmployeeCompanyMaster">
-              <MappingFragment StoreEntitySet="EmployeeCompanyMaster">
-                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
-                <ScalarProperty Name="AppointmentType" ColumnName="AppointmentType" />
-                <ScalarProperty Name="Designation" ColumnName="Designation" />
-                <ScalarProperty Name="Category" ColumnName="Category" />
-                <ScalarProperty Name="Grade" ColumnName="Grade" />
-                <ScalarProperty Name="Department" ColumnName="Department" />
-                <ScalarProperty Name="Plant" ColumnName="Plant" />
-                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-                <ScalarProperty Name="OverTimeApplicability" ColumnName="OverTimeApplicability" />
-                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
-                <ScalarProperty Name="EmployeeIdCode" ColumnName="EmployeeIdCode" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EmployeeContractorMaster">
-            <EntityTypeMapping TypeName="HRMSManagementModel.EmployeeContractorMaster">
-              <MappingFragment StoreEntitySet="EmployeeContractorMaster">
-                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
-                <ScalarProperty Name="DateOfJoining" ColumnName="DateOfJoining" />
-                <ScalarProperty Name="DateOfResignation" ColumnName="DateOfResignation" />
-                <ScalarProperty Name="DateOfLeaving" ColumnName="DateOfLeaving" />
-                <ScalarProperty Name="DateOfTermination" ColumnName="DateOfTermination" />
-                <ScalarProperty Name="DateOfRetirement" ColumnName="DateOfRetirement" />
-                <ScalarProperty Name="DateOfConfirmation" ColumnName="DateOfConfirmation" />
-                <ScalarProperty Name="ReasonForLeaving" ColumnName="ReasonForLeaving" />
-                <ScalarProperty Name="ReasonForTermination" ColumnName="ReasonForTermination" />
-                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-                <ScalarProperty Name="ModeOfPaymentId" ColumnName="ModeOfPaymentId" />
-                <ScalarProperty Name="SavingBankAccountNumber" ColumnName="SavingBankAccountNumber" />
-                <ScalarProperty Name="NameOfBank" ColumnName="NameOfBank" />
-                <ScalarProperty Name="BankAddress" ColumnName="BankAddress" />
-                <ScalarProperty Name="BranchOfBank" ColumnName="BranchOfBank" />
-                <ScalarProperty Name="IFSCNumber" ColumnName="IFSCNumber" />
-                <ScalarProperty Name="MICRNumber" ColumnName="MICRNumber" />
-                <ScalarProperty Name="ProfessionalTaxApplicability" ColumnName="ProfessionalTaxApplicability" />
-                <ScalarProperty Name="GujaratLabourWelfareFundApplicability" ColumnName="GujaratLabourWelfareFundApplicability" />
-                <ScalarProperty Name="ProvidentfundApplicability" ColumnName="ProvidentfundApplicability" />
-                <ScalarProperty Name="UniversalAccountNumber" ColumnName="UniversalAccountNumber" />
-                <ScalarProperty Name="PFAccountNumber" ColumnName="PFAccountNumber" />
-                <ScalarProperty Name="EmployeeStateInsuranceCorporationApplicability" ColumnName="EmployeeStateInsuranceCorporationApplicability" />
-                <ScalarProperty Name="ESICIPNumber" ColumnName="ESICIPNumber" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EmployeeDocumentMaster">
-            <EntityTypeMapping TypeName="HRMSManagementModel.EmployeeDocumentMaster">
-              <MappingFragment StoreEntitySet="EmployeeDocumentMaster">
-                <ScalarProperty Name="AadharCardNumber" ColumnName="AadharCardNumber" />
-                <ScalarProperty Name="AadharEnrolmentNumber" ColumnName="AadharEnrolmentNumber" />
-                <ScalarProperty Name="PANCardNumber" ColumnName="PANCardNumber" />
-                <ScalarProperty Name="ElectionCardNumber" ColumnName="ElectionCardNumber" />
-                <ScalarProperty Name="RationCardNumber" ColumnName="RationCardNumber" />
-                <ScalarProperty Name="NationalPopulationRegister" ColumnName="NationalPopulationRegister" />
-                <ScalarProperty Name="DrivingLicenceNumber" ColumnName="DrivingLicenceNumber" />
-                <ScalarProperty Name="DrivingLicenceNumberValidUpTo" ColumnName="DrivingLicenceNumberValidUpTo" />
-                <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
-                <ScalarProperty Name="PassportNumberValidUpTo" ColumnName="PassportNumberValidUpTo" />
-                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-                <ScalarProperty Name="EmployeeNameAsPerAadharCard" ColumnName="EmployeeNameAsPerAadharCard" />
-                <ScalarProperty Name="FatherNameAsPerAadharCard" ColumnName="FatherNameAsPerAadharCard" />
-                <ScalarProperty Name="EmployeeNameAsPerPanCard" ColumnName="EmployeeNameAsPerPanCard" />
-                <ScalarProperty Name="EmployeeNameAsPerElectionCard" ColumnName="EmployeeNameAsPerElectionCard" />
-                <ScalarProperty Name="EmployeeNameAsPerRationCard" ColumnName="EmployeeNameAsPerRationCard" />
-                <ScalarProperty Name="EmployeeNameAsPerNationalPopulationRegister" ColumnName="EmployeeNameAsPerNationalPopulationRegister" />
-                <ScalarProperty Name="EmployeeNameAsPerDrivingLicence" ColumnName="EmployeeNameAsPerDrivingLicence" />
-                <ScalarProperty Name="EmployeeNameAsPerPassport" ColumnName="EmployeeNameAsPerPassport" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2483,6 +2990,292 @@ warning 6002: The table/view 'HRMSManagement.dbo.EmployeeDocumentMaster' does no
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="LoginUser" FunctionName="HRMSManagementModel.Store.LoginUser" />
           <FunctionImportMapping FunctionImportName="RegisterUser" FunctionName="HRMSManagementModel.Store.RegisterUser" />
+          <EntitySetMapping Name="EmployeeNominationMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.EmployeeNominationMaster">
+              <MappingFragment StoreEntitySet="EmployeeNominationMaster">
+                <ScalarProperty Name="GuardianCityId" ColumnName="GuardianCityId" />
+                <ScalarProperty Name="GuardianStateId" ColumnName="GuardianStateId" />
+                <ScalarProperty Name="GuardianCountryId" ColumnName="GuardianCountryId" />
+                <ScalarProperty Name="AddressOfGuardian" ColumnName="AddressOfGuardian" />
+                <ScalarProperty Name="NameOfGuardian" ColumnName="NameOfGuardian" />
+                <ScalarProperty Name="GRATUTIY" ColumnName="GRATUTIY" />
+                <ScalarProperty Name="EPS" ColumnName="EPS" />
+                <ScalarProperty Name="EPF" ColumnName="EPF" />
+                <ScalarProperty Name="RelationId" ColumnName="RelationId" />
+                <ScalarProperty Name="AgeOfNominee" ColumnName="AgeOfNominee" />
+                <ScalarProperty Name="BirthdateOfNominee" ColumnName="BirthdateOfNominee" />
+                <ScalarProperty Name="NomineeCityId" ColumnName="NomineeCityId" />
+                <ScalarProperty Name="NomineeStateId" ColumnName="NomineeStateId" />
+                <ScalarProperty Name="NomineeCountryId" ColumnName="NomineeCountryId" />
+                <ScalarProperty Name="AddressOfNominee" ColumnName="AddressOfNominee" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EXCLog">
+            <EntityTypeMapping TypeName="HRMSManagementModel.EXCLog">
+              <MappingFragment StoreEntitySet="EXCLog">
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Logger" ColumnName="Logger" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Thread" ColumnName="Thread" />
+                <ScalarProperty Name="ExceptionDateTime" ColumnName="ExceptionDateTime" />
+                <ScalarProperty Name="UserToken" ColumnName="UserToken" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EXCMessage">
+            <EntityTypeMapping TypeName="HRMSManagementModel.EXCMessage">
+              <MappingFragment StoreEntitySet="EXCMessage">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedUserID" ColumnName="ModifiedUserID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedUserID" ColumnName="CreatedUserID" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="LanguagueCode" ColumnName="LanguagueCode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CreateTempUser" FunctionName="HRMSManagementModel.Store.CreateTempUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HRMSManagementModel.CreateTempUser_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetEmployeeDetails" FunctionName="HRMSManagementModel.Store.GetEmployeeDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HRMSManagementModel.GetEmployeeDetails_Result">
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="MaritalStatusId" ColumnName="MaritalStatusId" />
+                <ScalarProperty Name="DateOfMarriage" ColumnName="DateOfMarriage" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="BloodGroupId" ColumnName="BloodGroupId" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="EmergencyContactNo" ColumnName="EmergencyContactNo" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="PermenantAddressLine1" ColumnName="PermenantAddressLine1" />
+                <ScalarProperty Name="PermenantAddressLine2" ColumnName="PermenantAddressLine2" />
+                <ScalarProperty Name="TemporaryAddressLine1" ColumnName="TemporaryAddressLine1" />
+                <ScalarProperty Name="TemporaryAddressLine2" ColumnName="TemporaryAddressLine2" />
+                <ScalarProperty Name="PermenantAddressCountryId" ColumnName="PermenantAddressCountryId" />
+                <ScalarProperty Name="PermenantAddressStateId" ColumnName="PermenantAddressStateId" />
+                <ScalarProperty Name="PermenantAddressCityId" ColumnName="PermenantAddressCityId" />
+                <ScalarProperty Name="TemporaryAddressCountryId" ColumnName="TemporaryAddressCountryId" />
+                <ScalarProperty Name="TemporaryAddressStateId" ColumnName="TemporaryAddressStateId" />
+                <ScalarProperty Name="TemporaryAddressCityId" ColumnName="TemporaryAddressCityId" />
+                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AddressOfNominee" ColumnName="AddressOfNominee" />
+                <ScalarProperty Name="NomineeCountryId" ColumnName="NomineeCountryId" />
+                <ScalarProperty Name="NomineeStateId" ColumnName="NomineeStateId" />
+                <ScalarProperty Name="NomineeCityId" ColumnName="NomineeCityId" />
+                <ScalarProperty Name="BirthdateOfNominee" ColumnName="BirthdateOfNominee" />
+                <ScalarProperty Name="AgeOfNominee" ColumnName="AgeOfNominee" />
+                <ScalarProperty Name="RelationId" ColumnName="RelationId" />
+                <ScalarProperty Name="EPF" ColumnName="EPF" />
+                <ScalarProperty Name="EPS" ColumnName="EPS" />
+                <ScalarProperty Name="GRATUTIY" ColumnName="GRATUTIY" />
+                <ScalarProperty Name="NameOfGuardian" ColumnName="NameOfGuardian" />
+                <ScalarProperty Name="AddressOfGuardian" ColumnName="AddressOfGuardian" />
+                <ScalarProperty Name="GuardianCountryId" ColumnName="GuardianCountryId" />
+                <ScalarProperty Name="GuardianStateId" ColumnName="GuardianStateId" />
+                <ScalarProperty Name="GuardianCityId" ColumnName="GuardianCityId" />
+                <ScalarProperty Name="AadharCardNumber" ColumnName="AadharCardNumber" />
+                <ScalarProperty Name="AadharEnrolmentNumber" ColumnName="AadharEnrolmentNumber" />
+                <ScalarProperty Name="PANCardNumber" ColumnName="PANCardNumber" />
+                <ScalarProperty Name="ElectionCardNumber" ColumnName="ElectionCardNumber" />
+                <ScalarProperty Name="RationCardNumber" ColumnName="RationCardNumber" />
+                <ScalarProperty Name="NationalPopulationRegister" ColumnName="NationalPopulationRegister" />
+                <ScalarProperty Name="DrivingLicenceNumber" ColumnName="DrivingLicenceNumber" />
+                <ScalarProperty Name="DrivingLicenceNumberValidUpTo" ColumnName="DrivingLicenceNumberValidUpTo" />
+                <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+                <ScalarProperty Name="PassportNumberValidUpTo" ColumnName="PassportNumberValidUpTo" />
+                <ScalarProperty Name="EmployeeId1" ColumnName="EmployeeId1" />
+                <ScalarProperty Name="EmployeeNameAsPerAadharCard" ColumnName="EmployeeNameAsPerAadharCard" />
+                <ScalarProperty Name="FatherNameAsPerAadharCard" ColumnName="FatherNameAsPerAadharCard" />
+                <ScalarProperty Name="EmployeeNameAsPerPanCard" ColumnName="EmployeeNameAsPerPanCard" />
+                <ScalarProperty Name="EmployeeNameAsPerElectionCard" ColumnName="EmployeeNameAsPerElectionCard" />
+                <ScalarProperty Name="EmployeeNameAsPerRationCard" ColumnName="EmployeeNameAsPerRationCard" />
+                <ScalarProperty Name="EmployeeNameAsPerNationalPopulationRegister" ColumnName="EmployeeNameAsPerNationalPopulationRegister" />
+                <ScalarProperty Name="EmployeeNameAsPerDrivingLicence" ColumnName="EmployeeNameAsPerDrivingLicence" />
+                <ScalarProperty Name="EmployeeNameAsPerPassport" ColumnName="EmployeeNameAsPerPassport" />
+                <ScalarProperty Name="ContractorId1" ColumnName="ContractorId1" />
+                <ScalarProperty Name="DateOfJoining" ColumnName="DateOfJoining" />
+                <ScalarProperty Name="DateOfResignation" ColumnName="DateOfResignation" />
+                <ScalarProperty Name="DateOfLeaving" ColumnName="DateOfLeaving" />
+                <ScalarProperty Name="DateOfTermination" ColumnName="DateOfTermination" />
+                <ScalarProperty Name="DateOfRetirement" ColumnName="DateOfRetirement" />
+                <ScalarProperty Name="DateOfConfirmation" ColumnName="DateOfConfirmation" />
+                <ScalarProperty Name="ReasonForLeaving" ColumnName="ReasonForLeaving" />
+                <ScalarProperty Name="ReasonForTermination" ColumnName="ReasonForTermination" />
+                <ScalarProperty Name="EmployeeId2" ColumnName="EmployeeId2" />
+                <ScalarProperty Name="ModeOfPaymentId" ColumnName="ModeOfPaymentId" />
+                <ScalarProperty Name="SavingBankAccountNumber" ColumnName="SavingBankAccountNumber" />
+                <ScalarProperty Name="NameOfBank" ColumnName="NameOfBank" />
+                <ScalarProperty Name="BankAddress" ColumnName="BankAddress" />
+                <ScalarProperty Name="BranchOfBank" ColumnName="BranchOfBank" />
+                <ScalarProperty Name="IFSCNumber" ColumnName="IFSCNumber" />
+                <ScalarProperty Name="MICRNumber" ColumnName="MICRNumber" />
+                <ScalarProperty Name="ProfessionalTaxApplicability" ColumnName="ProfessionalTaxApplicability" />
+                <ScalarProperty Name="GujaratLabourWelfareFundApplicability" ColumnName="GujaratLabourWelfareFundApplicability" />
+                <ScalarProperty Name="ProvidentfundApplicability" ColumnName="ProvidentfundApplicability" />
+                <ScalarProperty Name="UniversalAccountNumber" ColumnName="UniversalAccountNumber" />
+                <ScalarProperty Name="PFAccountNumber" ColumnName="PFAccountNumber" />
+                <ScalarProperty Name="EmployeeStateInsuranceCorporationApplicability" ColumnName="EmployeeStateInsuranceCorporationApplicability" />
+                <ScalarProperty Name="ESICIPNumber" ColumnName="ESICIPNumber" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="AppointmentTypeID" ColumnName="AppointmentTypeID" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Plant" ColumnName="Plant" />
+                <ScalarProperty Name="EmployeeId3" ColumnName="EmployeeId3" />
+                <ScalarProperty Name="OverTimeApplicability" ColumnName="OverTimeApplicability" />
+                <ScalarProperty Name="ContractorId2" ColumnName="ContractorId2" />
+                <ScalarProperty Name="EmployeeIdCode" ColumnName="EmployeeIdCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertCompany" FunctionName="HRMSManagementModel.Store.InsertCompany">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HRMSManagementModel.InsertCompany_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertDepartment" FunctionName="HRMSManagementModel.Store.InsertDepartment">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HRMSManagementModel.InsertDepartment_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertDesignation" FunctionName="HRMSManagementModel.Store.InsertDesignation">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HRMSManagementModel.InsertDesignation_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="EmployeeDocumentMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.EmployeeDocumentMaster">
+              <MappingFragment StoreEntitySet="EmployeeDocumentMaster">
+                <ScalarProperty Name="EmployeeNameAsPerPassport" ColumnName="EmployeeNameAsPerPassport" />
+                <ScalarProperty Name="EmployeeNameAsPerDrivingLicence" ColumnName="EmployeeNameAsPerDrivingLicence" />
+                <ScalarProperty Name="EmployeeNameAsPerNationalPopulationRegister" ColumnName="EmployeeNameAsPerNationalPopulationRegister" />
+                <ScalarProperty Name="EmployeeNameAsPerRationCard" ColumnName="EmployeeNameAsPerRationCard" />
+                <ScalarProperty Name="EmployeeNameAsPerElectionCard" ColumnName="EmployeeNameAsPerElectionCard" />
+                <ScalarProperty Name="EmployeeNameAsPerPanCard" ColumnName="EmployeeNameAsPerPanCard" />
+                <ScalarProperty Name="FatherNameAsPerAadharCard" ColumnName="FatherNameAsPerAadharCard" />
+                <ScalarProperty Name="EmployeeNameAsPerAadharCard" ColumnName="EmployeeNameAsPerAadharCard" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="PassportNumberValidUpTo" ColumnName="PassportNumberValidUpTo" />
+                <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+                <ScalarProperty Name="DrivingLicenceNumberValidUpTo" ColumnName="DrivingLicenceNumberValidUpTo" />
+                <ScalarProperty Name="DrivingLicenceNumber" ColumnName="DrivingLicenceNumber" />
+                <ScalarProperty Name="NationalPopulationRegister" ColumnName="NationalPopulationRegister" />
+                <ScalarProperty Name="RationCardNumber" ColumnName="RationCardNumber" />
+                <ScalarProperty Name="ElectionCardNumber" ColumnName="ElectionCardNumber" />
+                <ScalarProperty Name="PANCardNumber" ColumnName="PANCardNumber" />
+                <ScalarProperty Name="AadharEnrolmentNumber" ColumnName="AadharEnrolmentNumber" />
+                <ScalarProperty Name="AadharCardNumber" ColumnName="AadharCardNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeContractorMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.EmployeeContractorMaster">
+              <MappingFragment StoreEntitySet="EmployeeContractorMaster">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ESICIPNumber" ColumnName="ESICIPNumber" />
+                <ScalarProperty Name="EmployeeStateInsuranceCorporationApplicability" ColumnName="EmployeeStateInsuranceCorporationApplicability" />
+                <ScalarProperty Name="PFAccountNumber" ColumnName="PFAccountNumber" />
+                <ScalarProperty Name="UniversalAccountNumber" ColumnName="UniversalAccountNumber" />
+                <ScalarProperty Name="ProvidentfundApplicability" ColumnName="ProvidentfundApplicability" />
+                <ScalarProperty Name="GujaratLabourWelfareFundApplicability" ColumnName="GujaratLabourWelfareFundApplicability" />
+                <ScalarProperty Name="ProfessionalTaxApplicability" ColumnName="ProfessionalTaxApplicability" />
+                <ScalarProperty Name="MICRNumber" ColumnName="MICRNumber" />
+                <ScalarProperty Name="IFSCNumber" ColumnName="IFSCNumber" />
+                <ScalarProperty Name="BranchOfBank" ColumnName="BranchOfBank" />
+                <ScalarProperty Name="BankAddress" ColumnName="BankAddress" />
+                <ScalarProperty Name="NameOfBank" ColumnName="NameOfBank" />
+                <ScalarProperty Name="SavingBankAccountNumber" ColumnName="SavingBankAccountNumber" />
+                <ScalarProperty Name="ModeOfPaymentId" ColumnName="ModeOfPaymentId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="ReasonForTermination" ColumnName="ReasonForTermination" />
+                <ScalarProperty Name="ReasonForLeaving" ColumnName="ReasonForLeaving" />
+                <ScalarProperty Name="DateOfConfirmation" ColumnName="DateOfConfirmation" />
+                <ScalarProperty Name="DateOfRetirement" ColumnName="DateOfRetirement" />
+                <ScalarProperty Name="DateOfTermination" ColumnName="DateOfTermination" />
+                <ScalarProperty Name="DateOfLeaving" ColumnName="DateOfLeaving" />
+                <ScalarProperty Name="DateOfResignation" ColumnName="DateOfResignation" />
+                <ScalarProperty Name="DateOfJoining" ColumnName="DateOfJoining" />
+                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeCompanyMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.EmployeeCompanyMaster">
+              <MappingFragment StoreEntitySet="EmployeeCompanyMaster">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeIdCode" ColumnName="EmployeeIdCode" />
+                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+                <ScalarProperty Name="OverTimeApplicability" ColumnName="OverTimeApplicability" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="Plant" ColumnName="Plant" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="AppointmentTypeID" ColumnName="AppointmentTypeID" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

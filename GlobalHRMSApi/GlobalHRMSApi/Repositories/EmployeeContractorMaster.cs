@@ -38,6 +38,7 @@ namespace GlobalHRMSApi.Repositories
         public string PFAccountNumber { get; set; }
         public bool EmployeeStateInsuranceCorporationApplicability { get; set; }
         public string ESICIPNumber { get; set; }
+        public int ID { get; set; }
     
         public virtual ContractorMaster ContractorMaster { get; set; }
         public virtual EmployeePersonalDetails EmployeePersonalDetails { get; set; }

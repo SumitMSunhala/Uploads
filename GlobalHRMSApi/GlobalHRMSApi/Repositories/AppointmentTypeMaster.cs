@@ -14,10 +14,22 @@ namespace GlobalHRMSApi.Repositories
     
     public partial class AppointmentTypeMaster
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public AppointmentTypeMaster()
+        {
+            this.EmployeeCompanyMaster = new HashSet<EmployeeCompanyMaster>();
+            this.EmployeeCompanyMaster1 = new HashSet<EmployeeCompanyMaster>();
+        }
+    
         public int ID { get; set; }
         public string Name { get; set; }
         public bool IsActive { get; set; }
         public System.DateTime CreatedDateTime { get; set; }
         public System.DateTime UpdatedDateTime { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmployeeCompanyMaster> EmployeeCompanyMaster1 { get; set; }
     }
 }
