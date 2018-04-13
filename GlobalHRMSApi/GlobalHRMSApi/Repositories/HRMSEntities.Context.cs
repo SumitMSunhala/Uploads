@@ -379,13 +379,17 @@ namespace GlobalHRMSApi.Repositories
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CreateTempUser_Result>("CreateTempUser", firstNameParameter, lastNameParameter, countryParameter, stateParameter, cityParameter);
         }
     
-        public virtual ObjectResult<GetEmployeeDetails_Result> GetEmployeeDetails(Nullable<int> employeeId)
+        public virtual ObjectResult<GetEmployeeDetails_Result> GetEmployeeDetails(Nullable<int> contractorId, Nullable<int> employeeId)
         {
+            var contractorIdParameter = contractorId.HasValue ?
+                new ObjectParameter("contractorId", contractorId) :
+                new ObjectParameter("contractorId", typeof(int));
+    
             var employeeIdParameter = employeeId.HasValue ?
                 new ObjectParameter("employeeId", employeeId) :
                 new ObjectParameter("employeeId", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmployeeDetails_Result>("GetEmployeeDetails", employeeIdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetEmployeeDetails_Result>("GetEmployeeDetails", contractorIdParameter, employeeIdParameter);
         }
     
         public virtual ObjectResult<InsertCompany_Result> InsertCompany(string name, string address, Nullable<int> countryId, Nullable<int> stateId, Nullable<int> cityId, string zipCode, string phone, string emailId, string webSite, Nullable<System.DateTime> createdDateTime, Nullable<System.DateTime> updatedDateTime, string logo)

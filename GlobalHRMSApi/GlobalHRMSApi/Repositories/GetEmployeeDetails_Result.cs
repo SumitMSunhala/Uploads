@@ -66,7 +66,6 @@ namespace GlobalHRMSApi.Repositories
         public string DrivingLicenceNumberValidUpTo { get; set; }
         public string PassportNumber { get; set; }
         public string PassportNumberValidUpTo { get; set; }
-        public int EmployeeId1 { get; set; }
         public string EmployeeNameAsPerAadharCard { get; set; }
         public string FatherNameAsPerAadharCard { get; set; }
         public string EmployeeNameAsPerPanCard { get; set; }
@@ -75,7 +74,6 @@ namespace GlobalHRMSApi.Repositories
         public string EmployeeNameAsPerNationalPopulationRegister { get; set; }
         public string EmployeeNameAsPerDrivingLicence { get; set; }
         public string EmployeeNameAsPerPassport { get; set; }
-        public int ContractorId1 { get; set; }
         public System.DateTime DateOfJoining { get; set; }
         public System.DateTime DateOfResignation { get; set; }
         public System.DateTime DateOfLeaving { get; set; }
@@ -84,7 +82,6 @@ namespace GlobalHRMSApi.Repositories
         public System.DateTime DateOfConfirmation { get; set; }
         public string ReasonForLeaving { get; set; }
         public string ReasonForTermination { get; set; }
-        public int EmployeeId2 { get; set; }
         public int ModeOfPaymentId { get; set; }
         public string SavingBankAccountNumber { get; set; }
         public string NameOfBank { get; set; }
@@ -106,9 +103,7 @@ namespace GlobalHRMSApi.Repositories
         public string Grade { get; set; }
         public string Department { get; set; }
         public string Plant { get; set; }
-        public int EmployeeId3 { get; set; }
         public Nullable<bool> OverTimeApplicability { get; set; }
-        public int ContractorId2 { get; set; }
         public string EmployeeIdCode { get; set; }
     }
 }

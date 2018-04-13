@@ -797,6 +797,7 @@
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
         <Function Name="GetEmployeeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contractorId" Type="int" Mode="In" />
           <Parameter Name="employeeId" Type="int" Mode="In" />
         </Function>
         <Function Name="GetGenders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -1647,7 +1648,8 @@
             <Parameter Name="City" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetEmployeeDetails" ReturnType="Collection(HRMSManagementModel.GetEmployeeDetails_Result)">
-          <Parameter Name="employeeId" Mode="In" Type="Int32" />
+          <Parameter Name="contractorId" Mode="In" Type="Int32" />
+            <Parameter Name="employeeId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="InsertCompany" ReturnType="Collection(HRMSManagementModel.InsertCompany_Result)">
             <Parameter Name="Name" Mode="In" Type="String" />
@@ -2146,7 +2148,6 @@
           <Property Type="String" Name="DrivingLicenceNumberValidUpTo" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="PassportNumber" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="PassportNumberValidUpTo" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="EmployeeId1" Nullable="false" />
           <Property Type="String" Name="EmployeeNameAsPerAadharCard" Nullable="false" MaxLength="500" />
           <Property Type="String" Name="FatherNameAsPerAadharCard" Nullable="false" MaxLength="500" />
           <Property Type="String" Name="EmployeeNameAsPerPanCard" Nullable="false" MaxLength="500" />
@@ -2155,7 +2156,6 @@
           <Property Type="String" Name="EmployeeNameAsPerNationalPopulationRegister" Nullable="false" MaxLength="500" />
           <Property Type="String" Name="EmployeeNameAsPerDrivingLicence" Nullable="false" MaxLength="500" />
           <Property Type="String" Name="EmployeeNameAsPerPassport" Nullable="false" MaxLength="500" />
-          <Property Type="Int32" Name="ContractorId1" Nullable="false" />
           <Property Type="DateTime" Name="DateOfJoining" Nullable="false" Precision="23" />
           <Property Type="DateTime" Name="DateOfResignation" Nullable="false" Precision="23" />
           <Property Type="DateTime" Name="DateOfLeaving" Nullable="false" Precision="23" />
@@ -2164,7 +2164,6 @@
           <Property Type="DateTime" Name="DateOfConfirmation" Nullable="false" Precision="23" />
           <Property Type="String" Name="ReasonForLeaving" Nullable="false" MaxLength="500" />
           <Property Type="String" Name="ReasonForTermination" Nullable="false" MaxLength="500" />
-          <Property Type="Int32" Name="EmployeeId2" Nullable="false" />
           <Property Type="Int32" Name="ModeOfPaymentId" Nullable="false" />
           <Property Type="String" Name="SavingBankAccountNumber" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="NameOfBank" Nullable="false" MaxLength="50" />
@@ -2186,9 +2185,7 @@
           <Property Type="String" Name="Grade" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Plant" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="EmployeeId3" Nullable="false" />
           <Property Type="Boolean" Name="OverTimeApplicability" Nullable="true" />
-          <Property Type="Int32" Name="ContractorId2" Nullable="false" />
           <Property Type="String" Name="EmployeeIdCode" Nullable="false" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="InsertCompany_Result">
@@ -3111,7 +3108,6 @@
                 <ScalarProperty Name="DrivingLicenceNumberValidUpTo" ColumnName="DrivingLicenceNumberValidUpTo" />
                 <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
                 <ScalarProperty Name="PassportNumberValidUpTo" ColumnName="PassportNumberValidUpTo" />
-                <ScalarProperty Name="EmployeeId1" ColumnName="EmployeeId1" />
                 <ScalarProperty Name="EmployeeNameAsPerAadharCard" ColumnName="EmployeeNameAsPerAadharCard" />
                 <ScalarProperty Name="FatherNameAsPerAadharCard" ColumnName="FatherNameAsPerAadharCard" />
                 <ScalarProperty Name="EmployeeNameAsPerPanCard" ColumnName="EmployeeNameAsPerPanCard" />
@@ -3120,7 +3116,6 @@
                 <ScalarProperty Name="EmployeeNameAsPerNationalPopulationRegister" ColumnName="EmployeeNameAsPerNationalPopulationRegister" />
                 <ScalarProperty Name="EmployeeNameAsPerDrivingLicence" ColumnName="EmployeeNameAsPerDrivingLicence" />
                 <ScalarProperty Name="EmployeeNameAsPerPassport" ColumnName="EmployeeNameAsPerPassport" />
-                <ScalarProperty Name="ContractorId1" ColumnName="ContractorId1" />
                 <ScalarProperty Name="DateOfJoining" ColumnName="DateOfJoining" />
                 <ScalarProperty Name="DateOfResignation" ColumnName="DateOfResignation" />
                 <ScalarProperty Name="DateOfLeaving" ColumnName="DateOfLeaving" />
@@ -3129,7 +3124,6 @@
                 <ScalarProperty Name="DateOfConfirmation" ColumnName="DateOfConfirmation" />
                 <ScalarProperty Name="ReasonForLeaving" ColumnName="ReasonForLeaving" />
                 <ScalarProperty Name="ReasonForTermination" ColumnName="ReasonForTermination" />
-                <ScalarProperty Name="EmployeeId2" ColumnName="EmployeeId2" />
                 <ScalarProperty Name="ModeOfPaymentId" ColumnName="ModeOfPaymentId" />
                 <ScalarProperty Name="SavingBankAccountNumber" ColumnName="SavingBankAccountNumber" />
                 <ScalarProperty Name="NameOfBank" ColumnName="NameOfBank" />
@@ -3151,9 +3145,7 @@
                 <ScalarProperty Name="Grade" ColumnName="Grade" />
                 <ScalarProperty Name="Department" ColumnName="Department" />
                 <ScalarProperty Name="Plant" ColumnName="Plant" />
-                <ScalarProperty Name="EmployeeId3" ColumnName="EmployeeId3" />
                 <ScalarProperty Name="OverTimeApplicability" ColumnName="OverTimeApplicability" />
-                <ScalarProperty Name="ContractorId2" ColumnName="ContractorId2" />
                 <ScalarProperty Name="EmployeeIdCode" ColumnName="EmployeeIdCode" />
               </ComplexTypeMapping>
             </ResultMapping>
