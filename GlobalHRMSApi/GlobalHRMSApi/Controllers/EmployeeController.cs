@@ -24,5 +24,12 @@ namespace GlobalHRMSApi.Controllers
             return employeeLogic.InsertEmployeeDetails(employeeDetails);
         }
 
-    }
+		[Route("employees/{contractorId}/{employeeId?}")]
+		[HttpGet]
+		public List<EmployeePersonalDetailsList> GetEmployeeDetails(int contractorId, int? employeeId = null)
+		{
+			return employeeLogic.GetEmployeeDetails(contractorId, employeeId);
+		}
+
+	}
 }

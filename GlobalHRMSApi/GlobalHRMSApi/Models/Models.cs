@@ -235,6 +235,39 @@ namespace GlobalHRMSApi.Models
 		public int TemporaryAddressStateId { get; set; }
 		public int TemporaryAddressCityId { get; set; }
 	}
+
+	public class EmployeePersonalDetailsList
+	{
+		public int ID { get; set; }
+		public DateTime DateOfBirth { get; set; }
+		public int MaritalStatusId { get; set; }
+		public DateTime DateOfMarriage { get; set; }
+		public int Age { get; set; }
+		public int ReligionId { get; set; }
+		public int GenderId { get; set; }
+		public int BloodGroupId { get; set; }
+		public string Height { get; set; }
+		public string Weight { get; set; }
+		public string Education { get; set; }
+		public string MobileNo { get; set; }
+		public string EmergencyContactNo { get; set; }
+		public string EmailId { get; set; }
+		public string PermenantAddressLine1 { get; set; }
+		public string PermenantAddressLine2 { get; set; }
+		public string TemporaryAddressLine1 { get; set; }
+		public string TemporaryAddressLine2 { get; set; }
+		public int PermenantAddressCountryId { get; set; }
+		public int PermenantAddressStateId { get; set; }
+		public int PermenantAddressCityId { get; set; }
+		public int TemporaryAddressCountryId { get; set; }
+		public int TemporaryAddressStateId { get; set; }
+		public int TemporaryAddressCityId { get; set; }
+		public List<EmployeeCompanyDetails> EmployeeCompanyDetailsList { get; set; }
+		public List<EmployeeContractorDetails> EmployeeContractorDetails { get; set; }
+		public List<EmployeeDocumentDetails> EmployeeDocumentDetails { get; set; }
+		public List<EmployeeNominationDetails> EmployeeNominationDetails { get; set; }
+	}
+
 	public class EmployeeCompanyDetails
 	{
 		public int CompanyId { get; set; }

@@ -34,4 +34,13 @@ namespace GlobalHRMSApi.Common
 			return dataTable;
 		}
 	}
+
+	public class Constants
+	{
+		public static string EmployeePersonalDetails = "EmployeePersonalDetails";
+		public static string EmployeeNominationMaster = "EmployeeNominationMaster";
+		public static string EmployeeDocumentMaster = "EmployeeDocumentMaster";
+		public static string EmployeeContractorMaster = "EmployeeContractorMaster";
+		public static string EmployeeCompanyMaster = "EmployeeCompanyMaster";
+	}
 }
