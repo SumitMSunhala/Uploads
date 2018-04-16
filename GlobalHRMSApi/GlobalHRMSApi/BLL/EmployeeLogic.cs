@@ -99,7 +99,7 @@ namespace GlobalHRMSApi.BLL
                 Direction = ParameterDirection.Output
             };
 
-            hrmsEntities.Database.ExecuteSqlCommand("exec dbo.UpdateEmployeeDetails @employeePersonalDetails,@employeeDocumentMaster,@employeeContractorMaster,@employeeCompanyMaster,employeeNominationMaster,@employeeId output", employeePersonalDetailsParam, employeeDocumentMasterParam, employeeContractorMasterParam, employeeCompanyMaster, employeeNominationMaster, employeeIdParam);
+            hrmsEntities.Database.ExecuteSqlCommand("exec dbo.UpdateEmployeeDetails @employeePersonalDetails,@employeeDocumentMaster,@employeeContractorMaster,@employeeCompanyMaster,@employeeNominationMaster,@employeeId output", employeePersonalDetailsParam, employeeDocumentMasterParam, employeeContractorMasterParam, employeeCompanyMasterParam, employeeNominationMasterParam, employeeIdParam);
             return Convert.ToInt32(employeeIdParam.Value);
         }
 
