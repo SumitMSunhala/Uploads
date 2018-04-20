@@ -33,7 +33,6 @@ namespace GlobalHRMSApi.Repositories
         public virtual DbSet<BloodGroupMaster> BloodGroupMaster { get; set; }
         public virtual DbSet<CategoryMaster> CategoryMaster { get; set; }
         public virtual DbSet<CityMaster> CityMaster { get; set; }
-        public virtual DbSet<CompanyMaster> CompanyMaster { get; set; }
         public virtual DbSet<ContractorMaster> ContractorMaster { get; set; }
         public virtual DbSet<CountyMaster> CountyMaster { get; set; }
         public virtual DbSet<DepartmentMaster> DepartmentMaster { get; set; }
@@ -58,6 +57,7 @@ namespace GlobalHRMSApi.Repositories
         public virtual DbSet<EmployeeDocumentMaster> EmployeeDocumentMaster { get; set; }
         public virtual DbSet<EmployeeContractorMaster> EmployeeContractorMaster { get; set; }
         public virtual DbSet<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
+        public virtual DbSet<CompanyMaster> CompanyMaster { get; set; }
     
         public virtual int CreateUser(string firstName, string lastName, string country, string state, string city)
         {
@@ -481,6 +481,11 @@ namespace GlobalHRMSApi.Repositories
                 new ObjectParameter("UpdatedDateTime", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsertDesignation_Result>("InsertDesignation", nameParameter, createdDateTimeParameter, updatedDateTimeParameter);
+        }
+    
+        public virtual int UpdateEmployeeDetails(ObjectParameter employeeId)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateEmployeeDetails", employeeId);
         }
     }
 }

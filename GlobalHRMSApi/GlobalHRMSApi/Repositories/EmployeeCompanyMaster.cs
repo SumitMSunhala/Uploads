@@ -16,8 +16,6 @@ namespace GlobalHRMSApi.Repositories
     {
         public int CompanyId { get; set; }
         public int AppointmentTypeID { get; set; }
-        public string Designation { get; set; }
-        public string Category { get; set; }
         public string Grade { get; set; }
         public string Department { get; set; }
         public string Plant { get; set; }
@@ -26,10 +24,14 @@ namespace GlobalHRMSApi.Repositories
         public int ContractorId { get; set; }
         public string EmployeeIdCode { get; set; }
         public int ID { get; set; }
+        public int DesignationId { get; set; }
+        public int CategoryId { get; set; }
     
         public virtual AppointmentTypeMaster AppointmentTypeMaster { get; set; }
-        public virtual AppointmentTypeMaster AppointmentTypeMaster1 { get; set; }
+        public virtual CategoryMaster CategoryMaster { get; set; }
         public virtual ContractorMaster ContractorMaster { get; set; }
+        public virtual DesignationMaster DesignationMaster { get; set; }
         public virtual EmployeePersonalDetails EmployeePersonalDetails { get; set; }
+        public virtual CompanyMaster CompanyMaster { get; set; }
     }
 }

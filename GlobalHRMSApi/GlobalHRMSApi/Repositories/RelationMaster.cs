@@ -14,10 +14,19 @@ namespace GlobalHRMSApi.Repositories
     
     public partial class RelationMaster
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RelationMaster()
+        {
+            this.EmployeeNominationMaster = new HashSet<EmployeeNominationMaster>();
+        }
+    
         public int ID { get; set; }
         public string Name { get; set; }
         public bool IsActive { get; set; }
         public System.DateTime CreatedDateTime { get; set; }
         public System.DateTime UpdatedDateTime { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmployeeNominationMaster> EmployeeNominationMaster { get; set; }
     }
 }

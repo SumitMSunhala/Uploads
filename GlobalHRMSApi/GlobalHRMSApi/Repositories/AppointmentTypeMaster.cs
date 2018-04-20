@@ -18,7 +18,6 @@ namespace GlobalHRMSApi.Repositories
         public AppointmentTypeMaster()
         {
             this.EmployeeCompanyMaster = new HashSet<EmployeeCompanyMaster>();
-            this.EmployeeCompanyMaster1 = new HashSet<EmployeeCompanyMaster>();
         }
     
         public int ID { get; set; }
@@ -29,7 +28,5 @@ namespace GlobalHRMSApi.Repositories
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EmployeeCompanyMaster> EmployeeCompanyMaster1 { get; set; }
     }
 }

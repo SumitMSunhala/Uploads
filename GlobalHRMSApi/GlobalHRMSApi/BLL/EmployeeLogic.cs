@@ -144,8 +144,8 @@ namespace GlobalHRMSApi.BLL
                         {
                             CompanyId = z.CompanyId,
                             AppointmentTypeID = z.AppointmentTypeID,
-                            Designation = z.Designation,
-                            Category = z.Category,
+                            DesignationId = z.DesignationId,
+                            CategoryId = z.CategoryId,
                             Grade = z.Grade,
                             Department = z.Department,
                             Plant = z.Plant,

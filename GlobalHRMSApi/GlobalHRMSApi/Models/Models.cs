@@ -272,8 +272,8 @@ namespace GlobalHRMSApi.Models
 	{
 		public int CompanyId { get; set; }
 		public int AppointmentTypeID { get; set; }
-		public string Designation { get; set; }
-		public string Category { get; set; }
+		public int DesignationId { get; set; }
+		public int CategoryId { get; set; }
 		public string Grade { get; set; }
 		public string Department { get; set; }
 		public string Plant { get; set; }

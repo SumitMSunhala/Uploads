@@ -39,5 +39,6 @@ namespace GlobalHRMSApi.Repositories
         public virtual CountyMaster CountyMaster { get; set; }
         public virtual EmployeePersonalDetails EmployeePersonalDetails { get; set; }
         public virtual StateMaster StateMaster { get; set; }
+        public virtual RelationMaster RelationMaster { get; set; }
     }
 }
