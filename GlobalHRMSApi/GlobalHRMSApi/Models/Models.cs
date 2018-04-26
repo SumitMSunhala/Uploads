@@ -365,4 +365,15 @@ namespace GlobalHRMSApi.Models
 		public List<EmployeeContractorDetails> EmployeeContractorDetails { get; set; }
 		public List<EmployeeNominationDetails> EmployeeNominationDetails { get; set; }
 	}
+  public class ExceptionLogDetails
+  {
+    public int ID { get; set; }
+    public DateTime ExceptionDateTime { get; set; }
+    public string Message { get; set; }
+    public string StackTrace { get; set; }
+    public string Source { get; set; }
+    public string InnerExceptionMessage { get; set; }
+    public string InnerExceptionStackTrace { get; set; }
+    public string InnerExceptionSource { get; set; }
+  }
 }

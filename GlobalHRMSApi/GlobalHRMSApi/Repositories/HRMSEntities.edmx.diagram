@@ -66,6 +66,7 @@
         <EntityTypeShape EntityType="HRMSManagementModel.CompanyMaster" Width="1.5" PointX="0.75" PointY="8.875" />
         <AssociationConnector Association="HRMSManagementModel.FK__EmployeeCompanyMaster_CompanyMaster" />
         <AssociationConnector Association="HRMSManagementModel.FK_DepartmentMaster_CompanyMaster" />
+        <EntityTypeShape EntityType="HRMSManagementModel.ExceptionLog" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

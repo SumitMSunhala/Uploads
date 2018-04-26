@@ -58,6 +58,7 @@ namespace GlobalHRMSApi.Repositories
         public virtual DbSet<EmployeeContractorMaster> EmployeeContractorMaster { get; set; }
         public virtual DbSet<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
         public virtual DbSet<CompanyMaster> CompanyMaster { get; set; }
+        public virtual DbSet<ExceptionLog> ExceptionLog { get; set; }
     
         public virtual int CreateUser(string firstName, string lastName, string country, string state, string city)
         {
@@ -486,6 +487,11 @@ namespace GlobalHRMSApi.Repositories
         public virtual int UpdateEmployeeDetails(ObjectParameter employeeId)
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateEmployeeDetails", employeeId);
+        }
+    
+        public virtual int InsertExceptionLog(ObjectParameter id)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertExceptionLog", id);
         }
     }
 }

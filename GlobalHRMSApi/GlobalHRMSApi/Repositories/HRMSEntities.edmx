@@ -262,6 +262,19 @@
           <Property Name="TemporaryAddressStateId" Type="int" Nullable="false" />
           <Property Name="TemporaryAddressCityId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="ExceptionLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExceptionDateTime" Type="datetime" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" />
+          <Property Name="StackTrace" Type="nvarchar(max)" />
+          <Property Name="Source" Type="nvarchar(max)" />
+          <Property Name="InnerExceptionMessage" Type="nvarchar(max)" />
+          <Property Name="InnerExceptionStackTrace" Type="nvarchar(max)" />
+          <Property Name="InnerExceptionSource" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="EXCLog">
           <Key>
             <PropertyRef Name="ID" />
@@ -898,6 +911,9 @@
         <Function Name="InsertEmployeeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="employeeId" Type="int" Mode="InOut" />
         </Function>
+        <Function Name="InsertExceptionLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="InOut" />
+        </Function>
         <Function Name="LoginUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userName" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
@@ -933,6 +949,7 @@
           <EntitySet Name="EmployeeDocumentMaster" EntityType="Self.EmployeeDocumentMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeNominationMaster" EntityType="Self.EmployeeNominationMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeePersonalDetails" EntityType="Self.EmployeePersonalDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExceptionLog" EntityType="Self.ExceptionLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EXCLog" EntityType="Self.EXCLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EXCMessage" EntityType="Self.EXCMessage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GenderMaster" EntityType="Self.GenderMaster" Schema="dbo" store:Type="Tables" />
@@ -1747,6 +1764,10 @@
             <End Role="CompanyMaster" EntitySet="CompanyMaster" />
             <End Role="DepartmentMaster" EntitySet="DepartmentMaster" />
           </AssociationSet>
+          <FunctionImport Name="InsertExceptionLog">
+          <Parameter Name="id" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="ExceptionLog" EntityType="HRMSManagementModel.ExceptionLog" />
         </EntityContainer>
         <ComplexType Name="GetAppointmentTypes_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -2503,6 +2524,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ExceptionLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExceptionDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InnerExceptionMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InnerExceptionStackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InnerExceptionSource" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3373,6 +3407,21 @@
                 <ScalarProperty Name="CountryId" ColumnName="CountryId" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="InsertExceptionLog" FunctionName="HRMSManagementModel.Store.InsertExceptionLog" />
+          <EntitySetMapping Name="ExceptionLog">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ExceptionLog">
+              <MappingFragment StoreEntitySet="ExceptionLog">
+                <ScalarProperty Name="InnerExceptionSource" ColumnName="InnerExceptionSource" />
+                <ScalarProperty Name="InnerExceptionStackTrace" ColumnName="InnerExceptionStackTrace" />
+                <ScalarProperty Name="InnerExceptionMessage" ColumnName="InnerExceptionMessage" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="ExceptionDateTime" ColumnName="ExceptionDateTime" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
