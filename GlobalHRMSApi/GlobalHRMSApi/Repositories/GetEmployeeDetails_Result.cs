@@ -98,12 +98,12 @@ namespace GlobalHRMSApi.Repositories
         public string ESICIPNumber { get; set; }
         public int CompanyId { get; set; }
         public int AppointmentTypeID { get; set; }
-        public string Grade { get; set; }
-        public string Department { get; set; }
-        public string Plant { get; set; }
         public Nullable<bool> OverTimeApplicability { get; set; }
         public string EmployeeIdCode { get; set; }
         public int DesignationId { get; set; }
         public int CategoryId { get; set; }
+        public Nullable<int> GradeId { get; set; }
+        public Nullable<int> DepartmentId { get; set; }
+        public Nullable<int> UnitId { get; set; }
     }
 }

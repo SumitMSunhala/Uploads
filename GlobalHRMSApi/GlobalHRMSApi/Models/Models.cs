@@ -274,16 +274,16 @@ namespace GlobalHRMSApi.Models
 		public int AppointmentTypeID { get; set; }
 		public int DesignationId { get; set; }
 		public int CategoryId { get; set; }
-		public string Grade { get; set; }
-		public string Department { get; set; }
-		public string Plant { get; set; }
 		public int EmployeeId { get; set; }
 		public bool OverTimeApplicability { get; set; }
 		public int ContractorId { get; set; }
 		public string EmployeeIdCode { get; set; }
 		public int ID { get; set; }
-	}
-	public class EmployeeContractorDetails
+    public int GradeId { get; set; }
+    public int DepartmentId { get; set; }
+    public int UnitId { get; set; }
+  }
+  public class EmployeeContractorDetails
 	{
 		public int ContractorId { get; set; }
 		public DateTime DateOfJoining { get; set; }

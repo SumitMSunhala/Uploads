@@ -143,9 +143,6 @@
           </Key>
           <Property Name="CompanyId" Type="int" Nullable="false" />
           <Property Name="AppointmentTypeID" Type="int" Nullable="false" />
-          <Property Name="Grade" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Department" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Plant" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="EmployeeId" Type="int" Nullable="false" />
           <Property Name="OverTimeApplicability" Type="bit" Nullable="false" />
           <Property Name="ContractorId" Type="int" Nullable="false" />
@@ -153,6 +150,9 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DesignationId" Type="int" Nullable="false" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="GradeId" Type="int" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="UnitId" Type="int" />
         </EntityType>
         <EntityType Name="EmployeeContractorMaster">
           <Key>
@@ -433,6 +433,42 @@
           <Property Name="Mobile" Type="varchar" MaxLength="100" />
           <Property Name="Password" Type="varchar" MaxLength="100" />
         </EntityType>
+        <Association Name="FK__EmployeeC__Depar__16CE6296">
+          <End Role="DepartmentMaster" Type="Self.DepartmentMaster" Multiplicity="0..1" />
+          <End Role="EmployeeCompanyMaster" Type="Self.EmployeeCompanyMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartmentMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeCompanyMaster">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeC__Grade__15DA3E5D">
+          <End Role="GradeMaster" Type="Self.GradeMaster" Multiplicity="0..1" />
+          <End Role="EmployeeCompanyMaster" Type="Self.EmployeeCompanyMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GradeMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeCompanyMaster">
+              <PropertyRef Name="GradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeC__UnitI__17C286CF">
+          <End Role="UnitMaster" Type="Self.UnitMaster" Multiplicity="0..1" />
+          <End Role="EmployeeCompanyMaster" Type="Self.EmployeeCompanyMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnitMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeCompanyMaster">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__EmployeeCompanyMaster_CategoryMaster">
           <End Role="CategoryMaster" Type="Self.CategoryMaster" Multiplicity="1" />
           <End Role="EmployeeCompanyMaster" Type="Self.EmployeeCompanyMaster" Multiplicity="*" />
@@ -964,6 +1000,18 @@
           <EntitySet Name="UnitMaster" EntityType="Self.UnitMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserMaster" EntityType="Self.UserMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__EmployeeC__Depar__16CE6296" Association="Self.FK__EmployeeC__Depar__16CE6296">
+            <End Role="DepartmentMaster" EntitySet="DepartmentMaster" />
+            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeC__Grade__15DA3E5D" Association="Self.FK__EmployeeC__Grade__15DA3E5D">
+            <End Role="GradeMaster" EntitySet="GradeMaster" />
+            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeC__UnitI__17C286CF" Association="Self.FK__EmployeeC__UnitI__17C286CF">
+            <End Role="UnitMaster" EntitySet="UnitMaster" />
+            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
+          </AssociationSet>
           <AssociationSet Name="FK__EmployeeCompanyMaster_CategoryMaster" Association="Self.FK__EmployeeCompanyMaster_CategoryMaster">
             <End Role="CategoryMaster" EntitySet="CategoryMaster" />
             <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
@@ -1198,6 +1246,7 @@
           <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="CompanyMaster" Relationship="HRMSManagementModel.FK_DepartmentMaster_CompanyMaster" FromRole="DepartmentMaster" ToRole="CompanyMaster" />
+          <NavigationProperty Name="EmployeeCompanyMaster" Relationship="HRMSManagementModel.FK__EmployeeC__Depar__16CE6296" FromRole="DepartmentMaster" ToRole="EmployeeCompanyMaster" />
         </EntityType>
         <EntityType Name="DesignationMaster">
           <Key>
@@ -1283,6 +1332,7 @@
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="EmployeeCompanyMaster" Relationship="HRMSManagementModel.FK__EmployeeC__Grade__15DA3E5D" FromRole="GradeMaster" ToRole="EmployeeCompanyMaster" />
         </EntityType>
         <EntityType Name="LeaveMaster">
           <Key>
@@ -1381,6 +1431,7 @@
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="EmployeeCompanyMaster" Relationship="HRMSManagementModel.FK__EmployeeC__UnitI__17C286CF" FromRole="UnitMaster" ToRole="EmployeeCompanyMaster" />
         </EntityType>
         <EntityType Name="UserMaster">
           <Key>
@@ -1734,6 +1785,11 @@
           <FunctionImport Name="UpdateEmployeeDetails">
           <Parameter Name="employeeId" Mode="InOut" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="InsertExceptionLog">
+          <Parameter Name="id" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="ExceptionLog" EntityType="HRMSManagementModel.ExceptionLog" />
+          <EntitySet Name="CompanyMaster" EntityType="HRMSManagementModel.CompanyMaster" />
           <EntitySet Name="EmployeeCompanyMaster" EntityType="HRMSManagementModel.EmployeeCompanyMaster" />
           <AssociationSet Name="FK_EmployeeCompanyMaster_AppointmentTypeMaster" Association="HRMSManagementModel.FK_EmployeeCompanyMaster_AppointmentTypeMaster">
             <End Role="AppointmentTypeMaster" EntitySet="AppointmentTypeMaster" />
@@ -1743,19 +1799,6 @@
             <End Role="CategoryMaster" EntitySet="CategoryMaster" />
             <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
           </AssociationSet>
-          <AssociationSet Name="FK_EmployeeCompanyMaster_ContractorMaster" Association="HRMSManagementModel.FK_EmployeeCompanyMaster_ContractorMaster">
-            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
-            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
-          </AssociationSet>
-          <AssociationSet Name="FK__EmployeeCompanyMaster_DesignationMaster" Association="HRMSManagementModel.FK__EmployeeCompanyMaster_DesignationMaster">
-            <End Role="DesignationMaster" EntitySet="DesignationMaster" />
-            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeCompanyMaster_EmployeePersonalDetails" Association="HRMSManagementModel.FK_EmployeeCompanyMaster_EmployeePersonalDetails">
-            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
-            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
-          </AssociationSet>
-          <EntitySet Name="CompanyMaster" EntityType="HRMSManagementModel.CompanyMaster" />
           <AssociationSet Name="FK__EmployeeCompanyMaster_CompanyMaster" Association="HRMSManagementModel.FK__EmployeeCompanyMaster_CompanyMaster">
             <End Role="CompanyMaster" EntitySet="CompanyMaster" />
             <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
@@ -1764,11 +1807,31 @@
             <End Role="CompanyMaster" EntitySet="CompanyMaster" />
             <End Role="DepartmentMaster" EntitySet="DepartmentMaster" />
           </AssociationSet>
-          <FunctionImport Name="InsertExceptionLog">
-          <Parameter Name="id" Mode="InOut" Type="Int32" />
-          </FunctionImport>
-          <EntitySet Name="ExceptionLog" EntityType="HRMSManagementModel.ExceptionLog" />
-        </EntityContainer>
+          <AssociationSet Name="FK_EmployeeCompanyMaster_ContractorMaster" Association="HRMSManagementModel.FK_EmployeeCompanyMaster_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeC__Depar__16CE6296" Association="HRMSManagementModel.FK__EmployeeC__Depar__16CE6296">
+            <End Role="DepartmentMaster" EntitySet="DepartmentMaster" />
+            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeCompanyMaster_DesignationMaster" Association="HRMSManagementModel.FK__EmployeeCompanyMaster_DesignationMaster">
+            <End Role="DesignationMaster" EntitySet="DesignationMaster" />
+            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeC__Grade__15DA3E5D" Association="HRMSManagementModel.FK__EmployeeC__Grade__15DA3E5D">
+            <End Role="GradeMaster" EntitySet="GradeMaster" />
+            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeC__UnitI__17C286CF" Association="HRMSManagementModel.FK__EmployeeC__UnitI__17C286CF">
+            <End Role="UnitMaster" EntitySet="UnitMaster" />
+            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeCompanyMaster_EmployeePersonalDetails" Association="HRMSManagementModel.FK_EmployeeCompanyMaster_EmployeePersonalDetails">
+            <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
+            <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
+          </AssociationSet>
+          </EntityContainer>
         <ComplexType Name="GetAppointmentTypes_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
@@ -2238,13 +2301,13 @@
           <Property Type="String" Name="ESICIPNumber" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="CompanyId" Nullable="false" />
           <Property Type="Int32" Name="AppointmentTypeID" Nullable="false" />
-          <Property Type="String" Name="Grade" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Plant" Nullable="false" MaxLength="50" />
           <Property Type="Boolean" Name="OverTimeApplicability" Nullable="true" />
           <Property Type="String" Name="EmployeeIdCode" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="DesignationId" Nullable="false" />
           <Property Type="Int32" Name="CategoryId" Nullable="false" />
+          <Property Type="Int32" Name="GradeId" Nullable="true" />
+          <Property Type="Int32" Name="DepartmentId" Nullable="true" />
+          <Property Type="Int32" Name="UnitId" Nullable="true" />
         </ComplexType>
         <ComplexType Name="InsertCompany_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -2396,15 +2459,46 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ExceptionLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExceptionDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InnerExceptionMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InnerExceptionStackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InnerExceptionSource" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CompanyMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="StateId" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmailId" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="WebSite" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EmployeeCompanyMaster" Relationship="HRMSManagementModel.FK__EmployeeCompanyMaster_CompanyMaster" FromRole="CompanyMaster" ToRole="EmployeeCompanyMaster" />
+          <NavigationProperty Name="DepartmentMaster" Relationship="HRMSManagementModel.FK_DepartmentMaster_CompanyMaster" FromRole="CompanyMaster" ToRole="DepartmentMaster" />
+        </EntityType>
         <EntityType Name="EmployeeCompanyMaster">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="CompanyId" Type="Int32" Nullable="false" />
           <Property Name="AppointmentTypeID" Type="Int32" Nullable="false" />
-          <Property Name="Grade" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Department" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Plant" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="EmployeeId" Type="Int32" Nullable="false" />
           <Property Name="OverTimeApplicability" Type="Boolean" Nullable="false" />
           <Property Name="ContractorId" Type="Int32" Nullable="false" />
@@ -2412,12 +2506,18 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DesignationId" Type="Int32" Nullable="false" />
           <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="GradeId" Type="Int32" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="UnitId" Type="Int32" />
           <NavigationProperty Name="AppointmentTypeMaster" Relationship="HRMSManagementModel.FK_EmployeeCompanyMaster_AppointmentTypeMaster" FromRole="EmployeeCompanyMaster" ToRole="AppointmentTypeMaster" />
           <NavigationProperty Name="CategoryMaster" Relationship="HRMSManagementModel.FK__EmployeeCompanyMaster_CategoryMaster" FromRole="EmployeeCompanyMaster" ToRole="CategoryMaster" />
-          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_EmployeeCompanyMaster_ContractorMaster" FromRole="EmployeeCompanyMaster" ToRole="ContractorMaster" />
-          <NavigationProperty Name="DesignationMaster" Relationship="HRMSManagementModel.FK__EmployeeCompanyMaster_DesignationMaster" FromRole="EmployeeCompanyMaster" ToRole="DesignationMaster" />
-          <NavigationProperty Name="EmployeePersonalDetails" Relationship="HRMSManagementModel.FK_EmployeeCompanyMaster_EmployeePersonalDetails" FromRole="EmployeeCompanyMaster" ToRole="EmployeePersonalDetails" />
           <NavigationProperty Name="CompanyMaster" Relationship="HRMSManagementModel.FK__EmployeeCompanyMaster_CompanyMaster" FromRole="EmployeeCompanyMaster" ToRole="CompanyMaster" />
+          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_EmployeeCompanyMaster_ContractorMaster" FromRole="EmployeeCompanyMaster" ToRole="ContractorMaster" />
+          <NavigationProperty Name="DepartmentMaster" Relationship="HRMSManagementModel.FK__EmployeeC__Depar__16CE6296" FromRole="EmployeeCompanyMaster" ToRole="DepartmentMaster" />
+          <NavigationProperty Name="DesignationMaster" Relationship="HRMSManagementModel.FK__EmployeeCompanyMaster_DesignationMaster" FromRole="EmployeeCompanyMaster" ToRole="DesignationMaster" />
+          <NavigationProperty Name="GradeMaster" Relationship="HRMSManagementModel.FK__EmployeeC__Grade__15DA3E5D" FromRole="EmployeeCompanyMaster" ToRole="GradeMaster" />
+          <NavigationProperty Name="UnitMaster" Relationship="HRMSManagementModel.FK__EmployeeC__UnitI__17C286CF" FromRole="EmployeeCompanyMaster" ToRole="UnitMaster" />
+          <NavigationProperty Name="EmployeePersonalDetails" Relationship="HRMSManagementModel.FK_EmployeeCompanyMaster_EmployeePersonalDetails" FromRole="EmployeeCompanyMaster" ToRole="EmployeePersonalDetails" />
         </EntityType>
         <Association Name="FK_EmployeeCompanyMaster_AppointmentTypeMaster">
           <End Type="HRMSManagementModel.AppointmentTypeMaster" Role="AppointmentTypeMaster" Multiplicity="1" />
@@ -2443,63 +2543,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EmployeeCompanyMaster_ContractorMaster">
-          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
-          <End Type="HRMSManagementModel.EmployeeCompanyMaster" Role="EmployeeCompanyMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ContractorMaster">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="EmployeeCompanyMaster">
-              <PropertyRef Name="ContractorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__EmployeeCompanyMaster_DesignationMaster">
-          <End Type="HRMSManagementModel.DesignationMaster" Role="DesignationMaster" Multiplicity="1" />
-          <End Type="HRMSManagementModel.EmployeeCompanyMaster" Role="EmployeeCompanyMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DesignationMaster">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="EmployeeCompanyMaster">
-              <PropertyRef Name="DesignationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeCompanyMaster_EmployeePersonalDetails">
-          <End Type="HRMSManagementModel.EmployeePersonalDetails" Role="EmployeePersonalDetails" Multiplicity="1" />
-          <End Type="HRMSManagementModel.EmployeeCompanyMaster" Role="EmployeeCompanyMaster" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeePersonalDetails">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="EmployeeCompanyMaster">
-              <PropertyRef Name="EmployeeId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="CompanyMaster">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="CountryId" Type="Int32" Nullable="false" />
-          <Property Name="StateId" Type="Int32" Nullable="false" />
-          <Property Name="CityId" Type="Int32" Nullable="false" />
-          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EmailId" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="WebSite" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="EmployeeCompanyMaster" Relationship="HRMSManagementModel.FK__EmployeeCompanyMaster_CompanyMaster" FromRole="CompanyMaster" ToRole="EmployeeCompanyMaster" />
-          <NavigationProperty Name="DepartmentMaster" Relationship="HRMSManagementModel.FK_DepartmentMaster_CompanyMaster" FromRole="CompanyMaster" ToRole="DepartmentMaster" />
-        </EntityType>
         <Association Name="FK__EmployeeCompanyMaster_CompanyMaster">
           <End Type="HRMSManagementModel.CompanyMaster" Role="CompanyMaster" Multiplicity="1" />
           <End Type="HRMSManagementModel.EmployeeCompanyMaster" Role="EmployeeCompanyMaster" Multiplicity="*" />
@@ -2524,20 +2567,79 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="ExceptionLog">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ExceptionDateTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="InnerExceptionMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="InnerExceptionStackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="InnerExceptionSource" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-      </Schema>
+        <Association Name="FK_EmployeeCompanyMaster_ContractorMaster">
+          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeCompanyMaster" Role="EmployeeCompanyMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeCompanyMaster">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeC__Depar__16CE6296">
+          <End Type="HRMSManagementModel.DepartmentMaster" Role="DepartmentMaster" Multiplicity="0..1" />
+          <End Type="HRMSManagementModel.EmployeeCompanyMaster" Role="EmployeeCompanyMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartmentMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeCompanyMaster">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeCompanyMaster_DesignationMaster">
+          <End Type="HRMSManagementModel.DesignationMaster" Role="DesignationMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeCompanyMaster" Role="EmployeeCompanyMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DesignationMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeCompanyMaster">
+              <PropertyRef Name="DesignationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeC__Grade__15DA3E5D">
+          <End Type="HRMSManagementModel.GradeMaster" Role="GradeMaster" Multiplicity="0..1" />
+          <End Type="HRMSManagementModel.EmployeeCompanyMaster" Role="EmployeeCompanyMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GradeMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeCompanyMaster">
+              <PropertyRef Name="GradeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeC__UnitI__17C286CF">
+          <End Type="HRMSManagementModel.UnitMaster" Role="UnitMaster" Multiplicity="0..1" />
+          <End Type="HRMSManagementModel.EmployeeCompanyMaster" Role="EmployeeCompanyMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnitMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeCompanyMaster">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeCompanyMaster_EmployeePersonalDetails">
+          <End Type="HRMSManagementModel.EmployeePersonalDetails" Role="EmployeePersonalDetails" Multiplicity="1" />
+          <End Type="HRMSManagementModel.EmployeeCompanyMaster" Role="EmployeeCompanyMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeePersonalDetails">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeCompanyMaster">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -3262,13 +3364,13 @@
                 <ScalarProperty Name="ESICIPNumber" ColumnName="ESICIPNumber" />
                 <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
                 <ScalarProperty Name="AppointmentTypeID" ColumnName="AppointmentTypeID" />
-                <ScalarProperty Name="Grade" ColumnName="Grade" />
-                <ScalarProperty Name="Department" ColumnName="Department" />
-                <ScalarProperty Name="Plant" ColumnName="Plant" />
                 <ScalarProperty Name="OverTimeApplicability" ColumnName="OverTimeApplicability" />
                 <ScalarProperty Name="EmployeeIdCode" ColumnName="EmployeeIdCode" />
                 <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="GradeId" ColumnName="GradeId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -3373,21 +3475,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="UpdateEmployeeDetails" FunctionName="HRMSManagementModel.Store.UpdateEmployeeDetails" />
-          <EntitySetMapping Name="EmployeeCompanyMaster">
-            <EntityTypeMapping TypeName="HRMSManagementModel.EmployeeCompanyMaster">
-              <MappingFragment StoreEntitySet="EmployeeCompanyMaster">
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
-                <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
+          <FunctionImportMapping FunctionImportName="InsertExceptionLog" FunctionName="HRMSManagementModel.Store.InsertExceptionLog" />
+          <EntitySetMapping Name="ExceptionLog">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ExceptionLog">
+              <MappingFragment StoreEntitySet="ExceptionLog">
+                <ScalarProperty Name="InnerExceptionSource" ColumnName="InnerExceptionSource" />
+                <ScalarProperty Name="InnerExceptionStackTrace" ColumnName="InnerExceptionStackTrace" />
+                <ScalarProperty Name="InnerExceptionMessage" ColumnName="InnerExceptionMessage" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="ExceptionDateTime" ColumnName="ExceptionDateTime" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="EmployeeIdCode" ColumnName="EmployeeIdCode" />
-                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
-                <ScalarProperty Name="OverTimeApplicability" ColumnName="OverTimeApplicability" />
-                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-                <ScalarProperty Name="Plant" ColumnName="Plant" />
-                <ScalarProperty Name="Department" ColumnName="Department" />
-                <ScalarProperty Name="Grade" ColumnName="Grade" />
-                <ScalarProperty Name="AppointmentTypeID" ColumnName="AppointmentTypeID" />
-                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3411,18 +3510,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="InsertExceptionLog" FunctionName="HRMSManagementModel.Store.InsertExceptionLog" />
-          <EntitySetMapping Name="ExceptionLog">
-            <EntityTypeMapping TypeName="HRMSManagementModel.ExceptionLog">
-              <MappingFragment StoreEntitySet="ExceptionLog">
-                <ScalarProperty Name="InnerExceptionSource" ColumnName="InnerExceptionSource" />
-                <ScalarProperty Name="InnerExceptionStackTrace" ColumnName="InnerExceptionStackTrace" />
-                <ScalarProperty Name="InnerExceptionMessage" ColumnName="InnerExceptionMessage" />
-                <ScalarProperty Name="Source" ColumnName="Source" />
-                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="ExceptionDateTime" ColumnName="ExceptionDateTime" />
+          <EntitySetMapping Name="EmployeeCompanyMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.EmployeeCompanyMaster">
+              <MappingFragment StoreEntitySet="EmployeeCompanyMaster">
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="GradeId" ColumnName="GradeId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="DesignationId" ColumnName="DesignationId" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeIdCode" ColumnName="EmployeeIdCode" />
+                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+                <ScalarProperty Name="OverTimeApplicability" ColumnName="OverTimeApplicability" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="AppointmentTypeID" ColumnName="AppointmentTypeID" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

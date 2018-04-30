@@ -56,9 +56,9 @@ namespace GlobalHRMSApi.Repositories
         public virtual DbSet<EXCMessage> EXCMessage { get; set; }
         public virtual DbSet<EmployeeDocumentMaster> EmployeeDocumentMaster { get; set; }
         public virtual DbSet<EmployeeContractorMaster> EmployeeContractorMaster { get; set; }
-        public virtual DbSet<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
-        public virtual DbSet<CompanyMaster> CompanyMaster { get; set; }
         public virtual DbSet<ExceptionLog> ExceptionLog { get; set; }
+        public virtual DbSet<CompanyMaster> CompanyMaster { get; set; }
+        public virtual DbSet<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
     
         public virtual int CreateUser(string firstName, string lastName, string country, string state, string city)
         {

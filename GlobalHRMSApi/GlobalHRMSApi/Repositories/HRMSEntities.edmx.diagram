@@ -57,17 +57,20 @@
         <AssociationConnector Association="HRMSManagementModel.FK_EmployeeContractorMaster_EmployeePersonalDetails" />
         <AssociationConnector Association="HRMSManagementModel.FK_EmployeeContractorMaster_ModeOfPaymentMaster" />
         <AssociationConnector Association="HRMSManagementModel.FK_EmployeeNominationMaster_RelationMaster" />
-        <EntityTypeShape EntityType="HRMSManagementModel.EmployeeCompanyMaster" Width="1.5" PointX="20" PointY="6.375" />
+        <EntityTypeShape EntityType="HRMSManagementModel.ExceptionLog" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HRMSManagementModel.CompanyMaster" Width="1.5" PointX="0.75" PointY="12.25" />
+        <EntityTypeShape EntityType="HRMSManagementModel.EmployeeCompanyMaster" Width="1.5" PointX="22.75" PointY="8.25" />
         <AssociationConnector Association="HRMSManagementModel.FK_EmployeeCompanyMaster_AppointmentTypeMaster" />
         <AssociationConnector Association="HRMSManagementModel.FK__EmployeeCompanyMaster_CategoryMaster" />
-        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeCompanyMaster_ContractorMaster" />
-        <AssociationConnector Association="HRMSManagementModel.FK__EmployeeCompanyMaster_DesignationMaster" />
-        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeCompanyMaster_EmployeePersonalDetails" />
-        <EntityTypeShape EntityType="HRMSManagementModel.CompanyMaster" Width="1.5" PointX="0.75" PointY="8.875" />
         <AssociationConnector Association="HRMSManagementModel.FK__EmployeeCompanyMaster_CompanyMaster" />
         <AssociationConnector Association="HRMSManagementModel.FK_DepartmentMaster_CompanyMaster" />
-        <EntityTypeShape EntityType="HRMSManagementModel.ExceptionLog" Width="1.5" PointX="0.75" PointY="0.75" />
-      </Diagram>
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeCompanyMaster_ContractorMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK__EmployeeC__Depar__16CE6296" />
+        <AssociationConnector Association="HRMSManagementModel.FK__EmployeeCompanyMaster_DesignationMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK__EmployeeC__Grade__15DA3E5D" />
+        <AssociationConnector Association="HRMSManagementModel.FK__EmployeeC__UnitI__17C286CF" />
+        <AssociationConnector Association="HRMSManagementModel.FK_EmployeeCompanyMaster_EmployeePersonalDetails" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
