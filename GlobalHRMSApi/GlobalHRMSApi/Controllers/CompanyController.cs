@@ -17,14 +17,21 @@ namespace GlobalHRMSApi.Controllers
     {
 		CompanyLogic companyLogic = new CompanyLogic();
         
-        [Route("save")]
+        [Route("insert")]
         [HttpPost]
-        public int SaveCompany([FromBody]Company company)
+        public int InsertCompany([FromBody]Company company)
         {
             return companyLogic.SaveCompany(company);
         }
 
-		[Route("delete/{id}")]
+        [Route("update")]
+        [HttpPost]
+        public int UpdateCompany([FromBody]Company company)
+        {
+            return companyLogic.SaveCompany(company);
+        }
+
+        [Route("delete/{id}")]
 		[HttpPost]
 		public int DeleteCompany(int id)
 		{
