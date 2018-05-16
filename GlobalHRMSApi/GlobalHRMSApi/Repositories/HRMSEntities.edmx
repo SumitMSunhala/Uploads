@@ -950,6 +950,46 @@
         <Function Name="InsertExceptionLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id" Type="int" Mode="InOut" />
         </Function>
+        <Function Name="IsAadharCardNumberExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="aadharCardNumber" Type="varchar" Mode="In" />
+          <Parameter Name="employeeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="IsAadharEnrolmentNumberExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="aadharEnrolmentNumber" Type="varchar" Mode="In" />
+          <Parameter Name="employeeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="IsDrivingLicenceNumberExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="drivingLicenceNumber" Type="varchar" Mode="In" />
+          <Parameter Name="employeeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="IsElectionCardNumberExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="electionCardNumber" Type="varchar" Mode="In" />
+          <Parameter Name="employeeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="IsEmailIdExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="emailId" Type="varchar" Mode="In" />
+          <Parameter Name="employeeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="IsMobileNumberExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mobileNumber" Type="varchar" Mode="In" />
+          <Parameter Name="employeeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="IsNationalPopulationRegisterExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nationalPopulationRegister" Type="varchar" Mode="In" />
+          <Parameter Name="employeeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="IsPANCardNumberExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="panCardNumber" Type="varchar" Mode="In" />
+          <Parameter Name="employeeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="IsPassportNumberExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="passportNumber" Type="varchar" Mode="In" />
+          <Parameter Name="employeeId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="IsRationCardNumberExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rationCardNumber" Type="varchar" Mode="In" />
+          <Parameter Name="employeeId" Type="int" Mode="In" />
+        </Function>
         <Function Name="LoginUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userName" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
@@ -1831,6 +1871,46 @@
             <End Role="EmployeePersonalDetails" EntitySet="EmployeePersonalDetails" />
             <End Role="EmployeeCompanyMaster" EntitySet="EmployeeCompanyMaster" />
           </AssociationSet>
+          <FunctionImport Name="IsAadharCardNumberExists" ReturnType="Collection(Boolean)">
+            <Parameter Name="aadharCardNumber" Mode="In" Type="String" />
+            <Parameter Name="employeeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="IsAadharEnrolmentNumberExists" ReturnType="Collection(Boolean)">
+            <Parameter Name="aadharEnrolmentNumber" Mode="In" Type="String" />
+            <Parameter Name="employeeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="IsDrivingLicenceNumberExists" ReturnType="Collection(Boolean)">
+            <Parameter Name="drivingLicenceNumber" Mode="In" Type="String" />
+            <Parameter Name="employeeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="IsElectionCardNumberExists" ReturnType="Collection(Boolean)">
+            <Parameter Name="electionCardNumber" Mode="In" Type="String" />
+            <Parameter Name="employeeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="IsEmailIdExists" ReturnType="Collection(Boolean)">
+            <Parameter Name="emailId" Mode="In" Type="String" />
+            <Parameter Name="employeeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="IsMobileNumberExists" ReturnType="Collection(Boolean)">
+            <Parameter Name="mobileNumber" Mode="In" Type="String" />
+            <Parameter Name="employeeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="IsNationalPopulationRegisterExists" ReturnType="Collection(Boolean)">
+            <Parameter Name="nationalPopulationRegister" Mode="In" Type="String" />
+            <Parameter Name="employeeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="IsPANCardNumberExists" ReturnType="Collection(Boolean)">
+            <Parameter Name="panCardNumber" Mode="In" Type="String" />
+            <Parameter Name="employeeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="IsPassportNumberExists" ReturnType="Collection(Boolean)">
+            <Parameter Name="passportNumber" Mode="In" Type="String" />
+            <Parameter Name="employeeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="IsRationCardNumberExists" ReturnType="Collection(Boolean)">
+            <Parameter Name="rationCardNumber" Mode="In" Type="String" />
+            <Parameter Name="employeeId" Mode="In" Type="Int32" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="GetAppointmentTypes_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -3528,6 +3608,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="IsAadharCardNumberExists" FunctionName="HRMSManagementModel.Store.IsAadharCardNumberExists" />
+          <FunctionImportMapping FunctionImportName="IsAadharEnrolmentNumberExists" FunctionName="HRMSManagementModel.Store.IsAadharEnrolmentNumberExists" />
+          <FunctionImportMapping FunctionImportName="IsDrivingLicenceNumberExists" FunctionName="HRMSManagementModel.Store.IsDrivingLicenceNumberExists" />
+          <FunctionImportMapping FunctionImportName="IsElectionCardNumberExists" FunctionName="HRMSManagementModel.Store.IsElectionCardNumberExists" />
+          <FunctionImportMapping FunctionImportName="IsEmailIdExists" FunctionName="HRMSManagementModel.Store.IsEmailIdExists" />
+          <FunctionImportMapping FunctionImportName="IsMobileNumberExists" FunctionName="HRMSManagementModel.Store.IsMobileNumberExists" />
+          <FunctionImportMapping FunctionImportName="IsNationalPopulationRegisterExists" FunctionName="HRMSManagementModel.Store.IsNationalPopulationRegisterExists" />
+          <FunctionImportMapping FunctionImportName="IsPANCardNumberExists" FunctionName="HRMSManagementModel.Store.IsPANCardNumberExists" />
+          <FunctionImportMapping FunctionImportName="IsPassportNumberExists" FunctionName="HRMSManagementModel.Store.IsPassportNumberExists" />
+          <FunctionImportMapping FunctionImportName="IsRationCardNumberExists" FunctionName="HRMSManagementModel.Store.IsRationCardNumberExists" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -493,5 +493,135 @@ namespace GlobalHRMSApi.Repositories
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertExceptionLog", id);
         }
+    
+        public virtual ObjectResult<Nullable<bool>> IsAadharCardNumberExists(string aadharCardNumber, Nullable<int> employeeId)
+        {
+            var aadharCardNumberParameter = aadharCardNumber != null ?
+                new ObjectParameter("aadharCardNumber", aadharCardNumber) :
+                new ObjectParameter("aadharCardNumber", typeof(string));
+    
+            var employeeIdParameter = employeeId.HasValue ?
+                new ObjectParameter("employeeId", employeeId) :
+                new ObjectParameter("employeeId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("IsAadharCardNumberExists", aadharCardNumberParameter, employeeIdParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<bool>> IsAadharEnrolmentNumberExists(string aadharEnrolmentNumber, Nullable<int> employeeId)
+        {
+            var aadharEnrolmentNumberParameter = aadharEnrolmentNumber != null ?
+                new ObjectParameter("aadharEnrolmentNumber", aadharEnrolmentNumber) :
+                new ObjectParameter("aadharEnrolmentNumber", typeof(string));
+    
+            var employeeIdParameter = employeeId.HasValue ?
+                new ObjectParameter("employeeId", employeeId) :
+                new ObjectParameter("employeeId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("IsAadharEnrolmentNumberExists", aadharEnrolmentNumberParameter, employeeIdParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<bool>> IsDrivingLicenceNumberExists(string drivingLicenceNumber, Nullable<int> employeeId)
+        {
+            var drivingLicenceNumberParameter = drivingLicenceNumber != null ?
+                new ObjectParameter("drivingLicenceNumber", drivingLicenceNumber) :
+                new ObjectParameter("drivingLicenceNumber", typeof(string));
+    
+            var employeeIdParameter = employeeId.HasValue ?
+                new ObjectParameter("employeeId", employeeId) :
+                new ObjectParameter("employeeId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("IsDrivingLicenceNumberExists", drivingLicenceNumberParameter, employeeIdParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<bool>> IsElectionCardNumberExists(string electionCardNumber, Nullable<int> employeeId)
+        {
+            var electionCardNumberParameter = electionCardNumber != null ?
+                new ObjectParameter("electionCardNumber", electionCardNumber) :
+                new ObjectParameter("electionCardNumber", typeof(string));
+    
+            var employeeIdParameter = employeeId.HasValue ?
+                new ObjectParameter("employeeId", employeeId) :
+                new ObjectParameter("employeeId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("IsElectionCardNumberExists", electionCardNumberParameter, employeeIdParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<bool>> IsEmailIdExists(string emailId, Nullable<int> employeeId)
+        {
+            var emailIdParameter = emailId != null ?
+                new ObjectParameter("emailId", emailId) :
+                new ObjectParameter("emailId", typeof(string));
+    
+            var employeeIdParameter = employeeId.HasValue ?
+                new ObjectParameter("employeeId", employeeId) :
+                new ObjectParameter("employeeId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("IsEmailIdExists", emailIdParameter, employeeIdParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<bool>> IsMobileNumberExists(string mobileNumber, Nullable<int> employeeId)
+        {
+            var mobileNumberParameter = mobileNumber != null ?
+                new ObjectParameter("mobileNumber", mobileNumber) :
+                new ObjectParameter("mobileNumber", typeof(string));
+    
+            var employeeIdParameter = employeeId.HasValue ?
+                new ObjectParameter("employeeId", employeeId) :
+                new ObjectParameter("employeeId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("IsMobileNumberExists", mobileNumberParameter, employeeIdParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<bool>> IsNationalPopulationRegisterExists(string nationalPopulationRegister, Nullable<int> employeeId)
+        {
+            var nationalPopulationRegisterParameter = nationalPopulationRegister != null ?
+                new ObjectParameter("nationalPopulationRegister", nationalPopulationRegister) :
+                new ObjectParameter("nationalPopulationRegister", typeof(string));
+    
+            var employeeIdParameter = employeeId.HasValue ?
+                new ObjectParameter("employeeId", employeeId) :
+                new ObjectParameter("employeeId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("IsNationalPopulationRegisterExists", nationalPopulationRegisterParameter, employeeIdParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<bool>> IsPANCardNumberExists(string panCardNumber, Nullable<int> employeeId)
+        {
+            var panCardNumberParameter = panCardNumber != null ?
+                new ObjectParameter("panCardNumber", panCardNumber) :
+                new ObjectParameter("panCardNumber", typeof(string));
+    
+            var employeeIdParameter = employeeId.HasValue ?
+                new ObjectParameter("employeeId", employeeId) :
+                new ObjectParameter("employeeId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("IsPANCardNumberExists", panCardNumberParameter, employeeIdParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<bool>> IsPassportNumberExists(string passportNumber, Nullable<int> employeeId)
+        {
+            var passportNumberParameter = passportNumber != null ?
+                new ObjectParameter("passportNumber", passportNumber) :
+                new ObjectParameter("passportNumber", typeof(string));
+    
+            var employeeIdParameter = employeeId.HasValue ?
+                new ObjectParameter("employeeId", employeeId) :
+                new ObjectParameter("employeeId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("IsPassportNumberExists", passportNumberParameter, employeeIdParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<bool>> IsRationCardNumberExists(string rationCardNumber, Nullable<int> employeeId)
+        {
+            var rationCardNumberParameter = rationCardNumber != null ?
+                new ObjectParameter("rationCardNumber", rationCardNumber) :
+                new ObjectParameter("rationCardNumber", typeof(string));
+    
+            var employeeIdParameter = employeeId.HasValue ?
+                new ObjectParameter("employeeId", employeeId) :
+                new ObjectParameter("employeeId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("IsRationCardNumberExists", rationCardNumberParameter, employeeIdParameter);
+        }
     }
 }
