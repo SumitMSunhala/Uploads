@@ -59,6 +59,17 @@ namespace GlobalHRMSApi.Repositories
         public virtual DbSet<ExceptionLog> ExceptionLog { get; set; }
         public virtual DbSet<CompanyMaster> CompanyMaster { get; set; }
         public virtual DbSet<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
+        public virtual DbSet<ContractorBankAccountDetail> ContractorBankAccountDetail { get; set; }
+        public virtual DbSet<ContractorCommercialTaxDepartment> ContractorCommercialTaxDepartment { get; set; }
+        public virtual DbSet<ContractorEmployeeCompensationPolicy> ContractorEmployeeCompensationPolicy { get; set; }
+        public virtual DbSet<ContractorEmployeeProvidentFundOrganisation> ContractorEmployeeProvidentFundOrganisation { get; set; }
+        public virtual DbSet<ContractorEmployeeStateInsuranceCorporation> ContractorEmployeeStateInsuranceCorporation { get; set; }
+        public virtual DbSet<ContractorEmploymentExchangeDepartment> ContractorEmploymentExchangeDepartment { get; set; }
+        public virtual DbSet<ContractorGoodAndServicesTaxDepartment> ContractorGoodAndServicesTaxDepartment { get; set; }
+        public virtual DbSet<ContractorGujaratLabourWelfareFundDepartment> ContractorGujaratLabourWelfareFundDepartment { get; set; }
+        public virtual DbSet<ContractorLabourAndEmploymentDepartment> ContractorLabourAndEmploymentDepartment { get; set; }
+        public virtual DbSet<ContractorShopAndEstablishmentDepartment> ContractorShopAndEstablishmentDepartment { get; set; }
+        public virtual DbSet<HolidayMaster> HolidayMaster { get; set; }
     
         public virtual int CreateUser(string firstName, string lastName, string country, string state, string city)
         {
@@ -622,6 +633,66 @@ namespace GlobalHRMSApi.Repositories
                 new ObjectParameter("employeeId", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("IsRationCardNumberExists", rationCardNumberParameter, employeeIdParameter);
+        }
+    
+        public virtual int ManageContractorBankDetail(ObjectParameter contractorBankAccountDetailId)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ManageContractorBankDetail", contractorBankAccountDetailId);
+        }
+    
+        public virtual int ManageContractorCommercialTaxDepartment(ObjectParameter contractorCommercialTaxDepartmentId)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ManageContractorCommercialTaxDepartment", contractorCommercialTaxDepartmentId);
+        }
+    
+        public virtual int ManageContractorDetails()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ManageContractorDetails");
+        }
+    
+        public virtual int ManageContractorEmployeeCompensationPolicy(ObjectParameter contractorEmployeeCompensationPolicyId)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ManageContractorEmployeeCompensationPolicy", contractorEmployeeCompensationPolicyId);
+        }
+    
+        public virtual int ManageContractorEmployeeProvidentFundOrganisation(ObjectParameter contractorEmployeeProvidentFundOrganisationId)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ManageContractorEmployeeProvidentFundOrganisation", contractorEmployeeProvidentFundOrganisationId);
+        }
+    
+        public virtual int ManageContractorEmployeeStateInsuranceCorporation(ObjectParameter contractorEmployeeStateInsuranceCorporationId)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ManageContractorEmployeeStateInsuranceCorporation", contractorEmployeeStateInsuranceCorporationId);
+        }
+    
+        public virtual int ManageContractorEmploymentExchangeDepartment(ObjectParameter contractorEmploymentExchangeDepartmentId)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ManageContractorEmploymentExchangeDepartment", contractorEmploymentExchangeDepartmentId);
+        }
+    
+        public virtual int ManageContractorGoodAndServicesTaxDepartment(ObjectParameter contractorGoodAndServicesTaxDepartmentId)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ManageContractorGoodAndServicesTaxDepartment", contractorGoodAndServicesTaxDepartmentId);
+        }
+    
+        public virtual int ManageContractorGujaratLabourWelfareFundDepartment(ObjectParameter contractorGujaratLabourWelfareFundDepartmentId)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ManageContractorGujaratLabourWelfareFundDepartment", contractorGujaratLabourWelfareFundDepartmentId);
+        }
+    
+        public virtual int ManageContractorLabourAndEmploymentDepartment(ObjectParameter contractorLabourAndEmploymentDepartmentId)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ManageContractorLabourAndEmploymentDepartment", contractorLabourAndEmploymentDepartmentId);
+        }
+    
+        public virtual int ManageContractorMaster(ObjectParameter contractorMasterId)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ManageContractorMaster", contractorMasterId);
+        }
+    
+        public virtual int ManageContractorShopAndEstablishmentDepartment(ObjectParameter contractorShopAndEstablishmentDepartmentId)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ManageContractorShopAndEstablishmentDepartment", contractorShopAndEstablishmentDepartmentId);
         }
     }
 }

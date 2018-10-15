@@ -20,6 +20,16 @@ namespace GlobalHRMSApi.Repositories
             this.EmployeeNominationMaster = new HashSet<EmployeeNominationMaster>();
             this.EmployeeContractorMaster = new HashSet<EmployeeContractorMaster>();
             this.EmployeeCompanyMaster = new HashSet<EmployeeCompanyMaster>();
+            this.ContractorBankAccountDetail = new HashSet<ContractorBankAccountDetail>();
+            this.ContractorCommercialTaxDepartment = new HashSet<ContractorCommercialTaxDepartment>();
+            this.ContractorEmployeeCompensationPolicy = new HashSet<ContractorEmployeeCompensationPolicy>();
+            this.ContractorEmployeeProvidentFundOrganisation = new HashSet<ContractorEmployeeProvidentFundOrganisation>();
+            this.ContractorEmployeeStateInsuranceCorporation = new HashSet<ContractorEmployeeStateInsuranceCorporation>();
+            this.ContractorEmploymentExchangeDepartment = new HashSet<ContractorEmploymentExchangeDepartment>();
+            this.ContractorGoodAndServicesTaxDepartment = new HashSet<ContractorGoodAndServicesTaxDepartment>();
+            this.ContractorGujaratLabourWelfareFundDepartment = new HashSet<ContractorGujaratLabourWelfareFundDepartment>();
+            this.ContractorLabourAndEmploymentDepartment = new HashSet<ContractorLabourAndEmploymentDepartment>();
+            this.ContractorShopAndEstablishmentDepartment = new HashSet<ContractorShopAndEstablishmentDepartment>();
         }
     
         public int ID { get; set; }
@@ -27,6 +37,34 @@ namespace GlobalHRMSApi.Repositories
         public bool IsActive { get; set; }
         public System.DateTime CreatedDateTime { get; set; }
         public System.DateTime UpdatedDateTime { get; set; }
+        public byte[] FirmSoftCopy { get; set; }
+        public string FirmCode { get; set; }
+        public Nullable<int> TypeOfFirm { get; set; }
+        public string Partner1Name { get; set; }
+        public string Partner2Name { get; set; }
+        public byte[] Partner1PanCardSoftCopy { get; set; }
+        public byte[] Partner2PanCardSoftCopy { get; set; }
+        public string Partner1PanCardNo { get; set; }
+        public string Partner2PanCardNo { get; set; }
+        public byte[] Partner1AadhaarCardSoftCopy { get; set; }
+        public byte[] Partner2AadhaarSoftCopy { get; set; }
+        public string Partner1AadhaarNo { get; set; }
+        public string Partner2AadhaarNo { get; set; }
+        public byte[] FirmPanCardSoftCopy { get; set; }
+        public string FirmPanCardNo { get; set; }
+        public string AddressOfRegisteredOffice1 { get; set; }
+        public string AddressOfRegisteredOffice2 { get; set; }
+        public string AddressOfRegisteredOffice3 { get; set; }
+        public string AddressOfRegisteredOffice4 { get; set; }
+        public string ContactNo1 { get; set; }
+        public string ContactNo2 { get; set; }
+        public string EmailId { get; set; }
+        public string Password { get; set; }
+        public byte[] Partner1Photo { get; set; }
+        public byte[] Partner2Photo { get; set; }
+        public string WebsiteOfL_EDepartment { get; set; }
+        public string WebsiteOfL_EDepartmentID { get; set; }
+        public string WebsiteOfL_EDepartmentPassword { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeNominationMaster> EmployeeNominationMaster { get; set; }
@@ -34,5 +72,25 @@ namespace GlobalHRMSApi.Repositories
         public virtual ICollection<EmployeeContractorMaster> EmployeeContractorMaster { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeCompanyMaster> EmployeeCompanyMaster { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContractorBankAccountDetail> ContractorBankAccountDetail { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContractorCommercialTaxDepartment> ContractorCommercialTaxDepartment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContractorEmployeeCompensationPolicy> ContractorEmployeeCompensationPolicy { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContractorEmployeeProvidentFundOrganisation> ContractorEmployeeProvidentFundOrganisation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContractorEmployeeStateInsuranceCorporation> ContractorEmployeeStateInsuranceCorporation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContractorEmploymentExchangeDepartment> ContractorEmploymentExchangeDepartment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContractorGoodAndServicesTaxDepartment> ContractorGoodAndServicesTaxDepartment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContractorGujaratLabourWelfareFundDepartment> ContractorGujaratLabourWelfareFundDepartment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContractorLabourAndEmploymentDepartment> ContractorLabourAndEmploymentDepartment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContractorShopAndEstablishmentDepartment> ContractorShopAndEstablishmentDepartment { get; set; }
     }
 }

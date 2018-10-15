@@ -12,22 +12,18 @@ namespace GlobalHRMSApi.Repositories
     using System;
     using System.Collections.Generic;
     
-    public partial class BankMaster
+    public partial class ContractorCommercialTaxDepartment
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public BankMaster()
-        {
-            this.BankBranchMaster = new HashSet<BankBranchMaster>();
-        }
-    
         public int ID { get; set; }
-        public string Name { get; set; }
-        public bool IsActive { get; set; }
+        public string ProfessionalTaxRegistrationNo_DateOfIssue { get; set; }
+        public byte[] ProfessionalTaxRegistrationNo_DateOfIssueSoftCopy { get; set; }
+        public string WebsiteOfCTDDepartment { get; set; }
+        public string WebsiteOfCTDDepartmentID { get; set; }
+        public string WebsiteOfCTDDepartmentPassword { get; set; }
+        public int ContractorId { get; set; }
         public System.DateTime CreatedDateTime { get; set; }
         public System.DateTime UpdatedDateTime { get; set; }
-        public string WebSite { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BankBranchMaster> BankBranchMaster { get; set; }
+        public virtual ContractorMaster ContractorMaster { get; set; }
     }
 }

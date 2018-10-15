@@ -32,6 +32,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="WebSite" Type="varchar" MaxLength="150" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
@@ -86,13 +87,195 @@
           <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
           <Property Name="Logo" Type="varchar(max)" />
         </EntityType>
+        <EntityType Name="ContractorBankAccountDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BankID" Type="int" />
+          <Property Name="TypeOfBankAcccountID" Type="int" />
+          <Property Name="IFSCNo" Type="int" />
+          <Property Name="MicroNo" Type="int" />
+          <Property Name="WebSiteID" Type="int" />
+          <Property Name="WebSitePassword" Type="int" />
+          <Property Name="ContractorId" Type="int" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractorCommercialTaxDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProfessionalTaxRegistrationNo&amp;DateOfIssue" Type="varchar" MaxLength="50" />
+          <Property Name="ProfessionalTaxRegistrationNo&amp;DateOfIssueSoftCopy" Type="image" />
+          <Property Name="WebsiteOfCTDDepartment" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfCTDDepartmentID" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfCTDDepartmentPassword" Type="varchar" MaxLength="50" />
+          <Property Name="ContractorId" Type="int" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractorEmployeeCompensationPolicy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeCompensationPolicyNo" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeCompensationPolicyNoSoftCopy" Type="image" />
+          <Property Name="DateOfIssue" Type="datetime" />
+          <Property Name="DurationOfPolicyFromDate" Type="datetime" />
+          <Property Name="DurationOfPolicyToDate" Type="datetime" />
+          <Property Name="DurationOfPolicyRenewDate" Type="datetime" />
+          <Property Name="NoOfEmployeeCoveredUnderPolicy" Type="int" />
+          <Property Name="ContractorId" Type="int" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractorEmployeeProvidentFundOrganisation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EPFORegistrationNo&amp;DateOfIssue" Type="varchar" MaxLength="50" />
+          <Property Name="EPFORegistrationNo&amp;DateOfIssueSoftCopy" Type="image" />
+          <Property Name="WebsiteOfL&amp;EDepartment" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfL&amp;EDepartmentID" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfL&amp;EDepartmentPassword" Type="varchar" MaxLength="50" />
+          <Property Name="ContractorId" Type="int" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractorEmployeeStateInsuranceCorporation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ESICRegistrationNo&amp;DateOfIssue" Type="varchar" MaxLength="50" />
+          <Property Name="ESICRegistrationNo&amp;DateOfIssueSoftCopy" Type="image" />
+          <Property Name="WebsiteOfL&amp;EDepartment" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfL&amp;EDepartmentID" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfL&amp;EDepartmentPassword" Type="varchar" MaxLength="50" />
+          <Property Name="ContractorId" Type="int" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractorEmploymentExchangeDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmploymentExchangeRegistrationNo&amp;Date" Type="varchar" MaxLength="50" />
+          <Property Name="EmploymentExchangeRegistrationNo&amp;DateSoftCopy" Type="image" />
+          <Property Name="WebsiteOfEEDeparment" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfEEDeparmentID" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfEEDeparmentPassword" Type="varchar" MaxLength="50" />
+          <Property Name="ContractorId" Type="int" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractorGoodAndServicesTaxDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GSTRegistrationNo&amp;DateOfIssue" Type="varchar" MaxLength="50" />
+          <Property Name="GSTRegistrationNo&amp;DateOfIssueSoftCopy" Type="image" />
+          <Property Name="WebsiteOfL&amp;EDepartment" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfL&amp;EDepartmentID" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfL&amp;EDepartmentPassword" Type="varchar" MaxLength="50" />
+          <Property Name="ContractorId" Type="int" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractorGujaratLabourWelfareFundDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GujaratLabourWelfareFundRegistrationNo&amp;DateOfIssue" Type="varchar" MaxLength="50" />
+          <Property Name="GujaratLabourWelfareFundRegistrationNo&amp;DateOfIssueSoftCopy" Type="image" />
+          <Property Name="WebsiteOfGLWFDepartment" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfGLWFDepartmentID" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfGLWFDepartmentPassword" Type="varchar" MaxLength="50" />
+          <Property Name="ContractorId" Type="int" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractorLabourAndEmploymentDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name&amp;AddressUnderWhichContractIsCarriedOn" Type="varchar" MaxLength="50" />
+          <Property Name="Name&amp;AddressOfPrincipleEmployer" Type="varchar" MaxLength="50" />
+          <Property Name="ContractLabourLicenseNo&amp;DateOfIssue" Type="image" />
+          <Property Name="DurationOfLicenseFromDate" Type="datetime" />
+          <Property Name="DurationOfLicenseToDate" Type="datetime" />
+          <Property Name="DurationOfLicenseRenewDate" Type="datetime" />
+          <Property Name="Nature&amp;LocationOfWork" Type="varchar" MaxLength="50" />
+          <Property Name="MaximumLabourAllowedAnyWorkingDay" Type="varchar" MaxLength="50" />
+          <Property Name="ContractorId" Type="int" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="ContractorMaster">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FirmSoftCopy" Type="image" />
+          <Property Name="FirmCode" Type="varchar" MaxLength="50" />
+          <Property Name="TypeOfFirm" Type="int" />
+          <Property Name="Partner1Name" Type="varchar" MaxLength="150" />
+          <Property Name="Partner2Name" Type="varchar" MaxLength="150" />
+          <Property Name="Partner1PanCardSoftCopy" Type="image" />
+          <Property Name="Partner2PanCardSoftCopy" Type="image" />
+          <Property Name="Partner1PanCardNo" Type="varchar" MaxLength="50" />
+          <Property Name="Partner2PanCardNo" Type="varchar" MaxLength="50" />
+          <Property Name="Partner1AadhaarCardSoftCopy" Type="image" />
+          <Property Name="Partner2AadhaarSoftCopy" Type="image" />
+          <Property Name="Partner1AadhaarNo" Type="varchar" MaxLength="50" />
+          <Property Name="Partner2AadhaarNo" Type="varchar" MaxLength="50" />
+          <Property Name="FirmPanCardSoftCopy" Type="image" />
+          <Property Name="FirmPanCardNo" Type="varchar" MaxLength="50" />
+          <Property Name="AddressOfRegisteredOffice1" Type="varchar" MaxLength="500" />
+          <Property Name="AddressOfRegisteredOffice2" Type="varchar" MaxLength="500" />
+          <Property Name="AddressOfRegisteredOffice3" Type="varchar" MaxLength="500" />
+          <Property Name="AddressOfRegisteredOffice4" Type="varchar" MaxLength="500" />
+          <Property Name="ContactNo1" Type="varchar" MaxLength="15" />
+          <Property Name="ContactNo2" Type="varchar" MaxLength="15" />
+          <Property Name="EmailId" Type="varchar" MaxLength="150" />
+          <Property Name="Password" Type="varchar" MaxLength="20" />
+          <Property Name="Partner1Photo" Type="image" />
+          <Property Name="Partner2Photo" Type="image" />
+          <Property Name="WebsiteOfL&amp;EDepartment" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfL&amp;EDepartmentID" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfL&amp;EDepartmentPassword" Type="varchar" MaxLength="50" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContractorShopAndEstablishmentDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Shop&amp;EstablishmentRegistrationNo&amp;DateOfIssue" Type="varchar" MaxLength="50" />
+          <Property Name="Shop&amp;EstablishmentRegistrationNo&amp;DateOfIssueSoftCopy" Type="image" />
+          <Property Name="DurationOfShop&amp;EstablishmentLicenceFromDate" Type="datetime" />
+          <Property Name="DurationOfShop&amp;EstablishmentLicenceToDate" Type="datetime" />
+          <Property Name="DurationOfShop&amp;EstablishmentLicenceLastRenewDate" Type="datetime" />
+          <Property Name="RegisteredTradeUnderShop&amp;EstablishmentLicence" Type="varchar" MaxLength="50" />
+          <Property Name="UdhyogAadhaarRegistrationNo&amp;DateOfIssue" Type="image" />
+          <Property Name="UdhyogAadhaarRegistrationNo&amp;DateOfIssueSoftCopy" Type="image" />
+          <Property Name="UAN" Type="varchar" MaxLength="50" />
+          <Property Name="RegisteredTradeUnderUdhyogAadhaarLicence" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfUdhyogAadhaarDepartment" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfUdhyogAadhaarDepartmentID" Type="varchar" MaxLength="50" />
+          <Property Name="WebsiteOfUdhyogAadhaarDepartmentPassword" Type="varchar" MaxLength="50" />
+          <Property Name="ContactorId" Type="int" Nullable="false" />
           <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
         </EntityType>
@@ -321,6 +504,18 @@
           <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
           <Property Name="UpdatedDateTime" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="HolidayMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateOfHoliday" Type="datetime" Nullable="false" />
+          <Property Name="Year" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="LeaveMaster">
           <Key>
             <PropertyRef Name="ID" />
@@ -526,6 +721,126 @@
             </Principal>
             <Dependent Role="CityMaster">
               <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorBankAccountDetail_ContractorMaster">
+          <End Role="ContractorMaster" Type="Self.ContractorMaster" Multiplicity="1" />
+          <End Role="ContractorBankAccountDetail" Type="Self.ContractorBankAccountDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorBankAccountDetail">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorCommercialTaxDepartment_ContractorMaster">
+          <End Role="ContractorMaster" Type="Self.ContractorMaster" Multiplicity="1" />
+          <End Role="ContractorCommercialTaxDepartment" Type="Self.ContractorCommercialTaxDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorCommercialTaxDepartment">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorEmployeeCompensationPolicy_ContractorMaster">
+          <End Role="ContractorMaster" Type="Self.ContractorMaster" Multiplicity="1" />
+          <End Role="ContractorEmployeeCompensationPolicy" Type="Self.ContractorEmployeeCompensationPolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorEmployeeCompensationPolicy">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorEmployeeProvidentFundOrganisation_ContractorMaster">
+          <End Role="ContractorMaster" Type="Self.ContractorMaster" Multiplicity="1" />
+          <End Role="ContractorEmployeeProvidentFundOrganisation" Type="Self.ContractorEmployeeProvidentFundOrganisation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorEmployeeProvidentFundOrganisation">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorEmployeeStateInsuranceCorporation_ContractorMaster">
+          <End Role="ContractorMaster" Type="Self.ContractorMaster" Multiplicity="1" />
+          <End Role="ContractorEmployeeStateInsuranceCorporation" Type="Self.ContractorEmployeeStateInsuranceCorporation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorEmployeeStateInsuranceCorporation">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorEmploymentExchangeDepartment_ContractorMaster">
+          <End Role="ContractorMaster" Type="Self.ContractorMaster" Multiplicity="1" />
+          <End Role="ContractorEmploymentExchangeDepartment" Type="Self.ContractorEmploymentExchangeDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorEmploymentExchangeDepartment">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorGoodAndServicesTaxDepartment_ContractorMaster">
+          <End Role="ContractorMaster" Type="Self.ContractorMaster" Multiplicity="1" />
+          <End Role="ContractorGoodAndServicesTaxDepartment" Type="Self.ContractorGoodAndServicesTaxDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorGoodAndServicesTaxDepartment">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorGujaratLabourWelfareFundDepartment_ContractorMaster">
+          <End Role="ContractorMaster" Type="Self.ContractorMaster" Multiplicity="1" />
+          <End Role="ContractorGujaratLabourWelfareFundDepartment" Type="Self.ContractorGujaratLabourWelfareFundDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorGujaratLabourWelfareFundDepartment">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorLabourAndEmploymentDepartment_ContractorMaster">
+          <End Role="ContractorMaster" Type="Self.ContractorMaster" Multiplicity="1" />
+          <End Role="ContractorLabourAndEmploymentDepartment" Type="Self.ContractorLabourAndEmploymentDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorLabourAndEmploymentDepartment">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorShopAndEstablishmentDepartment_ContractorMaster">
+          <End Role="ContractorMaster" Type="Self.ContractorMaster" Multiplicity="1" />
+          <End Role="ContractorShopAndEstablishmentDepartment" Type="Self.ContractorShopAndEstablishmentDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorShopAndEstablishmentDepartment">
+              <PropertyRef Name="ContactorId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -995,6 +1310,40 @@
           <Parameter Name="password" Type="varchar" Mode="In" />
           <Parameter Name="retVal" Type="int" Mode="InOut" />
         </Function>
+        <Function Name="ManageContractorBankDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contractorBankAccountDetailId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ManageContractorCommercialTaxDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contractorCommercialTaxDepartmentId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ManageContractorDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ManageContractorEmployeeCompensationPolicy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contractorEmployeeCompensationPolicyId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ManageContractorEmployeeProvidentFundOrganisation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contractorEmployeeProvidentFundOrganisationId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ManageContractorEmployeeStateInsuranceCorporation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contractorEmployeeStateInsuranceCorporationId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ManageContractorEmploymentExchangeDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contractorEmploymentExchangeDepartmentId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ManageContractorGoodAndServicesTaxDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contractorGoodAndServicesTaxDepartmentId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ManageContractorGujaratLabourWelfareFundDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contractorGujaratLabourWelfareFundDepartmentId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ManageContractorLabourAndEmploymentDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contractorLabourAndEmploymentDepartmentId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ManageContractorMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contractorMasterId" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ManageContractorShopAndEstablishmentDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contractorShopAndEstablishmentDepartmentId" Type="int" Mode="InOut" />
+        </Function>
         <Function Name="RegisterUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userName" Type="varchar" Mode="In" />
           <Parameter Name="firstName" Type="varchar" Mode="In" />
@@ -1015,7 +1364,17 @@
           <EntitySet Name="CategoryMaster" EntityType="Self.CategoryMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CityMaster" EntityType="Self.CityMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CompanyMaster" EntityType="Self.CompanyMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContractorBankAccountDetail" EntityType="Self.ContractorBankAccountDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContractorCommercialTaxDepartment" EntityType="Self.ContractorCommercialTaxDepartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContractorEmployeeCompensationPolicy" EntityType="Self.ContractorEmployeeCompensationPolicy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContractorEmployeeProvidentFundOrganisation" EntityType="Self.ContractorEmployeeProvidentFundOrganisation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContractorEmployeeStateInsuranceCorporation" EntityType="Self.ContractorEmployeeStateInsuranceCorporation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContractorEmploymentExchangeDepartment" EntityType="Self.ContractorEmploymentExchangeDepartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContractorGoodAndServicesTaxDepartment" EntityType="Self.ContractorGoodAndServicesTaxDepartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContractorGujaratLabourWelfareFundDepartment" EntityType="Self.ContractorGujaratLabourWelfareFundDepartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContractorLabourAndEmploymentDepartment" EntityType="Self.ContractorLabourAndEmploymentDepartment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ContractorMaster" EntityType="Self.ContractorMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContractorShopAndEstablishmentDepartment" EntityType="Self.ContractorShopAndEstablishmentDepartment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CountyMaster" EntityType="Self.CountyMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DepartmentMaster" EntityType="Self.DepartmentMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DesignationMaster" EntityType="Self.DesignationMaster" Schema="dbo" store:Type="Tables" />
@@ -1030,6 +1389,7 @@
           <EntitySet Name="EXCMessage" EntityType="Self.EXCMessage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GenderMaster" EntityType="Self.GenderMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GradeMaster" EntityType="Self.GradeMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HolidayMaster" EntityType="Self.HolidayMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LeaveMaster" EntityType="Self.LeaveMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LeaveTypeMaster" EntityType="Self.LeaveTypeMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MaritalStatusMaster" EntityType="Self.MaritalStatusMaster" Schema="dbo" store:Type="Tables" />
@@ -1071,6 +1431,46 @@
           <AssociationSet Name="FK_CityMaster_StateMaster" Association="Self.FK_CityMaster_StateMaster">
             <End Role="StateMaster" EntitySet="StateMaster" />
             <End Role="CityMaster" EntitySet="CityMaster" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorBankAccountDetail_ContractorMaster" Association="Self.FK_ContractorBankAccountDetail_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorBankAccountDetail" EntitySet="ContractorBankAccountDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorCommercialTaxDepartment_ContractorMaster" Association="Self.FK_ContractorCommercialTaxDepartment_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorCommercialTaxDepartment" EntitySet="ContractorCommercialTaxDepartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorEmployeeCompensationPolicy_ContractorMaster" Association="Self.FK_ContractorEmployeeCompensationPolicy_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorEmployeeCompensationPolicy" EntitySet="ContractorEmployeeCompensationPolicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorEmployeeProvidentFundOrganisation_ContractorMaster" Association="Self.FK_ContractorEmployeeProvidentFundOrganisation_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorEmployeeProvidentFundOrganisation" EntitySet="ContractorEmployeeProvidentFundOrganisation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorEmployeeStateInsuranceCorporation_ContractorMaster" Association="Self.FK_ContractorEmployeeStateInsuranceCorporation_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorEmployeeStateInsuranceCorporation" EntitySet="ContractorEmployeeStateInsuranceCorporation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorEmploymentExchangeDepartment_ContractorMaster" Association="Self.FK_ContractorEmploymentExchangeDepartment_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorEmploymentExchangeDepartment" EntitySet="ContractorEmploymentExchangeDepartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorGoodAndServicesTaxDepartment_ContractorMaster" Association="Self.FK_ContractorGoodAndServicesTaxDepartment_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorGoodAndServicesTaxDepartment" EntitySet="ContractorGoodAndServicesTaxDepartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorGujaratLabourWelfareFundDepartment_ContractorMaster" Association="Self.FK_ContractorGujaratLabourWelfareFundDepartment_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorGujaratLabourWelfareFundDepartment" EntitySet="ContractorGujaratLabourWelfareFundDepartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorLabourAndEmploymentDepartment_ContractorMaster" Association="Self.FK_ContractorLabourAndEmploymentDepartment_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorLabourAndEmploymentDepartment" EntitySet="ContractorLabourAndEmploymentDepartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorShopAndEstablishmentDepartment_ContractorMaster" Association="Self.FK_ContractorShopAndEstablishmentDepartment_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorShopAndEstablishmentDepartment" EntitySet="ContractorShopAndEstablishmentDepartment" />
           </AssociationSet>
           <AssociationSet Name="FK_DepartmentMaster_CompanyMaster" Association="Self.FK_DepartmentMaster_CompanyMaster">
             <End Role="CompanyMaster" EntitySet="CompanyMaster" />
@@ -1210,6 +1610,7 @@
           <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="BankBranchMaster" Relationship="Self.FK_BankBranchMaster_BankMaster" FromRole="BankMaster" ToRole="BankBranchMaster" />
+          <Property Name="WebSite" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="BloodGroupMaster">
           <Key>
@@ -1260,6 +1661,44 @@
           <NavigationProperty Name="EmployeeNominationMaster" Relationship="HRMSManagementModel.FK_EmployeeNominationMaster_ContractorMaster" FromRole="ContractorMaster" ToRole="EmployeeNominationMaster" />
           <NavigationProperty Name="EmployeeContractorMaster" Relationship="HRMSManagementModel.FK_EmployeeContractorMaster_ContractorMaster" FromRole="ContractorMaster" ToRole="EmployeeContractorMaster" />
           <NavigationProperty Name="EmployeeCompanyMaster" Relationship="HRMSManagementModel.FK_EmployeeCompanyMaster_ContractorMaster" FromRole="ContractorMaster" ToRole="EmployeeCompanyMaster" />
+          <Property Name="FirmSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FirmCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TypeOfFirm" Type="Int32" />
+          <Property Name="Partner1Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Partner2Name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Partner1PanCardSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Partner2PanCardSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Partner1PanCardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Partner2PanCardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Partner1AadhaarCardSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Partner2AadhaarSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Partner1AadhaarNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Partner2AadhaarNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirmPanCardSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FirmPanCardNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddressOfRegisteredOffice1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AddressOfRegisteredOffice2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AddressOfRegisteredOffice3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="AddressOfRegisteredOffice4" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNo1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNo2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="EmailId" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Partner1Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Partner2Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="WebsiteOfL_EDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfL_EDepartmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfL_EDepartmentPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ContractorBankAccountDetail" Relationship="HRMSManagementModel.FK_ContractorBankAccountDetail_ContractorMaster" FromRole="ContractorMaster" ToRole="ContractorBankAccountDetail" />
+          <NavigationProperty Name="ContractorCommercialTaxDepartment" Relationship="HRMSManagementModel.FK_ContractorCommercialTaxDepartment_ContractorMaster" FromRole="ContractorMaster" ToRole="ContractorCommercialTaxDepartment" />
+          <NavigationProperty Name="ContractorEmployeeCompensationPolicy" Relationship="HRMSManagementModel.FK_ContractorEmployeeCompensationPolicy_ContractorMaster" FromRole="ContractorMaster" ToRole="ContractorEmployeeCompensationPolicy" />
+          <NavigationProperty Name="ContractorEmployeeProvidentFundOrganisation" Relationship="HRMSManagementModel.FK_ContractorEmployeeProvidentFundOrganisation_ContractorMaster" FromRole="ContractorMaster" ToRole="ContractorEmployeeProvidentFundOrganisation" />
+          <NavigationProperty Name="ContractorEmployeeStateInsuranceCorporation" Relationship="HRMSManagementModel.FK_ContractorEmployeeStateInsuranceCorporation_ContractorMaster" FromRole="ContractorMaster" ToRole="ContractorEmployeeStateInsuranceCorporation" />
+          <NavigationProperty Name="ContractorEmploymentExchangeDepartment" Relationship="HRMSManagementModel.FK_ContractorEmploymentExchangeDepartment_ContractorMaster" FromRole="ContractorMaster" ToRole="ContractorEmploymentExchangeDepartment" />
+          <NavigationProperty Name="ContractorGoodAndServicesTaxDepartment" Relationship="HRMSManagementModel.FK_ContractorGoodAndServicesTaxDepartment_ContractorMaster" FromRole="ContractorMaster" ToRole="ContractorGoodAndServicesTaxDepartment" />
+          <NavigationProperty Name="ContractorGujaratLabourWelfareFundDepartment" Relationship="HRMSManagementModel.FK_ContractorGujaratLabourWelfareFundDepartment_ContractorMaster" FromRole="ContractorMaster" ToRole="ContractorGujaratLabourWelfareFundDepartment" />
+          <NavigationProperty Name="ContractorLabourAndEmploymentDepartment" Relationship="HRMSManagementModel.FK_ContractorLabourAndEmploymentDepartment_ContractorMaster" FromRole="ContractorMaster" ToRole="ContractorLabourAndEmploymentDepartment" />
+          <NavigationProperty Name="ContractorShopAndEstablishmentDepartment" Relationship="HRMSManagementModel.FK_ContractorShopAndEstablishmentDepartment_ContractorMaster" FromRole="ContractorMaster" ToRole="ContractorShopAndEstablishmentDepartment" />
         </EntityType>
         <EntityType Name="CountyMaster">
           <Key>
@@ -1910,6 +2349,91 @@
           <FunctionImport Name="IsRationCardNumberExists" ReturnType="Collection(Boolean)">
             <Parameter Name="rationCardNumber" Mode="In" Type="String" />
             <Parameter Name="employeeId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="ContractorBankAccountDetail" EntityType="HRMSManagementModel.ContractorBankAccountDetail" />
+          <EntitySet Name="ContractorCommercialTaxDepartment" EntityType="HRMSManagementModel.ContractorCommercialTaxDepartment" />
+          <EntitySet Name="ContractorEmployeeCompensationPolicy" EntityType="HRMSManagementModel.ContractorEmployeeCompensationPolicy" />
+          <EntitySet Name="ContractorEmployeeProvidentFundOrganisation" EntityType="HRMSManagementModel.ContractorEmployeeProvidentFundOrganisation" />
+          <EntitySet Name="ContractorEmployeeStateInsuranceCorporation" EntityType="HRMSManagementModel.ContractorEmployeeStateInsuranceCorporation" />
+          <EntitySet Name="ContractorEmploymentExchangeDepartment" EntityType="HRMSManagementModel.ContractorEmploymentExchangeDepartment" />
+          <EntitySet Name="ContractorGoodAndServicesTaxDepartment" EntityType="HRMSManagementModel.ContractorGoodAndServicesTaxDepartment" />
+          <EntitySet Name="ContractorGujaratLabourWelfareFundDepartment" EntityType="HRMSManagementModel.ContractorGujaratLabourWelfareFundDepartment" />
+          <EntitySet Name="ContractorLabourAndEmploymentDepartment" EntityType="HRMSManagementModel.ContractorLabourAndEmploymentDepartment" />
+          <EntitySet Name="ContractorShopAndEstablishmentDepartment" EntityType="HRMSManagementModel.ContractorShopAndEstablishmentDepartment" />
+          <EntitySet Name="HolidayMaster" EntityType="HRMSManagementModel.HolidayMaster" />
+          <AssociationSet Name="FK_ContractorBankAccountDetail_ContractorMaster" Association="HRMSManagementModel.FK_ContractorBankAccountDetail_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorBankAccountDetail" EntitySet="ContractorBankAccountDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorCommercialTaxDepartment_ContractorMaster" Association="HRMSManagementModel.FK_ContractorCommercialTaxDepartment_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorCommercialTaxDepartment" EntitySet="ContractorCommercialTaxDepartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorEmployeeCompensationPolicy_ContractorMaster" Association="HRMSManagementModel.FK_ContractorEmployeeCompensationPolicy_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorEmployeeCompensationPolicy" EntitySet="ContractorEmployeeCompensationPolicy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorEmployeeProvidentFundOrganisation_ContractorMaster" Association="HRMSManagementModel.FK_ContractorEmployeeProvidentFundOrganisation_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorEmployeeProvidentFundOrganisation" EntitySet="ContractorEmployeeProvidentFundOrganisation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorEmployeeStateInsuranceCorporation_ContractorMaster" Association="HRMSManagementModel.FK_ContractorEmployeeStateInsuranceCorporation_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorEmployeeStateInsuranceCorporation" EntitySet="ContractorEmployeeStateInsuranceCorporation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorEmploymentExchangeDepartment_ContractorMaster" Association="HRMSManagementModel.FK_ContractorEmploymentExchangeDepartment_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorEmploymentExchangeDepartment" EntitySet="ContractorEmploymentExchangeDepartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorGoodAndServicesTaxDepartment_ContractorMaster" Association="HRMSManagementModel.FK_ContractorGoodAndServicesTaxDepartment_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorGoodAndServicesTaxDepartment" EntitySet="ContractorGoodAndServicesTaxDepartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorGujaratLabourWelfareFundDepartment_ContractorMaster" Association="HRMSManagementModel.FK_ContractorGujaratLabourWelfareFundDepartment_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorGujaratLabourWelfareFundDepartment" EntitySet="ContractorGujaratLabourWelfareFundDepartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorLabourAndEmploymentDepartment_ContractorMaster" Association="HRMSManagementModel.FK_ContractorLabourAndEmploymentDepartment_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorLabourAndEmploymentDepartment" EntitySet="ContractorLabourAndEmploymentDepartment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContractorShopAndEstablishmentDepartment_ContractorMaster" Association="HRMSManagementModel.FK_ContractorShopAndEstablishmentDepartment_ContractorMaster">
+            <End Role="ContractorMaster" EntitySet="ContractorMaster" />
+            <End Role="ContractorShopAndEstablishmentDepartment" EntitySet="ContractorShopAndEstablishmentDepartment" />
+          </AssociationSet>
+          <FunctionImport Name="ManageContractorBankDetail">
+          <Parameter Name="contractorBankAccountDetailId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ManageContractorCommercialTaxDepartment">
+          <Parameter Name="contractorCommercialTaxDepartmentId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ManageContractorDetails" />
+          <FunctionImport Name="ManageContractorEmployeeCompensationPolicy">
+          <Parameter Name="contractorEmployeeCompensationPolicyId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ManageContractorEmployeeProvidentFundOrganisation">
+          <Parameter Name="contractorEmployeeProvidentFundOrganisationId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ManageContractorEmployeeStateInsuranceCorporation">
+          <Parameter Name="contractorEmployeeStateInsuranceCorporationId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ManageContractorEmploymentExchangeDepartment">
+          <Parameter Name="contractorEmploymentExchangeDepartmentId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ManageContractorGoodAndServicesTaxDepartment">
+          <Parameter Name="contractorGoodAndServicesTaxDepartmentId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ManageContractorGujaratLabourWelfareFundDepartment">
+          <Parameter Name="contractorGujaratLabourWelfareFundDepartmentId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ManageContractorLabourAndEmploymentDepartment">
+          <Parameter Name="contractorLabourAndEmploymentDepartmentId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ManageContractorMaster">
+          <Parameter Name="contractorMasterId" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ManageContractorShopAndEstablishmentDepartment">
+          <Parameter Name="contractorShopAndEstablishmentDepartmentId" Mode="InOut" Type="Int32" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="GetAppointmentTypes_Result">
@@ -2719,6 +3243,302 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ContractorBankAccountDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BankID" Type="Int32" />
+          <Property Name="TypeOfBankAcccountID" Type="Int32" />
+          <Property Name="IFSCNo" Type="Int32" />
+          <Property Name="MicroNo" Type="Int32" />
+          <Property Name="WebSiteID" Type="Int32" />
+          <Property Name="WebSitePassword" Type="Int32" />
+          <Property Name="ContractorId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_ContractorBankAccountDetail_ContractorMaster" FromRole="ContractorBankAccountDetail" ToRole="ContractorMaster" />
+        </EntityType>
+        <EntityType Name="ContractorCommercialTaxDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProfessionalTaxRegistrationNo_DateOfIssue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProfessionalTaxRegistrationNo_DateOfIssueSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="WebsiteOfCTDDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfCTDDepartmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfCTDDepartmentPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContractorId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_ContractorCommercialTaxDepartment_ContractorMaster" FromRole="ContractorCommercialTaxDepartment" ToRole="ContractorMaster" />
+        </EntityType>
+        <EntityType Name="ContractorEmployeeCompensationPolicy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeCompensationPolicyNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeCompensationPolicyNoSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DateOfIssue" Type="DateTime" Precision="3" />
+          <Property Name="DurationOfPolicyFromDate" Type="DateTime" Precision="3" />
+          <Property Name="DurationOfPolicyToDate" Type="DateTime" Precision="3" />
+          <Property Name="DurationOfPolicyRenewDate" Type="DateTime" Precision="3" />
+          <Property Name="NoOfEmployeeCoveredUnderPolicy" Type="Int32" />
+          <Property Name="ContractorId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_ContractorEmployeeCompensationPolicy_ContractorMaster" FromRole="ContractorEmployeeCompensationPolicy" ToRole="ContractorMaster" />
+        </EntityType>
+        <EntityType Name="ContractorEmployeeProvidentFundOrganisation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EPFORegistrationNo_DateOfIssue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EPFORegistrationNo_DateOfIssueSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="WebsiteOfL_EDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfL_EDepartmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfL_EDepartmentPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContractorId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_ContractorEmployeeProvidentFundOrganisation_ContractorMaster" FromRole="ContractorEmployeeProvidentFundOrganisation" ToRole="ContractorMaster" />
+        </EntityType>
+        <EntityType Name="ContractorEmployeeStateInsuranceCorporation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ESICRegistrationNo_DateOfIssue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ESICRegistrationNo_DateOfIssueSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="WebsiteOfL_EDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfL_EDepartmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfL_EDepartmentPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContractorId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_ContractorEmployeeStateInsuranceCorporation_ContractorMaster" FromRole="ContractorEmployeeStateInsuranceCorporation" ToRole="ContractorMaster" />
+        </EntityType>
+        <EntityType Name="ContractorEmploymentExchangeDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmploymentExchangeRegistrationNo_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmploymentExchangeRegistrationNo_DateSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="WebsiteOfEEDeparment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfEEDeparmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfEEDeparmentPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContractorId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_ContractorEmploymentExchangeDepartment_ContractorMaster" FromRole="ContractorEmploymentExchangeDepartment" ToRole="ContractorMaster" />
+        </EntityType>
+        <EntityType Name="ContractorGoodAndServicesTaxDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GSTRegistrationNo_DateOfIssue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GSTRegistrationNo_DateOfIssueSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="WebsiteOfL_EDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfL_EDepartmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfL_EDepartmentPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContractorId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_ContractorGoodAndServicesTaxDepartment_ContractorMaster" FromRole="ContractorGoodAndServicesTaxDepartment" ToRole="ContractorMaster" />
+        </EntityType>
+        <EntityType Name="ContractorGujaratLabourWelfareFundDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GujaratLabourWelfareFundRegistrationNo_DateOfIssue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GujaratLabourWelfareFundRegistrationNo_DateOfIssueSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="WebsiteOfGLWFDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfGLWFDepartmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfGLWFDepartmentPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContractorId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_ContractorGujaratLabourWelfareFundDepartment_ContractorMaster" FromRole="ContractorGujaratLabourWelfareFundDepartment" ToRole="ContractorMaster" />
+        </EntityType>
+        <EntityType Name="ContractorLabourAndEmploymentDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_AddressUnderWhichContractIsCarriedOn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name_AddressOfPrincipleEmployer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContractLabourLicenseNo_DateOfIssue" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DurationOfLicenseFromDate" Type="DateTime" Precision="3" />
+          <Property Name="DurationOfLicenseToDate" Type="DateTime" Precision="3" />
+          <Property Name="DurationOfLicenseRenewDate" Type="DateTime" Precision="3" />
+          <Property Name="Nature_LocationOfWork" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaximumLabourAllowedAnyWorkingDay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContractorId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_ContractorLabourAndEmploymentDepartment_ContractorMaster" FromRole="ContractorLabourAndEmploymentDepartment" ToRole="ContractorMaster" />
+        </EntityType>
+        <EntityType Name="ContractorShopAndEstablishmentDepartment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Shop_EstablishmentRegistrationNo_DateOfIssue" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Shop_EstablishmentRegistrationNo_DateOfIssueSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DurationOfShop_EstablishmentLicenceFromDate" Type="DateTime" Precision="3" />
+          <Property Name="DurationOfShop_EstablishmentLicenceToDate" Type="DateTime" Precision="3" />
+          <Property Name="DurationOfShop_EstablishmentLicenceLastRenewDate" Type="DateTime" Precision="3" />
+          <Property Name="RegisteredTradeUnderShop_EstablishmentLicence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UdhyogAadhaarRegistrationNo_DateOfIssue" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="UdhyogAadhaarRegistrationNo_DateOfIssueSoftCopy" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="UAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegisteredTradeUnderUdhyogAadhaarLicence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfUdhyogAadhaarDepartment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfUdhyogAadhaarDepartmentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebsiteOfUdhyogAadhaarDepartmentPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactorId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ContractorMaster" Relationship="HRMSManagementModel.FK_ContractorShopAndEstablishmentDepartment_ContractorMaster" FromRole="ContractorShopAndEstablishmentDepartment" ToRole="ContractorMaster" />
+        </EntityType>
+        <EntityType Name="HolidayMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfHoliday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Year" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_ContractorBankAccountDetail_ContractorMaster">
+          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.ContractorBankAccountDetail" Role="ContractorBankAccountDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorBankAccountDetail">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorCommercialTaxDepartment_ContractorMaster">
+          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.ContractorCommercialTaxDepartment" Role="ContractorCommercialTaxDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorCommercialTaxDepartment">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorEmployeeCompensationPolicy_ContractorMaster">
+          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.ContractorEmployeeCompensationPolicy" Role="ContractorEmployeeCompensationPolicy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorEmployeeCompensationPolicy">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorEmployeeProvidentFundOrganisation_ContractorMaster">
+          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.ContractorEmployeeProvidentFundOrganisation" Role="ContractorEmployeeProvidentFundOrganisation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorEmployeeProvidentFundOrganisation">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorEmployeeStateInsuranceCorporation_ContractorMaster">
+          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.ContractorEmployeeStateInsuranceCorporation" Role="ContractorEmployeeStateInsuranceCorporation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorEmployeeStateInsuranceCorporation">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorEmploymentExchangeDepartment_ContractorMaster">
+          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.ContractorEmploymentExchangeDepartment" Role="ContractorEmploymentExchangeDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorEmploymentExchangeDepartment">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorGoodAndServicesTaxDepartment_ContractorMaster">
+          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.ContractorGoodAndServicesTaxDepartment" Role="ContractorGoodAndServicesTaxDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorGoodAndServicesTaxDepartment">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorGujaratLabourWelfareFundDepartment_ContractorMaster">
+          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.ContractorGujaratLabourWelfareFundDepartment" Role="ContractorGujaratLabourWelfareFundDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorGujaratLabourWelfareFundDepartment">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorLabourAndEmploymentDepartment_ContractorMaster">
+          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.ContractorLabourAndEmploymentDepartment" Role="ContractorLabourAndEmploymentDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorLabourAndEmploymentDepartment">
+              <PropertyRef Name="ContractorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContractorShopAndEstablishmentDepartment_ContractorMaster">
+          <End Type="HRMSManagementModel.ContractorMaster" Role="ContractorMaster" Multiplicity="1" />
+          <End Type="HRMSManagementModel.ContractorShopAndEstablishmentDepartment" Role="ContractorShopAndEstablishmentDepartment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContractorMaster">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContractorShopAndEstablishmentDepartment">
+              <PropertyRef Name="ContactorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2751,6 +3571,7 @@
           <EntitySetMapping Name="BankMaster">
             <EntityTypeMapping TypeName="HRMSManagementModel.BankMaster">
               <MappingFragment StoreEntitySet="BankMaster">
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -2796,6 +3617,34 @@
           <EntitySetMapping Name="ContractorMaster">
             <EntityTypeMapping TypeName="HRMSManagementModel.ContractorMaster">
               <MappingFragment StoreEntitySet="ContractorMaster">
+                <ScalarProperty Name="WebsiteOfL_EDepartmentPassword" ColumnName="WebsiteOfL&amp;EDepartmentPassword" />
+                <ScalarProperty Name="WebsiteOfL_EDepartmentID" ColumnName="WebsiteOfL&amp;EDepartmentID" />
+                <ScalarProperty Name="WebsiteOfL_EDepartment" ColumnName="WebsiteOfL&amp;EDepartment" />
+                <ScalarProperty Name="Partner2Photo" ColumnName="Partner2Photo" />
+                <ScalarProperty Name="Partner1Photo" ColumnName="Partner1Photo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="ContactNo2" ColumnName="ContactNo2" />
+                <ScalarProperty Name="ContactNo1" ColumnName="ContactNo1" />
+                <ScalarProperty Name="AddressOfRegisteredOffice4" ColumnName="AddressOfRegisteredOffice4" />
+                <ScalarProperty Name="AddressOfRegisteredOffice3" ColumnName="AddressOfRegisteredOffice3" />
+                <ScalarProperty Name="AddressOfRegisteredOffice2" ColumnName="AddressOfRegisteredOffice2" />
+                <ScalarProperty Name="AddressOfRegisteredOffice1" ColumnName="AddressOfRegisteredOffice1" />
+                <ScalarProperty Name="FirmPanCardNo" ColumnName="FirmPanCardNo" />
+                <ScalarProperty Name="FirmPanCardSoftCopy" ColumnName="FirmPanCardSoftCopy" />
+                <ScalarProperty Name="Partner2AadhaarNo" ColumnName="Partner2AadhaarNo" />
+                <ScalarProperty Name="Partner1AadhaarNo" ColumnName="Partner1AadhaarNo" />
+                <ScalarProperty Name="Partner2AadhaarSoftCopy" ColumnName="Partner2AadhaarSoftCopy" />
+                <ScalarProperty Name="Partner1AadhaarCardSoftCopy" ColumnName="Partner1AadhaarCardSoftCopy" />
+                <ScalarProperty Name="Partner2PanCardNo" ColumnName="Partner2PanCardNo" />
+                <ScalarProperty Name="Partner1PanCardNo" ColumnName="Partner1PanCardNo" />
+                <ScalarProperty Name="Partner2PanCardSoftCopy" ColumnName="Partner2PanCardSoftCopy" />
+                <ScalarProperty Name="Partner1PanCardSoftCopy" ColumnName="Partner1PanCardSoftCopy" />
+                <ScalarProperty Name="Partner2Name" ColumnName="Partner2Name" />
+                <ScalarProperty Name="Partner1Name" ColumnName="Partner1Name" />
+                <ScalarProperty Name="TypeOfFirm" ColumnName="TypeOfFirm" />
+                <ScalarProperty Name="FirmCode" ColumnName="FirmCode" />
+                <ScalarProperty Name="FirmSoftCopy" ColumnName="FirmSoftCopy" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -3618,6 +4467,195 @@
           <FunctionImportMapping FunctionImportName="IsPANCardNumberExists" FunctionName="HRMSManagementModel.Store.IsPANCardNumberExists" />
           <FunctionImportMapping FunctionImportName="IsPassportNumberExists" FunctionName="HRMSManagementModel.Store.IsPassportNumberExists" />
           <FunctionImportMapping FunctionImportName="IsRationCardNumberExists" FunctionName="HRMSManagementModel.Store.IsRationCardNumberExists" />
+          <EntitySetMapping Name="ContractorBankAccountDetail">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ContractorBankAccountDetail">
+              <MappingFragment StoreEntitySet="ContractorBankAccountDetail">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+                <ScalarProperty Name="WebSitePassword" ColumnName="WebSitePassword" />
+                <ScalarProperty Name="WebSiteID" ColumnName="WebSiteID" />
+                <ScalarProperty Name="MicroNo" ColumnName="MicroNo" />
+                <ScalarProperty Name="IFSCNo" ColumnName="IFSCNo" />
+                <ScalarProperty Name="TypeOfBankAcccountID" ColumnName="TypeOfBankAcccountID" />
+                <ScalarProperty Name="BankID" ColumnName="BankID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractorCommercialTaxDepartment">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ContractorCommercialTaxDepartment">
+              <MappingFragment StoreEntitySet="ContractorCommercialTaxDepartment">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+                <ScalarProperty Name="WebsiteOfCTDDepartmentPassword" ColumnName="WebsiteOfCTDDepartmentPassword" />
+                <ScalarProperty Name="WebsiteOfCTDDepartmentID" ColumnName="WebsiteOfCTDDepartmentID" />
+                <ScalarProperty Name="WebsiteOfCTDDepartment" ColumnName="WebsiteOfCTDDepartment" />
+                <ScalarProperty Name="ProfessionalTaxRegistrationNo_DateOfIssueSoftCopy" ColumnName="ProfessionalTaxRegistrationNo&amp;DateOfIssueSoftCopy" />
+                <ScalarProperty Name="ProfessionalTaxRegistrationNo_DateOfIssue" ColumnName="ProfessionalTaxRegistrationNo&amp;DateOfIssue" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractorEmployeeCompensationPolicy">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ContractorEmployeeCompensationPolicy">
+              <MappingFragment StoreEntitySet="ContractorEmployeeCompensationPolicy">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+                <ScalarProperty Name="NoOfEmployeeCoveredUnderPolicy" ColumnName="NoOfEmployeeCoveredUnderPolicy" />
+                <ScalarProperty Name="DurationOfPolicyRenewDate" ColumnName="DurationOfPolicyRenewDate" />
+                <ScalarProperty Name="DurationOfPolicyToDate" ColumnName="DurationOfPolicyToDate" />
+                <ScalarProperty Name="DurationOfPolicyFromDate" ColumnName="DurationOfPolicyFromDate" />
+                <ScalarProperty Name="DateOfIssue" ColumnName="DateOfIssue" />
+                <ScalarProperty Name="EmployeeCompensationPolicyNoSoftCopy" ColumnName="EmployeeCompensationPolicyNoSoftCopy" />
+                <ScalarProperty Name="EmployeeCompensationPolicyNo" ColumnName="EmployeeCompensationPolicyNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractorEmployeeProvidentFundOrganisation">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ContractorEmployeeProvidentFundOrganisation">
+              <MappingFragment StoreEntitySet="ContractorEmployeeProvidentFundOrganisation">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+                <ScalarProperty Name="WebsiteOfL_EDepartmentPassword" ColumnName="WebsiteOfL&amp;EDepartmentPassword" />
+                <ScalarProperty Name="WebsiteOfL_EDepartmentID" ColumnName="WebsiteOfL&amp;EDepartmentID" />
+                <ScalarProperty Name="WebsiteOfL_EDepartment" ColumnName="WebsiteOfL&amp;EDepartment" />
+                <ScalarProperty Name="EPFORegistrationNo_DateOfIssueSoftCopy" ColumnName="EPFORegistrationNo&amp;DateOfIssueSoftCopy" />
+                <ScalarProperty Name="EPFORegistrationNo_DateOfIssue" ColumnName="EPFORegistrationNo&amp;DateOfIssue" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractorEmployeeStateInsuranceCorporation">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ContractorEmployeeStateInsuranceCorporation">
+              <MappingFragment StoreEntitySet="ContractorEmployeeStateInsuranceCorporation">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+                <ScalarProperty Name="WebsiteOfL_EDepartmentPassword" ColumnName="WebsiteOfL&amp;EDepartmentPassword" />
+                <ScalarProperty Name="WebsiteOfL_EDepartmentID" ColumnName="WebsiteOfL&amp;EDepartmentID" />
+                <ScalarProperty Name="WebsiteOfL_EDepartment" ColumnName="WebsiteOfL&amp;EDepartment" />
+                <ScalarProperty Name="ESICRegistrationNo_DateOfIssueSoftCopy" ColumnName="ESICRegistrationNo&amp;DateOfIssueSoftCopy" />
+                <ScalarProperty Name="ESICRegistrationNo_DateOfIssue" ColumnName="ESICRegistrationNo&amp;DateOfIssue" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractorEmploymentExchangeDepartment">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ContractorEmploymentExchangeDepartment">
+              <MappingFragment StoreEntitySet="ContractorEmploymentExchangeDepartment">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+                <ScalarProperty Name="WebsiteOfEEDeparmentPassword" ColumnName="WebsiteOfEEDeparmentPassword" />
+                <ScalarProperty Name="WebsiteOfEEDeparmentID" ColumnName="WebsiteOfEEDeparmentID" />
+                <ScalarProperty Name="WebsiteOfEEDeparment" ColumnName="WebsiteOfEEDeparment" />
+                <ScalarProperty Name="EmploymentExchangeRegistrationNo_DateSoftCopy" ColumnName="EmploymentExchangeRegistrationNo&amp;DateSoftCopy" />
+                <ScalarProperty Name="EmploymentExchangeRegistrationNo_Date" ColumnName="EmploymentExchangeRegistrationNo&amp;Date" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractorGoodAndServicesTaxDepartment">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ContractorGoodAndServicesTaxDepartment">
+              <MappingFragment StoreEntitySet="ContractorGoodAndServicesTaxDepartment">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+                <ScalarProperty Name="WebsiteOfL_EDepartmentPassword" ColumnName="WebsiteOfL&amp;EDepartmentPassword" />
+                <ScalarProperty Name="WebsiteOfL_EDepartmentID" ColumnName="WebsiteOfL&amp;EDepartmentID" />
+                <ScalarProperty Name="WebsiteOfL_EDepartment" ColumnName="WebsiteOfL&amp;EDepartment" />
+                <ScalarProperty Name="GSTRegistrationNo_DateOfIssueSoftCopy" ColumnName="GSTRegistrationNo&amp;DateOfIssueSoftCopy" />
+                <ScalarProperty Name="GSTRegistrationNo_DateOfIssue" ColumnName="GSTRegistrationNo&amp;DateOfIssue" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractorGujaratLabourWelfareFundDepartment">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ContractorGujaratLabourWelfareFundDepartment">
+              <MappingFragment StoreEntitySet="ContractorGujaratLabourWelfareFundDepartment">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+                <ScalarProperty Name="WebsiteOfGLWFDepartmentPassword" ColumnName="WebsiteOfGLWFDepartmentPassword" />
+                <ScalarProperty Name="WebsiteOfGLWFDepartmentID" ColumnName="WebsiteOfGLWFDepartmentID" />
+                <ScalarProperty Name="WebsiteOfGLWFDepartment" ColumnName="WebsiteOfGLWFDepartment" />
+                <ScalarProperty Name="GujaratLabourWelfareFundRegistrationNo_DateOfIssueSoftCopy" ColumnName="GujaratLabourWelfareFundRegistrationNo&amp;DateOfIssueSoftCopy" />
+                <ScalarProperty Name="GujaratLabourWelfareFundRegistrationNo_DateOfIssue" ColumnName="GujaratLabourWelfareFundRegistrationNo&amp;DateOfIssue" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractorLabourAndEmploymentDepartment">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ContractorLabourAndEmploymentDepartment">
+              <MappingFragment StoreEntitySet="ContractorLabourAndEmploymentDepartment">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ContractorId" ColumnName="ContractorId" />
+                <ScalarProperty Name="MaximumLabourAllowedAnyWorkingDay" ColumnName="MaximumLabourAllowedAnyWorkingDay" />
+                <ScalarProperty Name="Nature_LocationOfWork" ColumnName="Nature&amp;LocationOfWork" />
+                <ScalarProperty Name="DurationOfLicenseRenewDate" ColumnName="DurationOfLicenseRenewDate" />
+                <ScalarProperty Name="DurationOfLicenseToDate" ColumnName="DurationOfLicenseToDate" />
+                <ScalarProperty Name="DurationOfLicenseFromDate" ColumnName="DurationOfLicenseFromDate" />
+                <ScalarProperty Name="ContractLabourLicenseNo_DateOfIssue" ColumnName="ContractLabourLicenseNo&amp;DateOfIssue" />
+                <ScalarProperty Name="Name_AddressOfPrincipleEmployer" ColumnName="Name&amp;AddressOfPrincipleEmployer" />
+                <ScalarProperty Name="Name_AddressUnderWhichContractIsCarriedOn" ColumnName="Name&amp;AddressUnderWhichContractIsCarriedOn" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContractorShopAndEstablishmentDepartment">
+            <EntityTypeMapping TypeName="HRMSManagementModel.ContractorShopAndEstablishmentDepartment">
+              <MappingFragment StoreEntitySet="ContractorShopAndEstablishmentDepartment">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ContactorId" ColumnName="ContactorId" />
+                <ScalarProperty Name="WebsiteOfUdhyogAadhaarDepartmentPassword" ColumnName="WebsiteOfUdhyogAadhaarDepartmentPassword" />
+                <ScalarProperty Name="WebsiteOfUdhyogAadhaarDepartmentID" ColumnName="WebsiteOfUdhyogAadhaarDepartmentID" />
+                <ScalarProperty Name="WebsiteOfUdhyogAadhaarDepartment" ColumnName="WebsiteOfUdhyogAadhaarDepartment" />
+                <ScalarProperty Name="RegisteredTradeUnderUdhyogAadhaarLicence" ColumnName="RegisteredTradeUnderUdhyogAadhaarLicence" />
+                <ScalarProperty Name="UAN" ColumnName="UAN" />
+                <ScalarProperty Name="UdhyogAadhaarRegistrationNo_DateOfIssueSoftCopy" ColumnName="UdhyogAadhaarRegistrationNo&amp;DateOfIssueSoftCopy" />
+                <ScalarProperty Name="UdhyogAadhaarRegistrationNo_DateOfIssue" ColumnName="UdhyogAadhaarRegistrationNo&amp;DateOfIssue" />
+                <ScalarProperty Name="RegisteredTradeUnderShop_EstablishmentLicence" ColumnName="RegisteredTradeUnderShop&amp;EstablishmentLicence" />
+                <ScalarProperty Name="DurationOfShop_EstablishmentLicenceLastRenewDate" ColumnName="DurationOfShop&amp;EstablishmentLicenceLastRenewDate" />
+                <ScalarProperty Name="DurationOfShop_EstablishmentLicenceToDate" ColumnName="DurationOfShop&amp;EstablishmentLicenceToDate" />
+                <ScalarProperty Name="DurationOfShop_EstablishmentLicenceFromDate" ColumnName="DurationOfShop&amp;EstablishmentLicenceFromDate" />
+                <ScalarProperty Name="Shop_EstablishmentRegistrationNo_DateOfIssueSoftCopy" ColumnName="Shop&amp;EstablishmentRegistrationNo&amp;DateOfIssueSoftCopy" />
+                <ScalarProperty Name="Shop_EstablishmentRegistrationNo_DateOfIssue" ColumnName="Shop&amp;EstablishmentRegistrationNo&amp;DateOfIssue" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HolidayMaster">
+            <EntityTypeMapping TypeName="HRMSManagementModel.HolidayMaster">
+              <MappingFragment StoreEntitySet="HolidayMaster">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="DateOfHoliday" ColumnName="DateOfHoliday" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ManageContractorBankDetail" FunctionName="HRMSManagementModel.Store.ManageContractorBankDetail" />
+          <FunctionImportMapping FunctionImportName="ManageContractorCommercialTaxDepartment" FunctionName="HRMSManagementModel.Store.ManageContractorCommercialTaxDepartment" />
+          <FunctionImportMapping FunctionImportName="ManageContractorDetails" FunctionName="HRMSManagementModel.Store.ManageContractorDetails" />
+          <FunctionImportMapping FunctionImportName="ManageContractorEmployeeCompensationPolicy" FunctionName="HRMSManagementModel.Store.ManageContractorEmployeeCompensationPolicy" />
+          <FunctionImportMapping FunctionImportName="ManageContractorEmployeeProvidentFundOrganisation" FunctionName="HRMSManagementModel.Store.ManageContractorEmployeeProvidentFundOrganisation" />
+          <FunctionImportMapping FunctionImportName="ManageContractorEmployeeStateInsuranceCorporation" FunctionName="HRMSManagementModel.Store.ManageContractorEmployeeStateInsuranceCorporation" />
+          <FunctionImportMapping FunctionImportName="ManageContractorEmploymentExchangeDepartment" FunctionName="HRMSManagementModel.Store.ManageContractorEmploymentExchangeDepartment" />
+          <FunctionImportMapping FunctionImportName="ManageContractorGoodAndServicesTaxDepartment" FunctionName="HRMSManagementModel.Store.ManageContractorGoodAndServicesTaxDepartment" />
+          <FunctionImportMapping FunctionImportName="ManageContractorGujaratLabourWelfareFundDepartment" FunctionName="HRMSManagementModel.Store.ManageContractorGujaratLabourWelfareFundDepartment" />
+          <FunctionImportMapping FunctionImportName="ManageContractorLabourAndEmploymentDepartment" FunctionName="HRMSManagementModel.Store.ManageContractorLabourAndEmploymentDepartment" />
+          <FunctionImportMapping FunctionImportName="ManageContractorMaster" FunctionName="HRMSManagementModel.Store.ManageContractorMaster" />
+          <FunctionImportMapping FunctionImportName="ManageContractorShopAndEstablishmentDepartment" FunctionName="HRMSManagementModel.Store.ManageContractorShopAndEstablishmentDepartment" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -224,7 +224,37 @@
     <Compile Include="Repositories\CompanyMaster.cs">
       <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\ContractorBankAccountDetail.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ContractorCommercialTaxDepartment.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ContractorEmployeeCompensationPolicy.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ContractorEmployeeProvidentFundOrganisation.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ContractorEmployeeStateInsuranceCorporation.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ContractorEmploymentExchangeDepartment.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ContractorGoodAndServicesTaxDepartment.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ContractorGujaratLabourWelfareFundDepartment.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ContractorLabourAndEmploymentDepartment.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\ContractorMaster.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\ContractorShopAndEstablishmentDepartment.cs">
       <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\CountyMaster.cs">
@@ -339,6 +369,9 @@
       <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\GradeMaster.cs">
+      <DependentUpon>HRMSEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\HolidayMaster.cs">
       <DependentUpon>HRMSEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Repositories\HRMSEntities.Context.cs">

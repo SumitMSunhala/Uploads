@@ -51,5 +51,79 @@ namespace GlobalHRMSApi.BLL
 			}
 			return hrmsEntities.SaveChanges();
 		}
-	}
+
+    public int ManageContractorDetails(ContractorDetails contractorDetails)
+    {
+      DataTable contractorMaster = Common.Common.ToDataTable(new List<UDT_ContractorMaster> { contractorDetails.ContractorMaster }),
+          contractorBankAccountDetail = Common.Common.ToDataTable(new List<UDT_ContractorBankAccountDetail> { contractorDetails.ContractorBankAccountDetail }),
+          contractorCommercialTaxDepartment = Common.Common.ToDataTable(new List<UDT_ContractorCommercialTaxDepartment> { contractorDetails.ContractorCommercialTaxDepartment }),
+          contractorEmployeeCompensationPolicy = Common.Common.ToDataTable(new List<UDT_ContractorEmployeeCompensationPolicy> { contractorDetails.ContractorEmployeeCompensationPolicy }),
+          contractorEmployeeProvidentFundOrganisation = Common.Common.ToDataTable(new List<UDT_ContractorEmployeeProvidentFundOrganisation> { contractorDetails.ContractorEmployeeProvidentFundOrganisation }),
+          contractorEmployeeStateInsuranceCorporation = Common.Common.ToDataTable(new List<UDT_ContractorEmployeeStateInsuranceCorporation> { contractorDetails.ContractorEmployeeStateInsuranceCorporation }),
+          contractorEmploymentExchangeDepartment = Common.Common.ToDataTable(new List<UDT_ContractorEmploymentExchangeDepartment> { contractorDetails.ContractorEmploymentExchangeDepartment }),
+          contractorGoodAndServicesTaxDepartment = Common.Common.ToDataTable(new List<UDT_ContractorGoodAndServicesTaxDepartment> { contractorDetails.ContractorGoodAndServicesTaxDepartment }),
+          contractorLabourAndEmploymentDepartment = Common.Common.ToDataTable(new List<UDT_ContractorLabourAndEmploymentDepartment> { contractorDetails.ContractorLabourAndEmploymentDepartment }),
+          contractorShopAndEstablishmentDepartment = Common.Common.ToDataTable(new List<UDT_ContractorShopAndEstablishmentDepartment> { contractorDetails.ContractorShopAndEstablishmentDepartment }),
+          contractorGujaratLabourWelfareFundDepartment = Common.Common.ToDataTable(new List<UDT_ContractorGujaratLabourWelfareFundDepartment> { contractorDetails.ContractorGujaratLabourWelfareFundDepartment });
+
+
+
+      SqlParameter contractorMasterParam = new SqlParameter("@contractorMaster", SqlDbType.Structured)
+      {
+        Value = contractorMaster,
+        TypeName = "dbo.UDT_ContractorMaster"
+      },
+      contractorBankAccountDetailParam = new SqlParameter("@contractorBankAccountDetail", SqlDbType.Structured)
+      {
+        Value = contractorBankAccountDetail,
+        TypeName = "dbo.UDT_ContractorBankAccountDetail"
+      },
+      contractorCommercialTaxDepartmentParam = new SqlParameter("@contractorCommercialTaxDepartment", SqlDbType.Structured)
+      {
+        Value = contractorCommercialTaxDepartment,
+        TypeName = "dbo.UDT_ContractorCommercialTaxDepartment"
+      },
+      contractorEmployeeCompensationPolicyParam = new SqlParameter("@contractorEmployeeCompensationPolicy", SqlDbType.Structured)
+      {
+        Value = contractorEmployeeCompensationPolicy,
+        TypeName = "dbo.UDT_ContractorEmployeeCompensationPolicy"
+      },
+      contractorEmployeeProvidentFundOrganisationParam = new SqlParameter("@contractorEmployeeProvidentFundOrganisation", SqlDbType.Structured)
+      {
+        Value = contractorEmployeeProvidentFundOrganisation,
+        TypeName = "dbo.UDT_ContractorEmployeeProvidentFundOrganisation"
+      },
+      contractorEmployeeStateInsuranceCorporationParam = new SqlParameter("@contractorEmployeeStateInsuranceCorporation", SqlDbType.Structured)
+      {
+        Value = contractorEmployeeStateInsuranceCorporation,
+        TypeName = "dbo.UDT_ContractorEmployeeStateInsuranceCorporation"
+      },
+      contractorEmploymentExchangeDepartmentParam = new SqlParameter("@contractorEmploymentExchangeDepartment", SqlDbType.Structured)
+      {
+        Value = contractorEmploymentExchangeDepartment,
+        TypeName = "dbo.UDT_ContractorEmploymentExchangeDepartment"
+      },
+      contractorGoodAndServicesTaxDepartmentParam = new SqlParameter("@contractorGoodAndServicesTaxDepartment", SqlDbType.Structured)
+      {
+        Value = contractorGoodAndServicesTaxDepartment,
+        TypeName = "dbo.UDT_ContractorGoodAndServicesTaxDepartment"
+      },
+      contractorLabourAndEmploymentDepartmentParam = new SqlParameter("@contractorLabourAndEmploymentDepartment", SqlDbType.Structured)
+      {
+        Value = contractorLabourAndEmploymentDepartment,
+        TypeName = "dbo.UDT_ContractorLabourAndEmploymentDepartment"
+      },
+      contractorShopAndEstablishmentDepartmentParam = new SqlParameter("@contractorShopAndEstablishmentDepartment", SqlDbType.Structured)
+      {
+        Value = contractorShopAndEstablishmentDepartment,
+        TypeName = "dbo.UDT_ContractorShopAndEstablishmentDepartment"
+      },
+      contractorGujaratLabourWelfareFundDepartmentParam = new SqlParameter("@contractorGujaratLabourWelfareFundDepartment", SqlDbType.Structured)
+      {
+        Value = contractorGujaratLabourWelfareFundDepartment,
+        TypeName = "dbo.UDT_ContractorGujaratLabourWelfareFundDepartment"
+      };
+      return hrmsEntities.Database.ExecuteSqlCommand("exec dbo.ManageContractorDetails @contractorMaster, @contractorBankAccountDetail, @contractorCommercialTaxDepartment, @contractorEmployeeCompensationPolicy, @contractorEmployeeProvidentFundOrganisation, @contractorEmployeeStateInsuranceCorporation, @contractorEmploymentExchangeDepartment, @contractorGoodAndServicesTaxDepartment, @contractorLabourAndEmploymentDepartment, @contractorShopAndEstablishmentDepartment, @contractorGujaratLabourWelfareFundDepartment", contractorMasterParam, contractorBankAccountDetailParam, contractorCommercialTaxDepartmentParam, contractorEmployeeCompensationPolicyParam, contractorEmployeeProvidentFundOrganisationParam, contractorEmployeeStateInsuranceCorporationParam, contractorEmploymentExchangeDepartmentParam, contractorGoodAndServicesTaxDepartmentParam, contractorLabourAndEmploymentDepartmentParam, contractorShopAndEstablishmentDepartmentParam, contractorGujaratLabourWelfareFundDepartmentParam);
+    }
+  }
 }

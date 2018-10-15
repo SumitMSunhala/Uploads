@@ -70,6 +70,27 @@
         <AssociationConnector Association="HRMSManagementModel.FK__EmployeeC__Grade__15DA3E5D" />
         <AssociationConnector Association="HRMSManagementModel.FK__EmployeeC__UnitI__17C286CF" />
         <AssociationConnector Association="HRMSManagementModel.FK_EmployeeCompanyMaster_EmployeePersonalDetails" />
+        <EntityTypeShape EntityType="HRMSManagementModel.ContractorBankAccountDetail" Width="1.5" PointX="5.25" PointY="57" />
+        <EntityTypeShape EntityType="HRMSManagementModel.ContractorCommercialTaxDepartment" Width="1.5" PointX="5.25" PointY="37" />
+        <EntityTypeShape EntityType="HRMSManagementModel.ContractorEmployeeCompensationPolicy" Width="1.5" PointX="5.25" PointY="25.5" />
+        <EntityTypeShape EntityType="HRMSManagementModel.ContractorEmployeeProvidentFundOrganisation" Width="1.5" PointX="5.25" PointY="48" />
+        <EntityTypeShape EntityType="HRMSManagementModel.ContractorEmployeeStateInsuranceCorporation" Width="1.5" PointX="5.25" PointY="33.25" />
+        <EntityTypeShape EntityType="HRMSManagementModel.ContractorEmploymentExchangeDepartment" Width="1.5" PointX="5.25" PointY="40.625" />
+        <EntityTypeShape EntityType="HRMSManagementModel.ContractorGoodAndServicesTaxDepartment" Width="1.5" PointX="5.25" PointY="29.625" />
+        <EntityTypeShape EntityType="HRMSManagementModel.ContractorGujaratLabourWelfareFundDepartment" Width="1.5" PointX="5.25" PointY="44.375" />
+        <EntityTypeShape EntityType="HRMSManagementModel.ContractorLabourAndEmploymentDepartment" Width="1.5" PointX="5.25" PointY="60.875" />
+        <EntityTypeShape EntityType="HRMSManagementModel.ContractorShopAndEstablishmentDepartment" Width="1.5" PointX="5.25" PointY="51.75" />
+        <EntityTypeShape EntityType="HRMSManagementModel.HolidayMaster" Width="1.5" PointX="5.375" PointY="7.75" />
+        <AssociationConnector Association="HRMSManagementModel.FK_ContractorBankAccountDetail_ContractorMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_ContractorCommercialTaxDepartment_ContractorMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_ContractorEmployeeCompensationPolicy_ContractorMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_ContractorEmployeeProvidentFundOrganisation_ContractorMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_ContractorEmployeeStateInsuranceCorporation_ContractorMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_ContractorEmploymentExchangeDepartment_ContractorMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_ContractorGoodAndServicesTaxDepartment_ContractorMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_ContractorGujaratLabourWelfareFundDepartment_ContractorMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_ContractorLabourAndEmploymentDepartment_ContractorMaster" />
+        <AssociationConnector Association="HRMSManagementModel.FK_ContractorShopAndEstablishmentDepartment_ContractorMaster" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
